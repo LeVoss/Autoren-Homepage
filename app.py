@@ -46,7 +46,6 @@ st.header("Vorheriges Projekt")
 col3, col4 = st.columns([1, 2])
 
 with col3:
-    # Hier nutzen wir cover1.png
     if os.path.exists("cover1.png"):
         st.image("cover1.png", caption="Mein erstes Werk", use_container_width=True)
     else:
@@ -70,7 +69,7 @@ st.divider()
 st.header("📦 Buch direkt bei mir bestellen")
 st.write("""Möchtest du das Buch "Ein Herz, das keinen Zorn mehr trägt" bestellen? Wenn ja, fülle einfach das Formular aus, ich melde mich dann per E-Mail bei Dir!""")
 
-with st.form("bestellung"): # <--- Hier ist der wichtige Doppelpunkt!
+with st.form("bestellung"):
     name = st.text_input("Dein Name")
     email = st.text_input("Deine E-Mail-Adresse")
     buch_auswahl = st.selectbox("Welches Buch möchtest du?", 
@@ -87,4 +86,5 @@ with st.form("bestellung"): # <--- Hier ist der wichtige Doppelpunkt!
 
 # --- FOOTER ---
 st.markdown("---")
-st.write("© 2026 Stefan Röser | [Besuch mich auf Facebook](https://facebook.com)")
+# HIER DEINEN LINK EINFÜGEN: Ersetze 'DEIN-NAME' durch dein Facebook-Profil
+st.write("© 2026 Stefan Röser | [Besuch mich auf Facebook](https://facebook.com/stefan.roeser.autor)")
