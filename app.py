@@ -29,7 +29,8 @@ with col2:
     Begleiten Sie die Protagonisten auf einer emotionalen Reise, die zeigt, dass Heilung dort beginnt, wo Bitterkeit endet. 
     Ein Buch für alle, die an die heilende Kraft der Menschlichkeit glauben.
     """)
-    st.markdown("**Preis: 14,90 €** (Signiertes Exemplar)")
+    st.markdown("**Preis: 16,99 €** (Signiertes Taschenbuch, inklusive Versandkosten)")
+    st.markdown("**Preis: 14,49 €** (nicht signiertes Taschenbuch, inklusive Versandkosten)")
 
 st.divider()
 
@@ -46,8 +47,7 @@ with col3:
 
 with col4:
     st.write("""
-    **Vorheriges Projekt:**
-    Mein erstes Buch habe ich im Sommer 2025 veröffentlicht. Es war der Grundstein für meine Reise als Autor.
+    Mein erstes Buch habe ich im Sommer 2025 veröffentlicht, es war der Grundstein für meine Reise als Autor.
     Das Buch ist derzeit nur als E-Book über Amazon Kindle oder Kindle-Unlimited erhältlich.
 
     **Klappentext:**
@@ -61,7 +61,7 @@ st.divider()
 
 # --- BESTELLFORMULAR ---
 st.header("📦 Buch direkt bei mir bestellen")
-st.write("Möchtest du ein signiertes Buch? Fülle einfach das Formular aus, ich melde mich dann per E-Mail bei dir!")
+st.write("Möchtest du das Buch "Ein Herz, das keinen Zorn mehr trägt bestellen? Wenn ja, fülle einfach das Formular aus, ich melde mich dann bei E-Mail bei Dir!")
 
 with st.form("bestellung"):
     name = st.text_input("Dein Name")
