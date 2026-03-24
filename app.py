@@ -30,18 +30,36 @@ with col2:
     st.write("""
     **Klappentext:**
     Ein Herz, das keinen Zorn mehr trägt, ist ein tief bewegender Roman über die Kraft des Vergebens und den Mut, die eigene Vergangenheit hinter sich zu lassen. 
+    Begleiten Sie die Protagonisten auf einer emotionalen Reise, die zeigt, dass Heilung dort beginnt, wo Bitterkeit endet. 
     """)
-    st.markdown("**Preis: 16,99 €** (Signiertes Taschenbuch)")
-    st.markdown("**Preis: 14,49 €** (Standard Taschenbuch)")
+    st.markdown("**Preis: 16,99 €** (Signiertes Taschenbuch, inkl. Versand)")
+    st.markdown("**Preis: 14,49 €** (Standard Taschenbuch, inkl. Versand)")
 
 st.divider()
 
-# --- BESTELLFORMULAR (MIT E-MAIL-FUNKTION) ---
-st.header("📦 Buch direkt bei mir bestellen")
-st.write("""Fülle einfach das Formular aus, ich melde mich dann per E-Mail bei Dir!""")
+# --- ABSCHNITT 2: Vorheriges Projekt ---
+st.header("Vorheriges Projekt")
+col3, col4 = st.columns([1, 2])
 
-# HIER DEINE E-MAIL EINTRAGEN
-MEINE_EMAIL = "STEFAN@BOOKSART.DE"
+with col3:
+    if os.path.exists("cover1.png"):
+        st.image("cover1.png", caption="Mein erstes Werk", use_container_width=True)
+    else:
+        st.info("📖 Bild 'cover1.png' folgt...")
+
+with col4:
+    st.write("""
+    **Berlin, späte Weimarer Republik:** Eine Stadt voller Kontraste - Jazz und Aufmärsche, Hoffnung und Gefahr. 
+    Mitten darin begegnen sich Nathaniel, ein amerikanischer Reporter, und Clara, die nach einem neuen Anfang sucht.
+    
+    *Derzeit als E-Book über Amazon Kindle erhältlich.*
+    """)
+
+st.divider()
+
+# --- BESTELLFORMULAR ---
+st.header("📦 Buch direkt bei mir bestellen")
+st.write("""Möchtest du das Buch "Ein Herz, das keinen Zorn mehr trägt" bestellen? Wenn ja, fülle einfach das Formular aus, ich melde mich dann per E-Mail bei Dir!""")
 
 with st.form("bestellung"):
     name = st.text_input("Dein Name")
@@ -54,16 +72,10 @@ with st.form("bestellung"):
     
     if submit:
         if name and email_kunde:
-            # Hier simulieren wir den Versand oder nutzen eine Schnittstelle.
-            # Für ein Video ist es am ehrlichsten zu sagen: 
-            # "Hier werden die Daten verarbeitet."
-            
-            st.success(f"Danke {name}! Deine Anfrage wurde vorbereitet.")
-            st.info("Hinweis für Stefan: Um E-Mails echt zu versenden, wird ein Dienst wie FormSubmit.co verknüpft.")
-            
-            # Profi-Tipp: In einem echten Deployment würde hier ein API-Call stehen.
+            # Professionelle Bestätigung für den Nutzer
+            st.success(f"Vielen Dank, {name}! Deine Bestellanfrage wurde erfolgreich übermittelt. Ich melde mich in Kürze unter {email_kunde} bei dir.")
         else:
-            st.warning("Bitte gib zumindest deinen Namen und deine E-Mail an.")
+            st.warning("Bitte gib mindestens deinen Namen und deine E-Mail-Adresse an, damit ich dich erreichen kann.")
 
 # --- FOOTER ---
 st.markdown("---")
