@@ -34,7 +34,7 @@ with col2:
 st.divider()
 
 # --- ABSCHNITT 2: Vorheriges Projekt ---
-st.header("Vorschau & Projekte")
+st.header("vorheriges Projekt")
 col3, col4 = st.columns([1, 2])
 
 with col3:
