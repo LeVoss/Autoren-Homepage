@@ -21,9 +21,10 @@ die das Herz berühren und den Geist bewegen.
 
 st.divider()
 
-# --- ROMAN 1 ---
+# --- ROMAN 1: Aktuelles Werk ---
 st.header("Ein Herz, das keinen Zorn mehr trägt")
 col1, col2 = st.columns([1, 2])
+
 with col1:
     if os.path.exists("cover2.png"):
         st.image("cover2.png", caption="Aktueller Roman", use_container_width=True)
@@ -31,15 +32,20 @@ with col1:
         st.info("📖 Cover wird geladen...")
 
 with col2:
-    st.write("**Klappentext:** Ein tief bewegender Roman über die Kraft des Vergebens.")
-    st.markdown("**Preis: 16,99 €** (Signiertes Taschenbuch)")
-    st.markdown("**Preis: 14,49 €** (Standard Taschenbuch)")
+    st.write("""
+    **Klappentext:**
+    Ein Herz, das keinen Zorn mehr trägt, ist ein tief bewegender Roman über die Kraft des Vergebens und den Mut, die eigene Vergangenheit hinter sich zu lassen. 
+    Begleiten Sie die Protagonisten auf einer emotionalen Reise, die zeigt, dass Heilung dort beginnt, wo Bitterkeit endet. 
+    Ein Buch für alle, die an die heilende Kraft der Menschlichkeit glauben.
+    """)
+    st.markdown("**Preis: 16,99 €** (Signiertes Taschenbuch, inkl. Versand)")
+    st.markdown("**Preis: 14,49 €** (Standard Taschenbuch, inkl. Versand)")
 
 st.divider()
 
 # --- BESTELLFORMULAR ---
 st.header("📦 Buch direkt bei mir bestellen")
-st.write("""Fülle einfach das Formular aus, ich melde mich dann per E-Mail bei Dir!""")
+st.write("""Möchtest du das Buch "Ein Herz, das keinen Zorn mehr trägt" bestellen? Wenn ja, fülle einfach das Formular aus, ich melde mich dann per E-Mail bei Dir!""")
 
 with st.form("bestellung"):
     name = st.text_input("Dein Name")
@@ -52,26 +58,48 @@ with st.form("bestellung"):
     
     if submit:
         if name and email_kunde:
-            # Daten für den Versand vorbereiten
             form_data = {
                 "Name": name,
                 "Email": email_kunde,
                 "Bestellung": buch_auswahl,
                 "Widmung": widmung,
-                "_subject": f"Neue Buchbestellung von {name}" # Betreffzeile der E-Mail
+                "_subject": f"Neue Buchbestellung von {name}"
             }
-            
-            # Versand via FormSubmit (API Call)
             try:
+                # Versand via FormSubmit API
                 response = requests.post(f"https://formsubmit.co/ajax/{KONTAKT_EMAIL}", data=form_data)
                 if response.status_code == 200:
                     st.success(f"Vielen Dank, {name}! Deine Anfrage wurde versendet. Ich melde mich in Kürze bei dir.")
                 else:
-                    st.error("Es gab ein Problem beim Versand. Bitte versuche es später noch einmal.")
+                    st.error("Fehler beim Versand. Bitte prüfe deine Internetverbindung.")
             except:
-                st.error("Verbindung zum Mail-Server fehlgeschlagen.")
+                st.error("Der Mail-Dienst ist derzeit nicht erreichbar.")
         else:
             st.warning("Bitte gib Namen und E-Mail-Adresse an.")
+
+st.divider()
+
+# --- ABSCHNITT 2: Vorheriges Projekt (Jetzt ganz unten) ---
+st.header("Vorheriges Projekt")
+col3, col4 = st.columns([1, 2])
+
+with col3:
+    if os.path.exists("cover1.png"):
+        st.image("cover1.png", caption="Mein erstes Werk", use_container_width=True)
+    else:
+        st.info("📖 Bild 'cover1.png' folgt...")
+
+with col4:
+    st.write("""
+    Mein erstes Buch habe ich im Sommer 2025 veröffentlicht, es war der Grundstein für meine Reise als Autor.
+    Das Buch ist derzeit nur als E-Book über Amazon Kindle oder Kindle-Unlimited erhältlich.
+
+    **Klappentext:**
+    Berlin, späte Weimarer Republik: Eine Stadt voller Kontraste - Jazz und Aufmärsche, Hoffnung und Gefahr. 
+    Mitten darin begegnen sich Nathaniel, ein amerikanischer Reporter, und Clara, die nach einem neuen Anfang sucht. 
+    Zwischen vorsichtigen Briefen und heimlichen Treffen wächst eine Verbindung, die stärker ist als Angst und Konvention. 
+    Ein bewegender Roman über Liebe, Mut und die Kraft, in unsicheren Zeiten das Herz sprechen zu lassen.
+    """)
 
 # --- FOOTER ---
 st.markdown("---")
