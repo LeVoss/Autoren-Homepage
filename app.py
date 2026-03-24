@@ -37,8 +37,7 @@ st.header("Vorschau & Projekte")
 col3, col4 = st.columns([1, 2])
 
 with col3:
-    if os.path.exists("cover2.png"):
-        st.image("cover2.png", caption="In Arbeit", use_container_width=True)
+    if os.path.exists("cover1.png"):
     else:
         st.info("📖 Bild folgt...")
 
