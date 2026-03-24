@@ -15,6 +15,7 @@ st.header("Ein Herz, das keinen Zorn mehr trägt")
 col1, col2 = st.columns([1, 2])
 
 with col1:
+    # Hier nutzen wir cover2.png für dein aktuelles Buch
     if os.path.exists("cover2.png"):
         st.image("cover2.png", caption="Aktueller Roman", use_container_width=True)
     else:
@@ -32,20 +33,22 @@ with col2:
 
 st.divider()
 
-# --- ABSCHNITT 2: Platzhalter oder weiteres Werk ---
+# --- ABSCHNITT 2: Vorheriges Projekt ---
 st.header("Vorschau & Projekte")
 col3, col4 = st.columns([1, 2])
 
 with col3:
+    # HIER IST JETZT cover1.png EINGEPFLEGT:
     if os.path.exists("cover1.png"):
+        st.image("cover1.png", caption="Mein erstes Werk", use_container_width=True)
     else:
-        st.info("📖 Bild folgt...")
+        st.info("📖 Bild 'cover1.png' folgt...")
 
 with col4:
     st.write("""
     **Vorheriges Projekt:**
-    Mein erstes Buch habe ich im Sommer 2025 veröffentlicht.
-    """) # <--- Das hier hat gefehlt!
+    Mein erstes Buch habe ich im Sommer 2025 veröffentlicht. Es war der Grundstein für meine Reise als Autor.
+    """)
 
 st.divider()
 
