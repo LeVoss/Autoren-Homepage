@@ -48,6 +48,7 @@ with col4:
     st.write("""
     **Vorheriges Projekt:**
     Mein erstes Buch habe ich im Sommer 2025 veröffentlicht. Es war der Grundstein für meine Reise als Autor.
+    Das Buch ist derzeit nur als E-Book über Amazon Kindle oder Kindle-Unlimited erhältlich.
 
     **Klappentext:**
     Berlin, späte Weimarer Republik: Eine Stadt voller Kontraste - Jazz und Aufmärsche, Hoffnung und Gefahr. 
