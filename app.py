@@ -15,12 +15,10 @@ st.header("Ein Herz, das keinen Zorn mehr trägt")
 col1, col2 = st.columns([1, 2])
 
 with col1:
-    # Hier greifen wir nun auf cover2.png zu
     if os.path.exists("cover2.png"):
         st.image("cover2.png", caption="Aktueller Roman", use_container_width=True)
     else:
         st.info("📖 Cover wird geladen...")
-        # Diagnose-Zeile (zeigt an, welche Dateien GitHub wirklich sieht)
         st.write("Vorhandene Dateien:", os.listdir("."))
 
 with col2:
@@ -39,7 +37,6 @@ st.header("Vorschau & Projekte")
 col3, col4 = st.columns([1, 2])
 
 with col3:
-    # Hier nutzen wir cover1.png als Anzeige
     if os.path.exists("cover2.png"):
         st.image("cover2.png", caption="In Arbeit", use_container_width=True)
     else:
@@ -47,8 +44,9 @@ with col3:
 
 with col4:
     st.write("""
-    **vorheriges Projekt:**
-    Mein erstes Buch habe ich im Sommer 2025 veröffentlich.  
+    **Vorheriges Projekt:**
+    Mein erstes Buch habe ich im Sommer 2025 veröffentlicht.
+    """) # <--- Das hier hat gefehlt!
 
 st.divider()
 
