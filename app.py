@@ -1,4 +1,5 @@
 import streamlit as st
+import os
 
 # Seiteneinstellungen
 st.set_page_config(page_title="Autor Stefan Röser", page_icon="✍️", layout="centered")
@@ -14,14 +15,19 @@ st.header("Ein Herz, das keinen Zorn mehr trägt")
 col1, col2 = st.columns([1, 2])
 
 with col1:
-    # Falls du ein Bild hochlädst, ändere "cover1.png" in den echten Dateinamen
-    st.image("cover1.png", caption="Aktueller Roman", use_container_width=True)
+    # Prüfen, ob das erste Bild existiert
+    if os.path.exists("cover1.png"):
+        st.image("cover1.png", caption="Aktueller Roman", use_container_width=True)
+    else:
+        st.info("📖 Cover wird bald geladen...")
+        # Nur zur Fehlersuche, falls das Bild nicht erscheint:
+        # st.write("Gefundene Dateien:", os.listdir(".")) 
 
 with col2:
     st.write("""
     **Klappentext:**
     Hier fügen wir deinen emotionalen Text ein. Dieser Roman erzählt von... 
-    (Hier kannst du später deinen Text einsetzen).
+    (Hier kannst du später deinen Text direkt auf GitHub einsetzen).
     """)
     st.markdown("**Preis: 14,90 €** (Signiertes Exemplar)")
 
@@ -32,10 +38,15 @@ st.header("Mein zweites Werk")
 col3, col4 = st.columns([1, 2])
 
 with col3:
-    st.image("cover2.png", caption="Weiterer Roman", use_container_width=True)
+    # Prüfen, ob das zweite Bild existiert
+    if os.path.exists("cover2.png"):
+        st.image("cover2.png", caption="Weiterer Roman", use_container_width=True)
+    else:
+        st.info("📖 Cover folgt in Kürze...")
 
 with col4:
     st.write("""
+    **Klappentext:**
     Kurze Beschreibung deines zweiten Buches. Worum geht es hier?
     """)
 
