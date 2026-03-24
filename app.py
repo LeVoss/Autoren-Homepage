@@ -14,8 +14,8 @@ st.header("Ein Herz, das keinen Zorn mehr trägt")
 col1, col2 = st.columns([1, 2])
 
 with col1:
-    # Falls du ein Bild hochlädst, ändere "cover1.jpg" in den echten Dateinamen
-    st.image("cover1.jpg", caption="Aktueller Roman", use_container_width=True)
+    # Falls du ein Bild hochlädst, ändere "cover1.png" in den echten Dateinamen
+    st.image("cover1.png", caption="Aktueller Roman", use_container_width=True)
 
 with col2:
     st.write("""
@@ -32,7 +32,7 @@ st.header("Mein zweites Werk")
 col3, col4 = st.columns([1, 2])
 
 with col3:
-    st.image("cover2.jpg", caption="Weiterer Roman", use_container_width=True)
+    st.image("cover2.png", caption="Weiterer Roman", use_container_width=True)
 
 with col4:
     st.write("""
