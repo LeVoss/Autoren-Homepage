@@ -26,9 +26,11 @@ with col1:
 with col2:
     st.write("""
     **Klappentext:**
-    Hier fügen wir deinen emotionalen Text ein. Dieser Roman erzählt von... 
-    (Hier kannst du später deinen Text direkt auf GitHub einsetzen).
-    """)
+   Hunsrück, 1918 bis 1921. Ein Dorf, ein Hof und eine Last, die schwerer wiegt als die tägliche Arbeit.
+
+Auf dem Hauser-Hof zählt allein der Wille des Vaters, der 1918 aus dem Ersten Weltkrieg heimkehrt. Hinter den massiven Schiefermauern ist das Leben geprägt von unerbittlicher Härte und einer Angst, die jeden Tag überschattet. Für die Ehefrau und die Kinder ist das Zuhause kein Ort der Geborgenheit, sondern ein Schauplatz von blindem Gehorsam und Unterdrückung.
+
+Ein Roman über eine Befreiung aus den Fesseln der Gewalt – ein mühsamer Weg, um die Ketten der Angst endlich zu sprengen. Die Mutter sucht den Mut, den Zorn hinter sich zu lassen, um für sich und ihre Kinder einen Ort zu finden, der endlich Frieden bietet.
     st.markdown("**Preis: 14,90 €** (Signiertes Exemplar)")
 
 st.divider()
