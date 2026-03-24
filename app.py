@@ -41,10 +41,10 @@ st.header("📦 Buch direkt bei mir bestellen")
 st.write("""Fülle einfach das Formular aus, ich melde mich dann per E-Mail bei Dir!""")
 
 # HIER DEINE E-MAIL EINTRAGEN
-MEINE_EMAIL = "DEINE_EMAIL@BEISPIEL.DE"
+MEINE_EMAIL = "DEINE_EMAIL@BEISPIEL.stefan"
 
 with st.form("bestellung"):
-    name = st.text_input("Dein Name")
+    name = st.text_input("stefan@booksart.de")
     email_kunde = st.text_input("Deine E-Mail-Adresse")
     buch_auswahl = st.selectbox("Welches Buch möchtest du?", 
                                ["Ein Herz, das keinen Zorn mehr trägt", "Andere Anfrage"])
