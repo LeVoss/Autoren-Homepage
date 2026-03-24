@@ -49,7 +49,8 @@ with col4:
     **Vorheriges Projekt:**
     Mein erstes Buch habe ich im Sommer 2025 veröffentlicht. Es war der Grundstein für meine Reise als Autor.
     """)
-
+**Klappentext:**
+    Berlin, späte Weimarer Republik: Eine Stadt voller Kontraste – Jazz und Aufmärsche, Hoffnung und Gefahr. Mitten darin begegnen sich Nathaniel, ein amerikanischer Reporter, und Clara, die nach einem neuen Anfang sucht. Zwischen vorsichtigen Briefen und heimlichen Treffen wächst eine Verbindung, die stärker ist als Angst und Konvention. Ein bewegender Roman über Liebe, Mut und die Kraft, in unsicheren Zeiten das Herz sprechen zu lassen.
 st.divider()
 
 # --- BESTELLFORMULAR ---
