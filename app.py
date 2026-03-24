@@ -29,7 +29,7 @@ with col2:
     Begleiten Sie die Protagonisten auf einer emotionalen Reise, die zeigt, dass Heilung dort beginnt, wo Bitterkeit endet. 
     Ein Buch für alle, die an die heilende Kraft der Menschlichkeit glauben.
     """)
-    st.markdown("**Preis: 16,99 €** (Signiertes Taschenbuch, inklusive Versandkosten)")
+    st.markdown("**Preis: 16,99 €** (signiertes Taschenbuch, inklusive Versandkosten)")
     st.markdown("**Preis: 14,49 €** (nicht signiertes Taschenbuch, inklusive Versandkosten)")
 
 st.divider()
