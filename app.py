@@ -15,22 +15,21 @@ st.header("Ein Herz, das keinen Zorn mehr trägt")
 col1, col2 = st.columns([1, 2])
 
 with col1:
-    # Prüfen, ob das erste Bild existiert
-    if os.path.exists("cover2.png"):
-        st.image("cover2.png", caption="Aktueller Roman", use_container_width=True)
+    # Prüfen, ob das Bild existiert
+    if os.path.exists("cover1.png"):
+        st.image("cover1.png", caption="Aktueller Roman", use_container_width=True)
     else:
-        st.info("📖 Cover wird bald geladen...")
-        # Nur zur Fehlersuche, falls das Bild nicht erscheint:
-        # st.write("Gefundene Dateien:", os.listdir(".")) 
+        st.info("📖 Cover wird geladen...")
+        # Diese Zeile hilft uns beim Finden des Fehlers:
+        st.write("Vorhandene Dateien im Ordner:", os.listdir("."))
 
 with col2:
     st.write("""
     **Klappentext:**
-   Hunsrück, 1918 bis 1921. Ein Dorf, ein Hof und eine Last, die schwerer wiegt als die tägliche Arbeit.
-
-Auf dem Hauser-Hof zählt allein der Wille des Vaters, der 1918 aus dem Ersten Weltkrieg heimkehrt. Hinter den massiven Schiefermauern ist das Leben geprägt von unerbittlicher Härte und einer Angst, die jeden Tag überschattet. Für die Ehefrau und die Kinder ist das Zuhause kein Ort der Geborgenheit, sondern ein Schauplatz von blindem Gehorsam und Unterdrückung.
-
-Ein Roman über eine Befreiung aus den Fesseln der Gewalt – ein mühsamer Weg, um die Ketten der Angst endlich zu sprengen. Die Mutter sucht den Mut, den Zorn hinter sich zu lassen, um für sich und ihre Kinder einen Ort zu finden, der endlich Frieden bietet.
+    Ein Herz, das keinen Zorn mehr trägt, ist ein tief bewegender Roman über die Kraft des Vergebens und den Mut, die eigene Vergangenheit hinter sich zu lassen. 
+    Begleiten Sie die Protagonisten auf einer emotionalen Reise, die zeigt, dass Heilung dort beginnt, wo Bitterkeit endet. 
+    Ein Buch für alle, die an die heilende Kraft der Menschlichkeit glauben.
+    """)
     st.markdown("**Preis: 14,90 €** (Signiertes Exemplar)")
 
 st.divider()
@@ -40,9 +39,8 @@ st.header("Mein zweites Werk")
 col3, col4 = st.columns([1, 2])
 
 with col3:
-    # Prüfen, ob das zweite Bild existiert
-    if os.path.exists("cover1.png"):
-        st.image("cover1.png", caption="Weiterer Roman", use_container_width=True)
+    if os.path.exists("cover2.png"):
+        st.image("cover2.png", caption="Weiterer Roman", use_container_width=True)
     else:
         st.info("📖 Cover folgt in Kürze...")
 
