@@ -61,7 +61,8 @@ st.divider()
 
 # --- BESTELLFORMULAR ---
 st.header("📦 Buch direkt bei mir bestellen")
-st.write("Möchtest du das Buch "Ein Herz, das keinen Zorn mehr trägt bestellen? Wenn ja, fülle einfach das Formular aus, ich melde mich dann bei E-Mail bei Dir!")
+# HIER WAR DER FEHLER: Wir nutzen jetzt """ am Anfang und Ende
+st.write("""Möchtest du das Buch "Ein Herz, das keinen Zorn mehr trägt" bestellen? Wenn ja, fülle einfach das Formular aus, ich melde mich dann per E-Mail bei Dir!""")
 
 with st.form("bestellung"):
     name = st.text_input("Dein Name")
