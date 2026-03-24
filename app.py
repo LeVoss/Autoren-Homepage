@@ -16,8 +16,8 @@ col1, col2 = st.columns([1, 2])
 
 with col1:
     # Prüfen, ob das erste Bild existiert
-    if os.path.exists("cover1.png"):
-        st.image("cover1.png", caption="Aktueller Roman", use_container_width=True)
+    if os.path.exists("cover2.png"):
+        st.image("cover2.png", caption="Aktueller Roman", use_container_width=True)
     else:
         st.info("📖 Cover wird bald geladen...")
         # Nur zur Fehlersuche, falls das Bild nicht erscheint:
@@ -39,8 +39,8 @@ col3, col4 = st.columns([1, 2])
 
 with col3:
     # Prüfen, ob das zweite Bild existiert
-    if os.path.exists("cover2.png"):
-        st.image("cover2.png", caption="Weiterer Roman", use_container_width=True)
+    if os.path.exists("cover1.png"):
+        st.image("cover1.png", caption="Weiterer Roman", use_container_width=True)
     else:
         st.info("📖 Cover folgt in Kürze...")
 
