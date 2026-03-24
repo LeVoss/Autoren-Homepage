@@ -39,7 +39,7 @@ st.header("Vorschau & Projekte")
 col3, col4 = st.columns([1, 2])
 
 with col3:
-    # Auch hier nutzen wir cover2.png als Anzeige
+    # Hier nutzen wir cover1.png als Anzeige
     if os.path.exists("cover2.png"):
         st.image("cover2.png", caption="In Arbeit", use_container_width=True)
     else:
@@ -47,10 +47,8 @@ with col3:
 
 with col4:
     st.write("""
-    **Aktuelles Projekt:**
-    Neben meinen veröffentlichten Werken arbeite ich ständig an neuen Geschichten. 
-    Schauen Sie bald wieder vorbei, um mehr über zukünftige Veröffentlichungen zu erfahren!
-    """)
+    **vorheriges Projekt:**
+    Mein erstes Buch habe ich im Sommer 2025 veröffentlich.  
 
 st.divider()
 
