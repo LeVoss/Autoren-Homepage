@@ -15,13 +15,13 @@ st.header("Ein Herz, das keinen Zorn mehr trägt")
 col1, col2 = st.columns([1, 2])
 
 with col1:
-    # Prüfen, ob das Bild existiert
-    if os.path.exists("cover1.png"):
-        st.image("cover1.png", caption="Aktueller Roman", use_container_width=True)
+    # Hier greifen wir nun auf cover2.png zu
+    if os.path.exists("cover2.png"):
+        st.image("cover2.png", caption="Aktueller Roman", use_container_width=True)
     else:
         st.info("📖 Cover wird geladen...")
-        # Diese Zeile hilft uns beim Finden des Fehlers:
-        st.write("Vorhandene Dateien im Ordner:", os.listdir("."))
+        # Diagnose-Zeile (zeigt an, welche Dateien GitHub wirklich sieht)
+        st.write("Vorhandene Dateien:", os.listdir("."))
 
 with col2:
     st.write("""
@@ -34,20 +34,22 @@ with col2:
 
 st.divider()
 
-# --- ROMAN 2: Dein zweites Buch ---
-st.header("Mein zweites Werk")
+# --- ABSCHNITT 2: Platzhalter oder weiteres Werk ---
+st.header("Vorschau & Projekte")
 col3, col4 = st.columns([1, 2])
 
 with col3:
+    # Auch hier nutzen wir cover2.png als Anzeige
     if os.path.exists("cover2.png"):
-        st.image("cover2.png", caption="Weiterer Roman", use_container_width=True)
+        st.image("cover2.png", caption="In Arbeit", use_container_width=True)
     else:
-        st.info("📖 Cover folgt in Kürze...")
+        st.info("📖 Bild folgt...")
 
 with col4:
     st.write("""
-    **Klappentext:**
-    Kurze Beschreibung deines zweiten Buches. Worum geht es hier?
+    **Aktuelles Projekt:**
+    Neben meinen veröffentlichten Werken arbeite ich ständig an neuen Geschichten. 
+    Schauen Sie bald wieder vorbei, um mehr über zukünftige Veröffentlichungen zu erfahren!
     """)
 
 st.divider()
@@ -60,7 +62,7 @@ with st.form("bestellung"):
     name = st.text_input("Dein Name")
     email = st.text_input("Deine E-Mail-Adresse")
     buch_auswahl = st.selectbox("Welches Buch möchtest du?", 
-                               ["Ein Herz, das keinen Zorn mehr trägt", "Mein zweites Werk", "Beide Romane"])
+                               ["Ein Herz, das keinen Zorn mehr trägt", "Andere Anfrage"])
     widmung = st.text_area("Widmungswunsch (Optional)")
     
     submit = st.form_submit_button("Bestellanfrage senden")
