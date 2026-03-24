@@ -1,0 +1,65 @@
+import streamlit as st
+
+# Seiteneinstellungen
+st.set_page_config(page_title="Autor Stefan Röser", page_icon="✍️", layout="centered")
+
+# --- TITEL & WILLKOMMEN ---
+st.title("Willkommen auf der offiziellen Seite von Stefan Röser")
+st.markdown("### Geschichten, die das Herz berühren.")
+
+st.divider()
+
+# --- ROMAN 1: Ein Herz, das keinen Zorn mehr trägt ---
+st.header("Ein Herz, das keinen Zorn mehr trägt")
+col1, col2 = st.columns([1, 2])
+
+with col1:
+    # Falls du ein Bild hochlädst, ändere "cover1.jpg" in den echten Dateinamen
+    st.image("cover1.jpg", caption="Aktueller Roman", use_container_width=True)
+
+with col2:
+    st.write("""
+    **Klappentext:**
+    Hier fügen wir deinen emotionalen Text ein. Dieser Roman erzählt von... 
+    (Hier kannst du später deinen Text einsetzen).
+    """)
+    st.markdown("**Preis: 14,90 €** (Signiertes Exemplar)")
+
+st.divider()
+
+# --- ROMAN 2: Dein zweites Buch ---
+st.header("Mein zweites Werk")
+col3, col4 = st.columns([1, 2])
+
+with col3:
+    st.image("cover2.jpg", caption="Weiterer Roman", use_container_width=True)
+
+with col4:
+    st.write("""
+    Kurze Beschreibung deines zweiten Buches. Worum geht es hier?
+    """)
+
+st.divider()
+
+# --- BESTELLFORMULAR ---
+st.header("📦 Buch direkt bei mir bestellen")
+st.write("Möchtest du ein signiertes Buch? Fülle einfach das Formular aus, ich melde mich dann per E-Mail bei dir!")
+
+with st.form("bestellung"):
+    name = st.text_input("Dein Name")
+    email = st.text_input("Deine E-Mail-Adresse")
+    buch_auswahl = st.selectbox("Welches Buch möchtest du?", 
+                               ["Ein Herz, das keinen Zorn mehr trägt", "Mein zweites Werk", "Beide Romane"])
+    widmung = st.text_area("Widmungswunsch (Optional)")
+    
+    submit = st.form_submit_button("Bestellanfrage senden")
+    
+    if submit:
+        if name and email:
+            st.success(f"Danke {name}! Ich habe deine Anfrage erhalten und sende dir bald eine E-Mail.")
+        else:
+            st.warning("Bitte gib zumindest deinen Namen und deine E-Mail an.")
+
+# --- FOOTER ---
+st.markdown("---")
+st.write("© 2026 Stefan Röser | [Besuch mich auf Facebook](https://facebook.com)")
