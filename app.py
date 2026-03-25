@@ -7,7 +7,7 @@ st.set_page_config(page_title="Autor Stefan Röser", page_icon="✍️", layout=
 
 # --- DEINE KONFIGURATION ---
 # Gib hier deine Handynummer im internationalen Format an (z.B. 491701234567)
-MEINE_WHATSAPP = "49123456789"  # <--- BITTE ANPASSEN (ohne + oder 00 am Anfang)
+MEINE_WHATSAPP = "491632012232"  # 
 
 # --- TITEL & WILLKOMMEN ---
 st.write(f"<h1 style='text-align: center; color: #FF4B4B;'>Willkommen in meiner Welt der Geschichten! ✍️✨</h1>", unsafe_allow_html=True)
