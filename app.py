@@ -7,7 +7,8 @@ st.set_page_config(page_title="Autor Stefan Röser", page_icon="✍️", layout=
 
 # --- DEINE KONFIGURATION ---
 # Gib hier deine Handynummer im internationalen Format an (z.B. 491701234567)
-MEINE_WHATSAPP = "491632012232"  # 
+# WICHTIG: Keine Leerzeichen, kein Plus, keine führenden Nullen!
+MEINE_WHATSAPP = "491632012232" 
 
 # --- TITEL & WILLKOMMEN ---
 st.write(f"<h1 style='text-align: center; color: #FF4B4B;'>Willkommen in meiner Welt der Geschichten! ✍️✨</h1>", unsafe_allow_html=True)
@@ -35,6 +36,7 @@ with col2:
     st.write("""
     **Klappentext:**
     Ein Herz, das keinen Zorn mehr trägt, ist ein tief bewegender Roman über die Kraft des Vergebens und den Mut, die eigene Vergangenheit hinter sich zu lassen. 
+    Begleiten Sie die Protagonisten auf einer emotionalen Reise, die zeigt, dass Heilung dort beginnt, wo Bitterkeit endet. 
     """)
     st.markdown("**Preis: 16,99 €** (Signiertes Taschenbuch, inkl. Versand)")
     st.markdown("**Preis: 14,49 €** (Standard Taschenbuch, inkl. Versand)")
@@ -43,32 +45,44 @@ st.divider()
 
 # --- BESTELLUNG VIA WHATSAPP ---
 st.header("📦 Buch direkt bei mir bestellen")
-st.write("Fülle die Felder aus und sende mir deine Bestellung direkt per WhatsApp.")
+st.write("Fülle die Felder aus und sende mir deine Bestellung bequem per WhatsApp.")
 
+# Eingabefelder
 name = st.text_input("Dein Name")
+email_kunde = st.text_input("Deine E-Mail-Adresse (für die Rechnung/Kontakt)")
 buch_auswahl = st.selectbox("Welches Buch möchtest du?", 
-                           ["Ein Herz, das keinen Zorn mehr trägt", "Andere Anfrage"])
+                           [
+                               "Ein Herz, das keinen Zorn mehr trägt - mit Signatur", 
+                               "Ein Herz, das keinen Zorn mehr trägt - ohne Signatur",
+                               "Andere Anfrage"
+                           ])
 widmung = st.text_area("Widmungswunsch (Optional)")
 
-if st.button("Bestellung per WhatsApp senden 🟢"):
-    if name:
-        # Nachricht zusammenbauen
-        text = f"Hallo Stefan, ich möchte gerne bestellen:\n\n*Buch:* {buch_auswahl}\n*Name:* {name}\n*Widmung:* {widmung}"
+if st.button("Bestellung per WhatsApp vorbereiten 🟢"):
+    if name and email_kunde:
+        # Nachricht für WhatsApp zusammenbauen
+        text = (
+            f"Hallo Stefan, ich möchte gerne bestellen:\n\n"
+            f"*Buch:* {buch_auswahl}\n"
+            f"*Name:* {name}\n"
+            f"*E-Mail:* {email_kunde}\n"
+            f"*Widmung:* {widmung if widmung else 'Keine'}"
+        )
         
-        # Link für WhatsApp generieren
-        # wa.me öffnet direkt den Chat mit dir
+        # Link generieren
         wa_link = f"https://wa.me/{MEINE_WHATSAPP}?text={urllib.parse.quote(text)}"
         
-        # Schöner Button zur Weiterleitung
+        # Bestätigung und Weiterleitungs-Button
+        st.info("Deine Bestelldaten wurden vorbereitet. Klicke jetzt auf den Button unten, um sie abzuschicken.")
         st.markdown(f"""
             <a href="{wa_link}" target="_blank" style="text-decoration: none;">
-                <div style="background-color: #25D366; color: white; padding: 12px; text-align: center; border-radius: 8px; font-weight: bold;">
-                    JETZT WHATSAPP ÖFFNEN & ABSENDEN
+                <div style="background-color: #25D366; color: white; padding: 15px; text-align: center; border-radius: 10px; font-weight: bold; font-size: 1.1em;">
+                    JETZT WHATSAPP ABSENDEN ✅
                 </div>
             </a>
         """, unsafe_allow_html=True)
     else:
-        st.warning("Bitte gib zumindest deinen Namen an.")
+        st.warning("Bitte gib deinen Namen und deine E-Mail-Adresse an.")
 
 st.divider()
 
