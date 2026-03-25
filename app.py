@@ -105,4 +105,4 @@ with col4:
 
 # --- FOOTER ---
 st.markdown("---")
-st.write("© 2026 Stefan Röser | [Besuch mich auf Facebook](https://facebook.com/stefan.roeser.autor)")
+st.write("© 2026 Stefan Röser 
