@@ -6,7 +6,7 @@ import urllib.parse
 st.set_page_config(page_title="Autor Stefan Röser", page_icon="✍️", layout="centered")
 
 # --- DEINE KONFIGURATION ---
-MEINE_EMAIL = "DEINE_EMAIL@BEISPIEL.DE" 
+MEINE_EMAIL = "STEFAN@BOOKSART.DE" 
 
 # --- TITEL & WILLKOMMEN ---
 st.write(f"<h1 style='text-align: center; color: #FF4B4B;'>Willkommen in meiner Welt der Geschichten! ✍️✨</h1>", unsafe_allow_html=True)
