@@ -103,6 +103,6 @@ with col4:
     Ein bewegender Roman über Liebe, Mut und die Kraft, in unsicheren Zeiten das Herz sprechen zu lassen.
     """)
 
-# --- FOOTER ---
+# --- FOOTER (JETZT OHNE FACEBOOK) ---
 st.markdown("---")
-st.write("© 2026 Stefan Röser 
+st.write("© 2026 Stefan Röser")
