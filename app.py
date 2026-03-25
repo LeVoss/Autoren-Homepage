@@ -8,6 +8,7 @@ st.set_page_config(page_title="Autor Stefan Röser", page_icon="✍️", layout=
 # --- FUNKTION: BESTELLUNG SPEICHERN ---
 def speichere_bestellung(name, email, auswahl, widmung):
     zeitstempel = datetime.now().strftime("%d.%m.%Y %H:%M:%S")
+    # Wir speichern die Daten sauber getrennt in einer Zeile
     eintrag = f"{zeitstempel} | Name: {name} | Mail: {email} | Buch: {auswahl} | Widmung: {widmung}\n"
     with open("bestellungen.txt", "a", encoding="utf-8") as f:
         f.write(eintrag)
@@ -15,25 +16,41 @@ def speichere_bestellung(name, email, auswahl, widmung):
 # --- TITEL & WILLKOMMEN ---
 st.write(f"<h1 style='text-align: center; color: #FF4B4B;'>Willkommen in meiner Welt der Geschichten! ✍️✨</h1>", unsafe_allow_html=True)
 st.markdown("<h3 style='text-align: center;'>Schön, dass du da bist.</h3>", unsafe_allow_html=True)
+st.write("""
+<p style='text-align: center; font-size: 1.2em;'>
+Ich bin <strong>Stefan Röser</strong> und ich lade dich ein, in Erzählungen einzutauchen, 
+die das Herz berühren und den Geist bewegen.
+</p>
+""", unsafe_allow_html=True)
 
 st.divider()
 
-# --- ROMAN 1 ---
+# --- ROMAN 1: Aktuelles Werk ---
 st.header("Ein Herz, das keinen Zorn mehr trägt")
 col1, col2 = st.columns([1, 2])
+
 with col1:
     if os.path.exists("cover2.png"):
-        st.image("cover2.png", use_container_width=True)
+        st.image("cover2.png", caption="Aktueller Roman", use_container_width=True)
     else:
-        st.info("📖 Cover lädt...")
+        st.info("📖 Cover wird geladen...")
+
 with col2:
-    st.write("Ein tief bewegender Roman über die Kraft des Vergebens.")
-    st.markdown("**16,99 €** (mit Signatur) | **14,49 €** (ohne Signatur)")
+    st.write("""
+    **Klappentext:**
+    Ein Herz, das keinen Zorn mehr trägt, ist ein tief bewegender Roman über die Kraft des Vergebens und den Mut, die eigene Vergangenheit hinter sich zu lassen. 
+    Begleiten Sie die Protagonisten auf einer emotionalen Reise, die zeigt, dass Heilung dort beginnt, wo Bitterkeit endet. 
+    Ein Buch für alle, die an die heilende Kraft der Menschlichkeit glauben.
+    """)
+    st.markdown("**Preis: 16,99 €** (Signiertes Taschenbuch, inkl. Versand)")
+    st.markdown("**Preis: 14,49 €** (Standard Taschenbuch, inkl. Versand)")
 
 st.divider()
 
 # --- BESTELLFORMULAR (FÜR KUNDEN) ---
 st.header("📦 Buch direkt bei mir bestellen")
+st.write("""Möchtest du das Buch "Ein Herz, das keinen Zorn mehr trägt" bestellen? Wenn ja, fülle einfach das Formular aus, ich melde mich dann per E-Mail bei Dir!""")
+
 with st.form("kunden_form", clear_on_submit=True):
     name = st.text_input("Dein Name")
     email = st.text_input("Deine E-Mail-Adresse")
@@ -47,35 +64,59 @@ with st.form("kunden_form", clear_on_submit=True):
     if submit:
         if name and email:
             speichere_bestellung(name, email, auswahl, widmung)
-            st.success(f"Vielen Dank, {name}! Deine Bestellung wurde gespeichert. Ich melde mich bald bei dir.")
+            st.success(f"Vielen Dank, {name}! Deine Bestellung wurde erfolgreich gespeichert. Ich melde mich bald bei dir.")
+            st.balloons()
         else:
-            st.warning("Bitte Name und E-Mail ausfüllen.")
+            st.warning("Bitte gib zumindest deinen Namen und deine E-Mail-Adresse an.")
 
 st.divider()
 
-# --- VORHERIGES PROJEKT ---
+# --- ABSCHNITT 2: Vorheriges Projekt ---
 st.header("Vorheriges Projekt")
-st.write("Berlin, späte Weimarer Republik...")
+col3, col4 = st.columns([1, 2])
+
+with col3:
+    if os.path.exists("cover1.png"):
+        st.image("cover1.png", caption="Mein erstes Werk", use_container_width=True)
+    else:
+        st.info("📖 Bild 'cover1.png' folgt...")
+
+with col4:
+    st.write("""
+    Mein erstes Buch habe ich im Sommer 2025 veröffentlicht, es war der Grundstein für meine Reise als Autor.
+    Das Buch ist derzeit nur als E-Book über Amazon Kindle oder Kindle-Unlimited erhältlich.
+
+    **Klappentext:**
+    Berlin, späte Weimarer Republik: Eine Stadt voller Kontraste - Jazz und Aufmärsche, Hoffnung und Gefahr. 
+    Mitten darin begegnen sich Nathaniel, ein amerikanischer Reporter, und Clara, die nach einem neuen Anfang sucht. 
+    Zwischen vorsichtigen Briefen und heimlichen Treffen wächst eine Verbindung, die stärker ist als Angst und Konvention. 
+    Ein bewegender Roman über Liebe, Mut und die Kraft, in unsicheren Zeiten das Herz sprechen zu lassen.
+    """)
 
 # --- ADMIN LOGIN (NUR FÜR DICH) ---
 st.markdown("---")
-with st.expander("🔐 Admin-Bereich (Nur für Stefan)"):
-    passwort = st.text_input("Passwort eingeben", type="password")
-    if passwort == "stefan2026": # <--- DEIN PASSWORT
-        st.subheader("Eingegangene Bestellungen:")
+with st.expander("🛠️ Interner Bereich"):
+    st.write("Dieser Bereich ist passwortgeschützt.")
+    passwort_eingabe = st.text_input("Passwort", type="password")
+    
+    if passwort_eingabe == "Kalender20#":
+        st.subheader("Eingegangene Bestellungen")
         if os.path.exists("bestellungen.txt"):
             with open("bestellungen.txt", "r", encoding="utf-8") as f:
                 bestellungen = f.readlines()
             
             if bestellungen:
-                for b in reversed(bestellungen): # Neueste zuerst
-                    st.text(b.strip())
-                if st.button("Liste löschen"):
+                # Wir zeigen die neuesten Bestellungen oben an
+                for b in reversed(bestellungen):
+                    st.info(b.strip())
+                
+                if st.button("Alle Bestellungen löschen"):
                     os.remove("bestellungen.txt")
                     st.rerun()
             else:
-                st.info("Noch keine Bestellungen vorhanden.")
+                st.write("Momentan liegen keine neuen Bestellungen vor.")
         else:
-            st.info("Die Datei wurde noch nicht erstellt (keine Bestellungen).")
+            st.write("Noch keine Bestellungen in der Datenbank.")
 
+# --- FOOTER ---
 st.write("© 2026 Stefan Röser")
