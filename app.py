@@ -5,10 +5,21 @@ from datetime import datetime
 # Seiteneinstellungen
 st.set_page_config(page_title="Autor Stefan Röser", page_icon="✍️", layout="centered")
 
+# --- CSS ZUM VERSTECKEN DER STREAMLIT-MENÜS ---
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            header {visibility: hidden;}
+            footer {visibility: hidden;}
+            .stAppDeployButton {display:none;}
+            #stDecoration {display:none;}
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
+
 # --- FUNKTION: BESTELLUNG SPEICHERN ---
 def speichere_bestellung(name, email, auswahl, widmung):
     zeitstempel = datetime.now().strftime("%d.%m.%Y %H:%M:%S")
-    # Wir speichern die Daten sauber getrennt in einer Zeile
     eintrag = f"{zeitstempel} | Name: {name} | Mail: {email} | Buch: {auswahl} | Widmung: {widmung}\n"
     with open("bestellungen.txt", "a", encoding="utf-8") as f:
         f.write(eintrag)
@@ -93,7 +104,7 @@ with col4:
     Ein bewegender Roman über Liebe, Mut und die Kraft, in unsicheren Zeiten das Herz sprechen zu lassen.
     """)
 
-# --- ADMIN LOGIN (NUR FÜR DICH) ---
+# --- ADMIN LOGIN ---
 st.markdown("---")
 with st.expander("🛠️ Interner Bereich"):
     st.write("Dieser Bereich ist passwortgeschützt.")
@@ -106,7 +117,6 @@ with st.expander("🛠️ Interner Bereich"):
                 bestellungen = f.readlines()
             
             if bestellungen:
-                # Wir zeigen die neuesten Bestellungen oben an
                 for b in reversed(bestellungen):
                     st.info(b.strip())
                 
