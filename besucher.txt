@@ -1,0 +1,20 @@
+# --- FUNKTION: BESUCHER ZÄHLEN ---
+def update_besucherzaehler():
+    datei = "besucher.txt"
+    if not os.path.exists(datei):
+        with open(datei, "w") as f:
+            f.write("0")
+    
+    with open(datei, "r") as f:
+        zahl = int(f.read())
+    
+    # Wir erhöhen die Zahl nur einmal pro Sitzung
+    if 'besuch_gezaehlt' not in st.session_state:
+        zahl += 1
+        with open(datei, "w") as f:
+            f.write(str(zahl))
+        st.session_state['besuch_gezaehlt'] = True
+    return zahl
+
+# Aufruf der Funktion am Anfang der App
+besucher_gesamt = update_besucherzaehler()
