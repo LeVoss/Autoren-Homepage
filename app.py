@@ -47,8 +47,8 @@ def update_besucherzaehler():
 
 def speichere_bestellung(name, anschrift, email, auswahl, widmung):
     zeitstempel = datetime.now().strftime("%d.%m.%Y %H:%M:%S")
-    # Anschrift wurde hier im String ergänzt
-    eintrag = f"{zeitstempel} | Name: {name} | Adresse: {anschrift} | Mail: {email} | Buch: {auswahl} | Widmung: {widmung}\n"
+    # Strukturierte Speicherung für bessere Lesbarkeit im Admin-Bereich
+    eintrag = f"{zeitstempel} | Name: {name} | Adresse: {anschrift.replace('\\n', ' ')} | Mail: {email} | Buch: {auswahl} | Widmung: {widmung}\n"
     with open("bestellungen.txt", "a", encoding="utf-8") as f:
         f.write(eintrag)
 
@@ -56,8 +56,8 @@ def speichere_bestellung(name, anschrift, email, auswahl, widmung):
 besucher_stand = update_besucherzaehler()
 
 # --- TITEL & WILLKOMMEN ---
-# Hier ist das angepasste Hellblau (#7ec8e3)
-st.write(f"<h1 style='text-align: center; color: #7ec8e3;'>Willkommen in meiner Welt der Geschichten! ✍️✨</h1>", unsafe_allow_html=True)
+# Neuer, dunklerer Farbton (#4A90E2) für bessere Sichtbarkeit
+st.write(f"<h1 style='text-align: center; color: #4A90E2;'>Willkommen in meiner Welt der Geschichten! ✍️✨</h1>", unsafe_allow_html=True)
 st.markdown("<h3 style='text-align: center;'>Schön, dass du da bist.</h3>", unsafe_allow_html=True)
 st.write("<p style='text-align: center; font-size: 1.2em;'>Ich bin <strong>Stefan Röser</strong>.</p>", unsafe_allow_html=True)
 
@@ -81,54 +81,10 @@ st.divider()
 st.header("📦 Buch direkt bei mir bestellen")
 with st.form("kunden_form", clear_on_submit=True):
     name = st.text_input("Dein Name")
-    # NEU: Das Feld für die Anschrift
+    # Das Adressfeld als mehrzeiliger Textbereich
     anschrift = st.text_area("Deine vollständige Anschrift (Straße, PLZ, Ort)")
     email = st.text_input("Deine E-Mail-Adresse")
     
     auswahl = st.selectbox("Welches Buch möchtest du?", 
                           ["Ein Herz, das keinen Zorn mehr trägt - mit Signatur", 
-                           "Ein Herz, das keinen Zorn mehr trägt - ohne Signatur"])
-    widmung = st.text_area("Widmungswunsch (Optional)")
-    
-    submit = st.form_submit_button("Jetzt verbindlich bestellen")
-    
-    if submit:
-        if name and anschrift and email:
-            speichere_bestellung(name, anschrift, email, auswahl, widmung)
-            st.success(f"Vielen Dank, {name}! Deine Bestellung wurde gespeichert.")
-            st.balloons()
-        else:
-            st.warning("Bitte gib Namen, Anschrift und E-Mail an, damit ich das Buch versenden kann.")
-
-st.divider()
-
-# --- ADMIN LOGIN ---
-with st.expander("🛠️ Interner Bereich"):
-    passwort_eingabe = st.text_input("Passwort", type="password")
-    if passwort_eingabe == "Kalender20#":
-        st.subheader("Statistik & Bestellungen")
-        st.metric("Besucher gesamt", besucher_stand)
-        st.divider()
-        if os.path.exists("bestellungen.txt"):
-            with open("bestellungen.txt", "r", encoding="utf-8") as f:
-                bestellungen = f.readlines()
-            if bestellungen:
-                for b in reversed(bestellungen):
-                    st.info(b.strip())
-                if st.button("Alle Bestellungen löschen"):
-                    os.remove("bestellungen.txt")
-                    st.rerun()
-            else:
-                st.write("Keine Bestellungen vorhanden.")
-
-# --- RECHTLICHES ---
-st.divider()
-col_inf1, col_inf2 = st.columns(2)
-with col_inf1:
-    with st.expander("Impressum"):
-        st.write("Stefan Röser | [DEINE STRASSE] | [DEIN ORT]")
-with col_inf2:
-    with st.expander("Datenschutz"):
-        st.write("Daten werden nur lokal zur Bestellabwicklung gespeichert.")
-
-st.write("© 2026 Stefan Röser")
+                           "Ein Herz, das keinen Zorn
