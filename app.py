@@ -47,8 +47,9 @@ def update_besucherzaehler():
 
 def speichere_bestellung(name, anschrift, email, auswahl, widmung):
     zeitstempel = datetime.now().strftime("%d.%m.%Y %H:%M:%S")
-    # Strukturierte Speicherung für bessere Lesbarkeit im Admin-Bereich
-    eintrag = f"{zeitstempel} | Name: {name} | Adresse: {anschrift.replace('\\n', ' ')} | Mail: {email} | Buch: {auswahl} | Widmung: {widmung}\n"
+    # Bereinigung der Adresse für die einzeilige Speicherung
+    adresse_clean = anschrift.replace('\n', ' ').replace('\r', '')
+    eintrag = f"{zeitstempel} | Name: {name} | Adresse: {adresse_clean} | Mail: {email} | Buch: {auswahl} | Widmung: {widmung}\n"
     with open("bestellungen.txt", "a", encoding="utf-8") as f:
         f.write(eintrag)
 
@@ -56,8 +57,8 @@ def speichere_bestellung(name, anschrift, email, auswahl, widmung):
 besucher_stand = update_besucherzaehler()
 
 # --- TITEL & WILLKOMMEN ---
-# Neuer, dunklerer Farbton (#4A90E2) für bessere Sichtbarkeit
-st.write(f"<h1 style='text-align: center; color: #4A90E2;'>Willkommen in meiner Welt der Geschichten! ✍️✨</h1>", unsafe_allow_html=True)
+# Kräftiges Blau (#2C5E9E) für gute Lesbarkeit und Bezug zum Cover
+st.write(f"<h1 style='text-align: center; color: #2C5E9E;'>Willkommen in meiner Welt der Geschichten! ✍️✨</h1>", unsafe_allow_html=True)
 st.markdown("<h3 style='text-align: center;'>Schön, dass du da bist.</h3>", unsafe_allow_html=True)
 st.write("<p style='text-align: center; font-size: 1.2em;'>Ich bin <strong>Stefan Röser</strong>.</p>", unsafe_allow_html=True)
 
@@ -72,8 +73,9 @@ with col1:
     else:
         st.info("📖 Cover lädt...")
 with col2:
-    st.write("Ein tief bewegender Roman über die Kraft des Vergebens.")
-    st.markdown("**16,99 €** (Signiert) | **14,49 €** (Standard)")
+    st.write("Ein tief bewegender Roman über die Kraft des Vergebens und den Mut, die eigene Vergangenheit hinter sich zu lassen.")
+    st.markdown("**16,99 €** (Signiertes Taschenbuch, inkl. Versand)")
+    st.markdown("**14,49 €** (Standard Taschenbuch, inkl. Versand)")
 
 st.divider()
 
@@ -81,10 +83,40 @@ st.divider()
 st.header("📦 Buch direkt bei mir bestellen")
 with st.form("kunden_form", clear_on_submit=True):
     name = st.text_input("Dein Name")
-    # Das Adressfeld als mehrzeiliger Textbereich
     anschrift = st.text_area("Deine vollständige Anschrift (Straße, PLZ, Ort)")
     email = st.text_input("Deine E-Mail-Adresse")
     
+    # Hier lag der Fehler - jetzt sauber in einer Liste:
     auswahl = st.selectbox("Welches Buch möchtest du?", 
                           ["Ein Herz, das keinen Zorn mehr trägt - mit Signatur", 
-                           "Ein Herz, das keinen Zorn
+                           "Ein Herz, das keinen Zorn mehr trägt - ohne Signatur"])
+    
+    widmung = st.text_area("Widmungswunsch (Optional)")
+    
+    submit = st.form_submit_button("Jetzt verbindlich bestellen")
+    
+    if submit:
+        if name and anschrift and email:
+            speichere_bestellung(name, anschrift, email, auswahl, widmung)
+            st.success(f"Vielen Dank, {name}! Deine Bestellung wurde erfolgreich gespeichert. Ich melde mich bald bei dir.")
+            st.balloons()
+        else:
+            st.warning("Bitte fülle Name, Anschrift und E-Mail aus, damit ich die Bestellung bearbeiten kann.")
+
+st.divider()
+
+# --- ADMIN LOGIN ---
+with st.expander("🛠️ Interner Bereich"):
+    st.write("Dieser Bereich ist passwortgeschützt.")
+    passwort_eingabe = st.text_input("Passwort", type="password")
+    
+    if passwort_eingabe == "Kalender20#":
+        st.subheader("Statistik & Bestellungen")
+        st.metric("Besucher gesamt", besucher_stand)
+        st.divider()
+        
+        if os.path.exists("bestellungen.txt"):
+            with open("bestellungen.txt", "r", encoding="utf-8") as f:
+                bestellungen = f.readlines()
+            
+            if bestellungen:
