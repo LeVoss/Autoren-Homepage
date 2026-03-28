@@ -25,7 +25,6 @@ def update_besucherzaehler():
     if not os.path.exists(datei):
         with open(datei, "w", encoding="utf-8") as f:
             f.write("0")
-    
     zahl = 0
     try:
         with open(datei, "r", encoding="utf-8") as f:
@@ -34,7 +33,6 @@ def update_besucherzaehler():
                 zahl = int(inhalt)
     except Exception:
         zahl = 0
-    
     if 'besuch_gezaehlt' not in st.session_state:
         zahl += 1
         try:
@@ -71,9 +69,8 @@ with col1:
     else:
         st.info("📖 Cover lädt...")
 with col2:
-    st.write("Ein tief bewegender Roman über die Kraft des Vergebens und den Mut, die eigene Vergangenheit hinter sich zu lassen.")
-    st.markdown("**16,99 €** (Signiertes Taschenbuch, inkl. Versand)")
-    st.markdown("**14,49 €** (Standard Taschenbuch, inkl. Versand)")
+    st.write("Ein tief bewegender Roman über die Kraft des Vergebens.")
+    st.markdown("**16,99 €** (Signiert) | **14,49 €** (Standard)")
 
 st.divider()
 
@@ -84,4 +81,51 @@ with st.form("kunden_form", clear_on_submit=True):
     anschrift = st.text_area("Deine vollständige Anschrift (Straße, PLZ, Ort)")
     email = st.text_input("Deine E-Mail-Adresse")
     
-    auswahl = st.selectbox("Welches Buch
+    # Auswahlbox - Diese Zeilen müssen exakt so zusammenbleiben:
+    optionen = ["Ein Herz, das keinen Zorn mehr trägt - mit Signatur", "Ein Herz, das keinen Zorn mehr trägt - ohne Signatur"]
+    auswahl = st.selectbox("Welches Buch möchtest du?", optionen)
+    
+    widmung = st.text_area("Widmungswunsch (Optional)")
+    submit = st.form_submit_button("Jetzt verbindlich bestellen")
+    
+    if submit:
+        if name and anschrift and email:
+            speichere_bestellung(name, anschrift, email, auswahl, widmung)
+            st.success(f"Vielen Dank, {name}! Deine Bestellung wurde gespeichert.")
+            st.balloons()
+        else:
+            st.warning("Bitte fülle Name, Anschrift und E-Mail aus.")
+
+st.divider()
+
+# --- ADMIN LOGIN ---
+with st.expander("🛠️ Interner Bereich"):
+    passwort_eingabe = st.text_input("Passwort", type="password")
+    if passwort_eingabe == "Kalender20#":
+        st.subheader("Statistik & Bestellungen")
+        st.metric("Besucher gesamt", besucher_stand)
+        st.divider()
+        if os.path.exists("bestellungen.txt"):
+            with open("bestellungen.txt", "r", encoding="utf-8") as f:
+                bestellungen = f.readlines()
+            if bestellungen:
+                for b in reversed(bestellungen):
+                    st.info(b.strip())
+                if st.button("Alle Bestellungen löschen"):
+                    if os.path.exists("bestellungen.txt"):
+                        os.remove("bestellungen.txt")
+                        st.rerun()
+            else:
+                st.write("Keine Bestellungen vorhanden.")
+
+# --- RECHTLICHER FOOTER ---
+st.divider()
+col_inf1, col_inf2 = st.columns(2)
+with col_inf1:
+    with st.expander("Impressum"):
+        st.write("Stefan Röser | [DEINE STRASSE] | [DEIN ORT]")
+with col_inf2:
+    with st.expander("Datenschutz"):
+        st.write("Daten werden nur lokal zur Bestellabwicklung gespeichert.")
+
+st.write("© 2026 Stefan Röser")
