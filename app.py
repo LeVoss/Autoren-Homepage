@@ -47,7 +47,6 @@ def update_besucherzaehler():
 
 def speichere_bestellung(name, anschrift, email, auswahl, widmung):
     zeitstempel = datetime.now().strftime("%d.%m.%Y %H:%M:%S")
-    # Bereinigung der Adresse für die einzeilige Speicherung
     adresse_clean = anschrift.replace('\n', ' ').replace('\r', '')
     eintrag = f"{zeitstempel} | Name: {name} | Adresse: {adresse_clean} | Mail: {email} | Buch: {auswahl} | Widmung: {widmung}\n"
     with open("bestellungen.txt", "a", encoding="utf-8") as f:
@@ -57,7 +56,6 @@ def speichere_bestellung(name, anschrift, email, auswahl, widmung):
 besucher_stand = update_besucherzaehler()
 
 # --- TITEL & WILLKOMMEN ---
-# Kräftiges Blau (#2C5E9E) für gute Lesbarkeit und Bezug zum Cover
 st.write(f"<h1 style='text-align: center; color: #2C5E9E;'>Willkommen in meiner Welt der Geschichten! ✍️✨</h1>", unsafe_allow_html=True)
 st.markdown("<h3 style='text-align: center;'>Schön, dass du da bist.</h3>", unsafe_allow_html=True)
 st.write("<p style='text-align: center; font-size: 1.2em;'>Ich bin <strong>Stefan Röser</strong>.</p>", unsafe_allow_html=True)
@@ -86,7 +84,6 @@ with st.form("kunden_form", clear_on_submit=True):
     anschrift = st.text_area("Deine vollständige Anschrift (Straße, PLZ, Ort)")
     email = st.text_input("Deine E-Mail-Adresse")
     
-    # Hier lag der Fehler - jetzt sauber in einer Liste:
     auswahl = st.selectbox("Welches Buch möchtest du?", 
                           ["Ein Herz, das keinen Zorn mehr trägt - mit Signatur", 
                            "Ein Herz, das keinen Zorn mehr trägt - ohne Signatur"])
@@ -98,10 +95,10 @@ with st.form("kunden_form", clear_on_submit=True):
     if submit:
         if name and anschrift and email:
             speichere_bestellung(name, anschrift, email, auswahl, widmung)
-            st.success(f"Vielen Dank, {name}! Deine Bestellung wurde erfolgreich gespeichert. Ich melde mich bald bei dir.")
+            st.success(f"Vielen Dank, {name}! Deine Bestellung wurde erfolgreich gespeichert.")
             st.balloons()
         else:
-            st.warning("Bitte fülle Name, Anschrift und E-Mail aus, damit ich die Bestellung bearbeiten kann.")
+            st.warning("Bitte fülle Name, Anschrift und E-Mail aus.")
 
 st.divider()
 
@@ -120,3 +117,29 @@ with st.expander("🛠️ Interner Bereich"):
                 bestellungen = f.readlines()
             
             if bestellungen:
+                for b in reversed(bestellungen):
+                    st.info(b.strip())
+                
+                if st.button("Alle Bestellungen löschen"):
+                    os.remove("bestellungen.txt")
+                    st.rerun()
+            else:
+                st.write("Momentan liegen keine neuen Bestellungen vor.")
+        else:
+            st.write("Noch keine Bestellungen in der Datenbank.")
+
+# --- RECHTLICHER FOOTER ---
+st.divider()
+col_inf1, col_inf2 = st.columns(2)
+
+with col_inf1:
+    with st.expander("Impressum"):
+        st.write("""
+        **Verantwortlich für den Inhalt:** Stefan Röser  
+        [DEINE STRASSE]  
+        [DEIN ORT]  
+        E-Mail: [DEINE MAILADRESSE]
+        """)
+
+with col_inf2:
+    with st.expander
