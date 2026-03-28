@@ -84,13 +84,4 @@ with st.form("kunden_form", clear_on_submit=True):
     anschrift = st.text_area("Deine vollständige Anschrift (Straße, PLZ, Ort)")
     email = st.text_input("Deine E-Mail-Adresse")
     
-    auswahl = st.selectbox("Welches Buch möchtest du?", 
-                          ["Ein Herz, das keinen Zorn mehr trägt - mit Signatur", 
-                           "Ein Herz, das keinen Zorn mehr trägt - ohne Signatur"])
-    
-    widmung = st.text_area("Widmungswunsch (Optional)")
-    
-    submit = st.form_submit_button("Jetzt verbindlich bestellen")
-    
-    if submit:
-        if name
+    auswahl = st.selectbox("Welches Buch
