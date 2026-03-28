@@ -45,7 +45,6 @@ def update_besucherzaehler():
 
 def speichere_bestellung(name, anschrift, email, auswahl, widmung):
     zeitstempel = datetime.now().strftime("%d.%m.%Y %H:%M:%S")
-    # Zeilenumbrüche in der Adresse für die Textdatei entfernen
     adresse_clean = anschrift.replace('\n', ' ').replace('\r', '')
     eintrag = f"{zeitstempel} | Name: {name} | Adresse: {adresse_clean} | Mail: {email} | Buch: {auswahl} | Widmung: {widmung}\n"
     with open("bestellungen.txt", "a", encoding="utf-8") as f:
@@ -97,5 +96,23 @@ with st.form("kunden_form", clear_on_submit=True):
     anschrift = st.text_area("Deine vollständige Anschrift (Straße, PLZ, Ort)")
     email = st.text_input("Deine E-Mail-Adresse")
     
-    optionen = [
-        "Ein Herz, das keinen Zorn mehr trägt - mit Signatur
+    # Auswahlmöglichkeiten (Sicher formatiert gegen Syntaxfehler)
+    buch_optionen = ["Ein Herz (mit Signatur)", "Ein Herz (ohne Signatur)"]
+    auswahl = st.selectbox("Welches Buch möchtest du?", options=buch_optionen)
+    
+    widmung = st.text_area("Widmungswunsch (Optional)")
+    submit = st.form_submit_button("Jetzt verbindlich bestellen")
+    
+    if submit:
+        if name and anschrift and email:
+            speichere_bestellung(name, anschrift, email, auswahl, widmung)
+            st.success(f"Vielen Dank, {name}! Deine Bestellung wurde erfolgreich gespeichert. Ich melde mich bald bei dir.")
+            st.balloons()
+        else:
+            st.warning("Bitte fülle Name, Anschrift und E-Mail aus, damit ich die Bestellung bearbeiten kann.")
+
+st.divider()
+
+# --- VORHERIGES PROJEKT ---
+st.header("Vorheriges Projekt")
+col3, col4 =
