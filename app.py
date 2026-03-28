@@ -5,7 +5,7 @@ from datetime import datetime
 # Seiteneinstellungen
 st.set_page_config(page_title="Autor Stefan Röser", page_icon="✍️", layout="centered")
 
-# --- CSS ZUM VERSTECKEN DER STREAMLIT-MENÜS (CLEAN LOOK) ---
+# --- CSS ZUM VERSTECKEN DER STREAMLIT-MENÜS ---
 hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
@@ -22,73 +22,69 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 def update_besucherzaehler():
     datei = "besucher.txt"
-    # Datei erstellen, falls sie nicht existiert
     if not os.path.exists(datei):
-        with open(datei, "w") as f:
+        with open(datei, "w", encoding="utf-8") as f:
             f.write("0")
     
-    # Aktuellen Stand lesen
-    with open(datei, "r") as f:
-        inhalt = f.read().strip()
-        zahl = int(inhalt) if inhalt else 0
+    zahl = 0
+    try:
+        with open(datei, "r", encoding="utf-8") as f:
+            inhalt = f.read().strip()
+            if inhalt.isdigit():
+                zahl = int(inhalt)
+    except Exception:
+        zahl = 0
     
-    # Nur hochzählen, wenn es ein neuer Seitenaufruf ist (Session State)
     if 'besuch_gezaehlt' not in st.session_state:
         zahl += 1
-        with open(datei, "w") as f:
-            f.write(str(zahl))
+        try:
+            with open(datei, "w", encoding="utf-8") as f:
+                f.write(str(zahl))
+        except Exception:
+            pass 
         st.session_state['besuch_gezaehlt'] = True
     return zahl
 
-def speichere_bestellung(name, email, auswahl, widmung):
+def speichere_bestellung(name, anschrift, email, auswahl, widmung):
     zeitstempel = datetime.now().strftime("%d.%m.%Y %H:%M:%S")
-    eintrag = f"{zeitstempel} | Name: {name} | Mail: {email} | Buch: {auswahl} | Widmung: {widmung}\n"
+    # Anschrift wurde hier im String ergänzt
+    eintrag = f"{zeitstempel} | Name: {name} | Adresse: {anschrift} | Mail: {email} | Buch: {auswahl} | Widmung: {widmung}\n"
     with open("bestellungen.txt", "a", encoding="utf-8") as f:
         f.write(eintrag)
 
-# Besucherstand abrufen
+# Stand abrufen
 besucher_stand = update_besucherzaehler()
 
 # --- TITEL & WILLKOMMEN ---
-st.write(f"<h1 style='text-align: center; color: #FF4B4B;'>Willkommen in meiner Welt der Geschichten! ✍️✨</h1>", unsafe_allow_html=True)
+# Hier ist das angepasste Hellblau (#7ec8e3)
+st.write(f"<h1 style='text-align: center; color: #7ec8e3;'>Willkommen in meiner Welt der Geschichten! ✍️✨</h1>", unsafe_allow_html=True)
 st.markdown("<h3 style='text-align: center;'>Schön, dass du da bist.</h3>", unsafe_allow_html=True)
-st.write("""
-<p style='text-align: center; font-size: 1.2em;'>
-Ich bin <strong>Stefan Röser</strong> und ich lade dich ein, in Erzählungen einzutauchen, 
-die das Herz berühren und den Geist bewegen.
-</p>
-""", unsafe_allow_html=True)
+st.write("<p style='text-align: center; font-size: 1.2em;'>Ich bin <strong>Stefan Röser</strong>.</p>", unsafe_allow_html=True)
 
 st.divider()
 
-# --- ROMAN 1: Aktuelles Werk ---
+# --- ROMAN 1 ---
 st.header("Ein Herz, das keinen Zorn mehr trägt")
 col1, col2 = st.columns([1, 2])
-
 with col1:
     if os.path.exists("cover2.png"):
-        st.image("cover2.png", caption="Aktueller Roman", use_container_width=True)
+        st.image("cover2.png", use_container_width=True)
     else:
-        st.info("📖 Cover wird geladen...")
-
+        st.info("📖 Cover lädt...")
 with col2:
-    st.write("""
-    **Klappentext:**
-    Ein Herz, das keinen Zorn mehr trägt, ist ein tief bewegender Roman über die Kraft des Vergebens und den Mut, die eigene Vergangenheit hinter sich zu lassen. 
-    Begleiten Sie die Protagonisten auf einer emotionalen Reise, die zeigt, dass Heilung dort beginnt, wo Bitterkeit endet. 
-    """)
-    st.markdown("**Preis: 16,99 €** (Signiertes Taschenbuch, inkl. Versand)")
-    st.markdown("**Preis: 14,49 €** (Standard Taschenbuch, inkl. Versand)")
+    st.write("Ein tief bewegender Roman über die Kraft des Vergebens.")
+    st.markdown("**16,99 €** (Signiert) | **14,49 €** (Standard)")
 
 st.divider()
 
 # --- BESTELLFORMULAR ---
 st.header("📦 Buch direkt bei mir bestellen")
-st.write("""Möchtest du das Buch "Ein Herz, das keinen Zorn mehr trägt" bestellen? Fülle einfach das Formular aus, ich melde mich dann per E-Mail bei Dir!""")
-
 with st.form("kunden_form", clear_on_submit=True):
     name = st.text_input("Dein Name")
+    # NEU: Das Feld für die Anschrift
+    anschrift = st.text_area("Deine vollständige Anschrift (Straße, PLZ, Ort)")
     email = st.text_input("Deine E-Mail-Adresse")
+    
     auswahl = st.selectbox("Welches Buch möchtest du?", 
                           ["Ein Herz, das keinen Zorn mehr trägt - mit Signatur", 
                            "Ein Herz, das keinen Zorn mehr trägt - ohne Signatur"])
@@ -97,80 +93,42 @@ with st.form("kunden_form", clear_on_submit=True):
     submit = st.form_submit_button("Jetzt verbindlich bestellen")
     
     if submit:
-        if name and email:
-            speichere_bestellung(name, email, auswahl, widmung)
-            st.success(f"Vielen Dank, {name}! Deine Bestellung wurde erfolgreich gespeichert. Ich melde mich bald bei dir.")
+        if name and anschrift and email:
+            speichere_bestellung(name, anschrift, email, auswahl, widmung)
+            st.success(f"Vielen Dank, {name}! Deine Bestellung wurde gespeichert.")
             st.balloons()
         else:
-            st.warning("Bitte gib zumindest deinen Namen und deine E-Mail-Adresse an.")
+            st.warning("Bitte gib Namen, Anschrift und E-Mail an, damit ich das Buch versenden kann.")
 
 st.divider()
 
-# --- VORHERIGES PROJEKT ---
-st.header("Vorheriges Projekt")
-col3, col4 = st.columns([1, 2])
-
-with col3:
-    if os.path.exists("cover1.png"):
-        st.image("cover1.png", caption="Mein erstes Werk", use_container_width=True)
-    else:
-        st.info("📖 Bild 'cover1.png' folgt...")
-
-with col4:
-    st.write("""
-    Berlin, späte Weimarer Republik: Eine Stadt voller Kontraste - Jazz und Aufmärsche, Hoffnung und Gefahr. 
-    Mitten darin begegnen sich Nathaniel, ein amerikanischer Reporter, und Clara, die nach einem neuen Anfang sucht. 
-    """)
-
-# --- ADMIN LOGIN (MIT BESUCHERZAHLER) ---
-st.markdown("---")
+# --- ADMIN LOGIN ---
 with st.expander("🛠️ Interner Bereich"):
-    st.write("Dieser Bereich ist passwortgeschützt.")
     passwort_eingabe = st.text_input("Passwort", type="password")
-    
     if passwort_eingabe == "Kalender20#":
         st.subheader("Statistik & Bestellungen")
-        
-        # Besucherzahl anzeigen
         st.metric("Besucher gesamt", besucher_stand)
-        
         st.divider()
-        
         if os.path.exists("bestellungen.txt"):
             with open("bestellungen.txt", "r", encoding="utf-8") as f:
                 bestellungen = f.readlines()
-            
             if bestellungen:
                 for b in reversed(bestellungen):
                     st.info(b.strip())
-                
                 if st.button("Alle Bestellungen löschen"):
                     os.remove("bestellungen.txt")
                     st.rerun()
             else:
-                st.write("Momentan liegen keine neuen Bestellungen vor.")
-        else:
-            st.write("Noch keine Bestellungen in der Datenbank.")
+                st.write("Keine Bestellungen vorhanden.")
 
-# --- RECHTLICHER FOOTER ---
+# --- RECHTLICHES ---
 st.divider()
 col_inf1, col_inf2 = st.columns(2)
-
 with col_inf1:
     with st.expander("Impressum"):
-        st.write("""
-        **Verantwortlich für den Inhalt:** Stefan Röser  
-        [DEINE STRASSE]  
-        [DEIN ORT]  
-        E-Mail: [DEINE MAILADRESSE]
-        """)
-
+        st.write("Stefan Röser | [DEINE STRASSE] | [DEIN ORT]")
 with col_inf2:
     with st.expander("Datenschutz"):
-        st.write("""
-        **Datennutzung:** Ihre Daten werden nur zur Bearbeitung 
-        der Bestellung lokal gespeichert. Es erfolgt keine Weitergabe 
-        an Dritte.
-        """)
+        st.write("Daten werden nur lokal zur Bestellabwicklung gespeichert.")
 
 st.write("© 2026 Stefan Röser")
