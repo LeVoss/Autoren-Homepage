@@ -5,7 +5,7 @@ from datetime import datetime
 # Seiteneinstellungen
 st.set_page_config(page_title="Autor Stefan Röser", page_icon="✍️", layout="centered")
 
-# --- CSS ZUM VERSTECKEN DER STREAMLIT-MENÜS (CLEAN LOOK) ---
+# --- CSS ZUM VERSTECKEN DER STREAMLIT-MENÜS ---
 hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
@@ -54,7 +54,6 @@ def speichere_bestellung(name, anschrift, email, auswahl, widmung):
 besucher_stand = update_besucherzaehler()
 
 # --- TITEL & WILLKOMMEN ---
-# Kräftiges Blau (#2C5E9E) passend zum Cover
 st.write(f"<h1 style='text-align: center; color: #2C5E9E;'>Willkommen in meiner Welt der Geschichten! ✍️✨</h1>", unsafe_allow_html=True)
 st.markdown("<h3 style='text-align: center;'>Schön, dass du da bist.</h3>", unsafe_allow_html=True)
 st.write("""
@@ -87,6 +86,12 @@ with col2:
 
 st.divider()
 
+# --- HINWEIS MÄNGELEXEMPLARE ---
+st.info("""
+**Sonderangebot:** Ein paar wenige Mängelexemplare zu verkaufen zum Preis von **9,90 Euro** (inklusive Versand). 
+Hierbei handelt es sich um ein anderes Format (6:9) und eine zu große Schrift!
+""")
+
 # --- BESTELLFORMULAR ---
 st.header("📦 Buch direkt bei mir bestellen")
 st.write("Möchtest du das Buch bestellen? Fülle einfach das Formular aus, ich melde mich dann per E-Mail bei Dir!")
@@ -96,8 +101,12 @@ with st.form("kunden_form", clear_on_submit=True):
     anschrift = st.text_area("Deine vollständige Anschrift (Straße, PLZ, Ort)")
     email = st.text_input("Deine E-Mail-Adresse")
     
-    # Auswahlmöglichkeiten (Sicher formatiert gegen Syntaxfehler)
-    buch_optionen = ["Ein Herz (mit Signatur)", "Ein Herz (ohne Signatur)"]
+    # Auswahlmöglichkeiten inklusive Mängelexemplar
+    buch_optionen = [
+        "Ein Herz (mit Signatur)", 
+        "Ein Herz (ohne Signatur)",
+        "Ein Herz (ohne Signatur) - Mängelexemplar"
+    ]
     auswahl = st.selectbox("Welches Buch möchtest du?", options=buch_optionen)
     
     widmung = st.text_area("Widmungswunsch (Optional)")
@@ -109,7 +118,7 @@ with st.form("kunden_form", clear_on_submit=True):
             st.success(f"Vielen Dank, {name}! Deine Bestellung wurde erfolgreich gespeichert. Ich melde mich bald bei dir.")
             st.balloons()
         else:
-            st.warning("Bitte fülle Name, Anschrift und E-Mail aus, damit ich die Bestellung bearbeiten kann.")
+            st.warning("Bitte fülle Name, Anschrift und E-Mail aus.")
 
 st.divider()
 
