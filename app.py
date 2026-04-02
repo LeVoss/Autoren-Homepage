@@ -30,7 +30,7 @@ st.write("Bitte fülle das Formular aus. Die Daten werden sicher in Google gespe
 
 # HIER DEINEN LINK ZWISCHEN DIE ANFÜHRUNGSZEICHEN SETZEN:
 # Beispiel: https://docs.google.com/forms/d/e/1FAIpQLS.../viewform?embedded=true
-form_url = "DEIN_GOOGLE_FORMULAR_LINK_HIER"
+form_url = "https://docs.google.com/forms/d/e/1FAIpQLSf60i048_9KbQ_yMcM0kJQpBGA6s3xOuASdLO6hPfhr6z2zbQ/viewform?usp=dialog"
 
 if form_url == "DEIN_GOOGLE_FORMULAR_LINK_HIER":
     st.warning("⚠️ Bitte füge noch deinen Google-Forms-Link im Code ein!")
