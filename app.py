@@ -6,7 +6,15 @@ st.set_page_config(page_title="Autor Stefan Röser", page_icon="✍️", layout=
 
 # 2. Titel & Willkommen
 st.write("<h1 style='text-align: center; color: #FF4B4B;'>Willkommen in meiner Welt der Geschichten! ✍️✨</h1>", unsafe_allow_html=True)
-st.write("<p style='text-align: center; font-size: 1.2em;'>Ich bin <strong>Stefan Röser</strong>.</p>", unsafe_allow_html=True)
+st.write(<p style='text-align: center; font-size: 1.2em;'>
+
+Ich bin <strong>Stefan Röser</strong> und ich lade dich ein, in Erzählungen einzutauchen, 
+
+die das Herz berühren und den Geist bewegen.
+
+</p>
+
+""", unsafe_allow_html=True)
 
 st.divider()
 
