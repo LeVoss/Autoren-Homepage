@@ -44,9 +44,10 @@ if form_url == "DEIN_GOOGLE_FORMULAR_LINK_HIER":
     st.warning("⚠️ Bitte füge noch deinen Google-Forms-Link im Code ein!")
 else:
     st.markdown(f"""
-        <iframe src="{form_url}" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0">
-            Wird geladen…
-        </iframe>
+<iframe src="{form_url}" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0">
+        Wird geladen...
+    </iframe>
+    
     """, unsafe_allow_html=True)
 
 st.divider()
