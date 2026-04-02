@@ -38,24 +38,38 @@ st.write("Bitte fülle das Formular aus. Die Daten werden sicher in Google gespe
 
 # HIER DEINEN LINK ZWISCHEN DIE ANFÜHRUNGSZEICHEN SETZEN:
 # Beispiel: https://docs.google.com/forms/d/e/1FAIpQLS.../viewform?embedded=true
-form_url = "https://docs.google.com/forms/d/e/1FAIpQLSf60i048_9KbQ_yMcM0kJQpBGA6s3xOuASdLO6hPfhr6z2zbQ/viewform?usp=dialog"
+# --- DAS BESTELLFORMULAR ---
+form_url = "HIER_DEINEN_LINK_EINSETZEN"
 
-if form_url == "DEIN_GOOGLE_FORMULAR_LINK_HIER":
-    st.warning("⚠️ Bitte füge noch deinen Google-Forms-Link im Code ein!")
-else:
-    st.markdown(f"""
-<iframe src="{form_url}" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0">
+st.markdown(f"""
+    <iframe src="{form_url}" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0">
         Wird geladen...
     </iframe>
-    
     """, unsafe_allow_html=True)
 
 st.divider()
 
-# 5. Vorheriges Projekt
-st.subheader("Vorheriges Projekt: Berlin Roman")
-if os.path.exists("cover1.png"):
-    st.image("cover1.png", width=200)
-st.write("Mein Erstlingswerk aus dem Sommer 2025.")
+# --- ABSCHNITT 2: Vorheriges Projekt ---
+st.header("Vorheriges Projekt")
+col3, col4 = st.columns([1, 2])
 
-st.write("© 2026 Stefan Röser")
+with col3:
+    if os.path.exists("cover1.png"):
+        st.image("cover1.png", caption="Mein erstes Werk", use_container_width=True)
+    else:
+        st.info("📖 Bild 'cover1.png' folgt...")
+
+with col4:
+    st.write("""
+    Mein erstes Buch habe ich im Sommer 2025 veröffentlicht. 
+    Es ist derzeit nur als E-Book über Amazon Kindle oder Kindle-Unlimited erhältlich.
+
+    **Klappentext:**
+    Berlin, späte Weimarer Republik: Eine Stadt voller Kontraste - Jazz und Aufmärsche, Hoffnung und Gefahr. 
+    Mitten darin begegnen sich Nathaniel, ein amerikanischer Reporter, und Clara, die nach einem neuen Anfang sucht. 
+    Zwischen vorsichtigen Briefen und heimlichen Treffen wächst eine Verbindung, die stärker ist als Angst und Konvention. 
+    Ein bewegender Roman über Liebe, Mut und die Kraft, in unsicheren Zeiten das Herz sprechen zu lassen.
+    """)
+
+# --- FOOTER ---
+st.write("<p style='text-align: center;'>© 2026 Stefan Röser</p>", unsafe_allow_html=True)
