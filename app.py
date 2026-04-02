@@ -1,10 +1,10 @@
 import streamlit as st
 import os
 
-# Seiteneinstellungen
+# 1. SEITENEINSTELLUNGEN
 st.set_page_config(page_title="Autor Stefan Röser", page_icon="✍️", layout="centered")
 
-# --- CSS ZUM VERSTECKEN DER MENÜS (OPTIONAL FÜR CLEAN LOOK) ---
+# 2. CSS (ENTFERNT STREAMLIT-MENÜS FÜR PROFIS-LOOK)
 st.markdown("""
     <style>
     #MainMenu {visibility: hidden;}
@@ -14,7 +14,7 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# --- TITEL & WILLKOMMEN ---
+# 3. TITEL & WILLKOMMEN
 st.write(f"<h1 style='text-align: center; color: #FF4B4B;'>Willkommen in meiner Welt der Geschichten! ✍️✨</h1>", unsafe_allow_html=True)
 st.markdown("<h3 style='text-align: center;'>Schön, dass du da bist.</h3>", unsafe_allow_html=True)
 st.write("""
@@ -26,7 +26,7 @@ die das Herz berühren und den Geist bewegen.
 
 st.divider()
 
-# --- ROMAN 1: Aktuelles Werk ---
+# 4. ROMAN 1: Aktuelles Werk
 st.header("Ein Herz, das keinen Zorn mehr trägt")
 col1, col2 = st.columns([1, 2])
 
@@ -48,20 +48,20 @@ with col2:
 
 st.divider()
 
-# --- NEU: HINWEIS MÄNGELEXEMPLARE ---
+# 5. HINWEIS MÄNGELEXEMPLARE
 st.info("""
 **Sonderangebot:** Ein paar wenige Mängelexemplare zu verkaufen zum Preis von **9,90 Euro** (inklusive Versand). 
 Hierbei handelt es sich um ein anderes Format (6:9) und eine zu große Schrift!
 """)
 
-# --- BESTELLFORMULAR (JETZT VIA GOOGLE FORMS GEGEN DATENVERLUST) ---
+# 6. DAS BESTELLFORMULAR (EINGEBETTETES GOOGLE FORMULAR)
 st.header("📦 Buch direkt bei mir bestellen")
-st.write("""Möchtest du das Buch "Ein Herz, das keinen Zorn mehr trägt" bestellen? Wenn ja, fülle einfach das Formular aus, ich melde mich dann per E-Mail bei Dir!""")
+st.write("""Möchtest du das Buch bestellen? Fülle einfach das Formular unten aus. Deine Bestellung wird direkt in meiner Datenbank gespeichert, so dass nichts verloren geht!""")
 
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-# BITTE HIER DEINEN LINK ZUM GOOGLE FORMULAR EINSETZEN:
-# (In Google Forms auf 'Senden' -> '< >' -> nur die URL bei src="..." kopieren)
-form_url = "DEIN_GOOGLE_FORMULAR_LINK_HIER"
+# WICHTIG: Ersetze den Link unten durch deinen eigenen Google-Forms-Link!
+# Den Link findest du unter 'Senden' -> '< >' -> nur die URL bei src="..." kopieren.
+form_url = "HIER_DEINEN_LINK_VON_GOOGLE_FORMULAR_EINSETZEN"
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 st.markdown(f"""
@@ -72,7 +72,7 @@ st.markdown(f"""
 
 st.divider()
 
-# --- ABSCHNITT 2: Vorheriges Projekt ---
+# 7. ABSCHNITT 2: Vorheriges Projekt
 st.header("Vorheriges Projekt")
 col3, col4 = st.columns([1, 2])
 
@@ -84,8 +84,8 @@ with col3:
 
 with col4:
     st.write("""
-    Mein erstes Buch habe ich im Sommer 2025 veröffentlicht, es war der Grundstein für meine Reise als Autor.
-    Das Buch ist derzeit nur als E-Book über Amazon Kindle oder Kindle-Unlimited erhältlich.
+    Mein erstes Buch habe ich im Sommer 2025 veröffentlicht. 
+    Es ist derzeit nur als E-Book über Amazon Kindle oder Kindle-Unlimited erhältlich.
 
     **Klappentext:**
     Berlin, späte Weimarer Republik: Eine Stadt voller Kontraste - Jazz und Aufmärsche, Hoffnung und Gefahr. 
@@ -94,5 +94,5 @@ with col4:
     Ein bewegender Roman über Liebe, Mut und die Kraft, in unsicheren Zeiten das Herz sprechen zu lassen.
     """)
 
-# --- FOOTER ---
-st.write("© 2026 Stefan Röser")
+# 8. FOOTER
+st.write("<p style='text-align: center;'>© 2026 Stefan Röser</p>", unsafe_allow_html=True)
