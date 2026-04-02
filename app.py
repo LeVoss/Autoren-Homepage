@@ -39,7 +39,7 @@ st.info("Sonderangebot: Mängelexemplare (Format 6:9, große Schrift) für **9,9
 st.divider()
 
 # 5. DAS BESTELLFORMULAR (Eingebettet mit deinem Link)
-st.header("📦 Buch direkt bei mir bestellen")
+st.header("📦 Buch direkt bei mir bestellen - Versand kann gut eine Woche dauern, da ich Bücher nachbestellen muss")
 
 # Dein persönlicher Google-Forms-Link:
 form_url = "https://docs.google.com/forms/d/e/1FAIpQLSf60i048_9KbQ_yMcM0kJQpBGA6s3xOuASdLO6hPfhr6z2zbQ/viewform?embedded=true"
