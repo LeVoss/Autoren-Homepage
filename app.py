@@ -26,7 +26,7 @@ st.divider()
 
 # 4. DAS BESTELLFORMULAR (Das Herzstück)
 st.header("📦 Buch direkt bei mir bestellen")
-st.write("Bitte fülle das Formular aus. Die Daten werden sicher in Google gespeichert.")
+st.write("https://docs.google.com/forms/d/e/1FAIpQLSf60i048_9KbQ_yMcM0kJQpBGA6s3xOuASdLO6hPfhr6z2zbQ/viewform?usp=dialog")
 
 # HIER DEINEN LINK ZWISCHEN DIE ANFÜHRUNGSZEICHEN SETZEN:
 # Beispiel: https://docs.google.com/forms/d/e/1FAIpQLS.../viewform?embedded=true
