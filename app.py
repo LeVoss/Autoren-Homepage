@@ -14,9 +14,15 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# 3. Titel & Willkommen
-st.write("<h1 style='text-align: center; color: #FF4B4B;'>Willkommen in meiner Welt der Geschichten! ✍️✨</h1>", unsafe_allow_html=True)
-st.write("<p style='text-align: center; font-size: 1.2em;'>Ich bin <strong>Stefan Röser</strong>.</p>", unsafe_allow_html=True)
+# 3. TITEL & WILLKOMMEN (Vollständige Version)
+st.write(f"<h1 style='text-align: center; color: #FF4B4B;'>Willkommen in meiner Welt der Geschichten! ✍️✨</h1>", unsafe_allow_html=True)
+st.markdown("<h3 style='text-align: center;'>Schön, dass du da bist.</h3>", unsafe_allow_html=True)
+st.write("""
+<p style='text-align: center; font-size: 1.2em;'>
+Ich bin <strong>Stefan Röser</strong> und ich lade dich ein, in Erzählungen einzutauchen, 
+die das Herz berühren und den Geist bewegen.
+</p>
+""", unsafe_allow_html=True)
 
 st.divider()
 
@@ -31,17 +37,20 @@ with col2:
     **Klappentext:**
     Ein Herz, das keinen Zorn mehr trägt, ist ein tief bewegender Roman über die Kraft des Vergebens und den Mut, die eigene Vergangenheit hinter sich zu lassen. 
     Begleiten Sie die Protagonisten auf einer emotionalen Reise, die zeigt, dass Heilung dort beginnt, wo Bitterkeit endet. 
+    Ein Buch für alle, die an die heilende Kraft der Menschlichkeit glauben.
     """)
-    st.markdown("**16,99 €** (Signiert) | **14,49 €** (Standard)")
+    st.markdown("**16,99 €** (Signiertes Taschenbuch, inkl. Versand)")
+    st.markdown("**14,49 €** (Standard Taschenbuch, inkl. Versand)")
 
 st.info("Sonderangebot: Mängelexemplare (Format 6:9, große Schrift) für **9,90 Euro** inkl. Versand verfügbar!")
 
 st.divider()
 
-# 5. DAS BESTELLFORMULAR (Eingebettet mit deinem Link)
-st.header("📦 Buch direkt bei mir bestellen - Versand kann gut eine Woche dauern, da ich Bücher nachbestellen muss")
+# 5. DAS BESTELLFORMULAR
+st.header("📦 Buch direkt bei mir bestellen")
+st.write("Möchtest du das Buch bestellen? Fülle einfach das Formular unten aus. Deine Bestellung wird direkt in meiner Datenbank gespeichert!")
 
-# Dein persönlicher Google-Forms-Link:
+# Dein Google-Forms-Link (mit eingebettetem Modus)
 form_url = "https://docs.google.com/forms/d/e/1FAIpQLSf60i048_9KbQ_yMcM0kJQpBGA6s3xOuASdLO6hPfhr6z2zbQ/viewform?embedded=true"
 
 st.markdown(f"""
@@ -70,6 +79,7 @@ with col4:
     **Klappentext:**
     Berlin, späte Weimarer Republik: Eine Stadt voller Kontraste - Jazz und Aufmärsche, Hoffnung und Gefahr. 
     Mitten darin begegnen sich Nathaniel, ein amerikanischer Reporter, und Clara, die nach einem neuen Anfang sucht. 
+    Zwischen vorsichtigen Briefen und heimlichen Treffen wächst eine Verbindung, die stärker ist als Angst und Konvention.
     """)
 
 # 7. Footer
