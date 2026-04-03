@@ -91,10 +91,10 @@ with footer_col1:
     with st.expander("Impressum"):
         st.write("""
         **Angaben gemäß § 5 TMG:** Stefan Röser  
-        [Deine Straße Hausnummer]  
-        [DEINE PLZ ORT]  
+        [c/o Online Impressum.de #6281, Europaring 90]  
+        [53757 Sankt Augustin]  
         
-        **Kontakt:** E-Mail: sroeser77@googlemail.com  
+        **Kontakt:** E-Mail: stefan@booksart.de  
         """)
 
 with footer_col2:
