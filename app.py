@@ -91,8 +91,8 @@ with footer_col1:
     with st.expander("Impressum"):
         st.write("""
         **Angaben gemäß § 5 TMG:** Stefan Röser  
-        [c/o Online Impressum.de #6281, Europaring 90]  
-        [53757 Sankt Augustin]  
+        c/o Online Impressum.de #6281, Europaring 90, 
+        53757 Sankt Augustin
         
         **Kontakt:** E-Mail: stefan@booksart.de  
         """)
