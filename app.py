@@ -14,7 +14,7 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# 3. TITEL & WILLKOMMEN (Vollständige Version)
+# 3. TITEL & WILLKOMMEN
 st.write(f"<h1 style='text-align: center; color: #FF4B4B;'>Willkommen in meiner Welt der Geschichten! ✍️✨</h1>", unsafe_allow_html=True)
 st.markdown("<h3 style='text-align: center;'>Schön, dass du da bist.</h3>", unsafe_allow_html=True)
 st.write("""
@@ -50,7 +50,6 @@ st.divider()
 st.header("📦 Buch direkt bei mir bestellen")
 st.write("Möchtest du das Buch bestellen? Fülle einfach das Formular unten aus. Deine Bestellung wird direkt in meiner Datenbank gespeichert!")
 
-# Dein Google-Forms-Link (mit eingebettetem Modus)
 form_url = "https://docs.google.com/forms/d/e/1FAIpQLSf60i048_9KbQ_yMcM0kJQpBGA6s3xOuASdLO6hPfhr6z2zbQ/viewform?embedded=true"
 
 st.markdown(f"""
@@ -79,9 +78,30 @@ with col4:
     **Klappentext:**
     Berlin, späte Weimarer Republik: Eine Stadt voller Kontraste - Jazz und Aufmärsche, Hoffnung und Gefahr. 
     Mitten darin begegnen sich Nathaniel, ein amerikanischer Reporter, und Clara, die nach einem neuen Anfang sucht. 
-    Zwischen vorsichtigen Briefen und heimlichen Treffen wächst eine Verbindung, die stärker ist als Angst und Konvention.
     """)
 
-# 7. Footer
+# 7. FOOTER (Copyright & Rechtliches)
 st.divider()
 st.write("<p style='text-align: center;'>© 2026 Stefan Röser</p>", unsafe_allow_html=True)
+
+# Rechtliche Links in zwei Spalten
+footer_col1, footer_col2 = st.columns(2)
+
+with footer_col1:
+    with st.expander("Impressum"):
+        st.write("""
+        **Angaben gemäß § 5 TMG:** Stefan Röser  
+        [Deine Straße Hausnummer]  
+        [DEINE PLZ ORT]  
+        
+        **Kontakt:** E-Mail: sroeser77@googlemail.com  
+        """)
+
+with footer_col2:
+    with st.expander("Datenschutz"):
+        st.write("""
+        **Datenschutzerklärung** Diese Seite nutzt ein eingebettetes Google Formular zur Bestellabwicklung. 
+        Die von Ihnen eingegebenen Daten werden auf Google-Servern gespeichert, 
+        damit der Autor die Bestellung bearbeiten kann. 
+        Weitere Informationen finden Sie in der Datenschutzerklärung von Google.
+        """)
