@@ -90,7 +90,7 @@ footer_col1, footer_col2 = st.columns(2)
 with footer_col1:
     with st.expander("Impressum"):
         st.write("""
-        **Angaben gemäß § 5 TMG:** Stefan Röser  
+        **Angaben gemäß § 5 TMG:** Stefan Röser,  
         c/o Online Impressum.de #6281, Europaring 90, 
         53757 Sankt Augustin
         
