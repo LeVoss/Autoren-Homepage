@@ -1,0 +1,13 @@
+name: Keep App Alive
+
+on:
+  schedule:
+    - cron: '0 */6 * * *' # Läuft alle 6 Stunden
+  workflow_dispatch:      # Ermöglicht es dir, den "Wecker" manuell zu testen
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wake up Streamlit
+        run: curl -s https://autoren-homepage.streamlit.app > /dev/null
