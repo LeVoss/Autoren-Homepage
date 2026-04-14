@@ -31,7 +31,13 @@ st.header("Ein Herz, das keinen Zorn mehr trägt")
 col1, col2 = st.columns([1, 2])
 with col1:
     if os.path.exists("cover2.png"):
-        st.image("cover2.png", use_container_width=True)
+        try:
+            st.image("cover2.png", use_container_width=True)
+        except Exception:
+            st.error("Bilddatei 'cover2.png' fehlerhaft.")
+    else:
+        st.info("📖 Cover-Bild folgt...")
+
 with col2:
     st.write("""
     **Klappentext:**
@@ -47,12 +53,12 @@ st.divider()
 st.header("📦 Buch direkt bei mir bestellen")
 st.write("Wähle hier dein gewünschtes Exemplar aus (Preise inkl. Versand innerhalb Deutschland):")
 
-# Die saubere Liste der Bestelloptionen
+# Die saubere Liste der Bestelloptionen inklusive Roman-Fabrik
 st.markdown("""
-* **16,99 €** (Ein Herz, das keinen Zorn mehr trägt - Signiertes Taschenbuch)
-* **14,49 €** (Ein Herz, das keinen Zorn mehr trägt - Standard Taschenbuch)
-* **9,99 €** (Ein Herz, das keinen Zorn mehr trägt - Mängelexemplar)
-* **14,99 €** (Die Roman-Fabrik - Taschenbuch)
+* **16,99 €** (Ein Herz, das keinen Zorn mehr trägt - Signiertes Taschenbuch, inkl. Versand innerhalb Deutschland)
+* **14,49 €** (Ein Herz, das keinen Zorn mehr trägt - Standard Taschenbuch, inkl. Versand innerhalb Deutschland)
+* **9,99 €** (Ein Herz, das keinen Zorn mehr trägt - Mängelexemplar, inkl. Versand innerhalb Deutschland)
+* **14,99 €** (Die Roman-Fabrik - Taschenbuch, inkl. Versand innerhalb Deutschland)
 """)
 
 form_url = "https://docs.google.com/forms/d/e/1FAIpQLSf60i048_9KbQ_yMcM0kJQpBGA6s3xOuASdLO6hPfhr6z2zbQ/viewform?embedded=true"
@@ -71,7 +77,10 @@ col3, col4 = st.columns([1, 2])
 
 with col3:
     if os.path.exists("cover1.png"):
-        st.image("cover1.png", caption="Mein erstes Werk", use_container_width=True)
+        try:
+            st.image("cover1.png", caption="Mein erstes Werk", use_container_width=True)
+        except Exception:
+            st.error("Bilddatei 'cover1.png' fehlerhaft.")
     else:
         st.info("📖 Bild 'cover1.png' folgt...")
 
