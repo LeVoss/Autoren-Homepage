@@ -26,56 +26,37 @@ die das Herz berühren und den Geist bewegen.
 
 st.divider()
 
-# 4. Aktuelles Buch
-st.header("Ein Herz, das keinen Zorn mehr trägt")
+# 4. Aktuelles Buch & Preisliste
+st.header("Meine aktuellen Titel")
 col1, col2 = st.columns([1, 2])
 with col1:
     if os.path.exists("cover2.png"):
         st.image("cover2.png", use_container_width=True)
 with col2:
     st.write("""
-    **Klappentext:**
-    Ein Herz, das keinen Zorn mehr trägt, ist ein tief bewegender Roman über die Kraft des Vergebens und den Mut, die eigene Vergangenheit hinter sich zu lassen. 
-    Begleiten Sie die Protagonisten auf einer emotionalen Reise, die zeigt, dass Heilung dort beginnt, wo Bitterkeit endet. 
+    **Ein Herz, das keinen Zorn mehr trägt**
+    Ein tief bewegender Roman über die Kraft des Vergebens und den Mut, die eigene Vergangenheit hinter sich zu lassen. 
     Ein Buch für alle, die an die heilende Kraft der Menschlichkeit glauben.
     """)
+    st.write("---")
     st.markdown("**16,99 €** (Signiertes Taschenbuch, inkl. Versand innerhalb Deutschland)")
     st.markdown("**14,49 €** (Standard Taschenbuch, inkl. Versand innerhalb Deutschland)")
     st.markdown("**9,99 €** (Mängelexemplar, inkl. Versand innerhalb Deutschland)")
+    st.markdown("**14,99 €** (Die Roman-Fabrik, inkl. Versand innerhalb Deutschland)")
 
-st.info("Sonderangebot: Mängelexemplare (Format 6:9, große Schrift) für **9,99 Euro** inkl. Versand verfügbar!")
-
-st.divider()
-
-# 5. NEU: Die Roman-Fabrik
-st.header("Die Roman-Fabrik")
-col_rf1, col_rf2 = st.columns([1, 2])
-with col_rf1:
-    # Falls du ein Cover-Bild für die Roman-Fabrik hast, nenne es cover_rf.png
-    if os.path.exists("cover_rf.png"):
-        st.image("cover_rf.png", use_container_width=True)
-    else:
-        st.info("📖 Bild folgt...")
-with col_rf2:
-    st.write("""
-    **Der Leitfaden für Autoren:**
-    Lerne, wie du deine Buchideen strukturiert umsetzt und die Werkzeuge der modernen Romanerstellung nutzt. 
-    Ein praktischer Ratgeber von der ersten Idee bis zum fertigen Manuskript.
-    """)
-    st.markdown("**14,99 €** (Taschenbuch, inkl. Versand innerhalb Deutschland)")
+st.info("Sonderangebot: Mängelexemplare von 'Ein Herz, das keinen Zorn mehr trägt' (Format 6:9, große Schrift) für **9,99 Euro** inkl. Versand verfügbar!")
 
 st.divider()
 
-# 6. DAS BESTELLFORMULAR
+# 5. DAS BESTELLFORMULAR
 st.header("📦 Buch direkt bei mir bestellen")
-st.write("Möchtest du eines meiner Bücher bestellen? Wähle im Formular einfach dein gewünschtes Exemplar aus.")
+st.write("Möchtest du eines meiner Bücher bestellen? Fülle einfach das Formular unten aus. Bitte wähle im Formular deine gewünschte Option aus:")
 
-# Wichtiger Hinweis für dich:
-# Du musst in deinem Google Formular die neuen Optionen hinzufügen:
-# - Ein Herz, das keinen Zorn mehr trägt (signiert): 16,99 Euro
-# - Ein Herz, das keinen Zorn mehr trägt (nicht signiert): 14,49 Euro
-# - Ein Herz, das keinen Zorn mehr trägt (Mängelexemplar): 9,99 Euro
-# - Die Roman-Fabrik (nicht signiert): 14,99 Euro
+# Deine 4 Optionen für das Google Formular:
+# 1. Ein Herz, das keinen Zorn mehr trägt (signiert): 16,99 Euro
+# 2. Ein Herz, das keinen Zorn mehr trägt (nicht signiert): 14,49 Euro
+# 3. Ein Herz, das keinen Zorn mehr trägt (Mängelexemplar): 9,99 Euro
+# 4. Die Roman-Fabrik (nicht signiert): 14,99 Euro
 
 form_url = "https://docs.google.com/forms/d/e/1FAIpQLSf60i048_9KbQ_yMcM0kJQpBGA6s3xOuASdLO6hPfhr6z2zbQ/viewform?embedded=true"
 
@@ -87,7 +68,7 @@ st.markdown(f"""
 
 st.divider()
 
-# 7. Vorheriges Projekt
+# 6. Vorheriges Projekt
 st.header("Vorheriges Projekt")
 col3, col4 = st.columns([1, 2])
 
@@ -107,7 +88,7 @@ with col4:
     Mitten darin begegnen sich Nathaniel, ein amerikanischer Reporter, und Clara, die nach einem neuen Anfang sucht. 
     """)
 
-# 8. FOOTER (Copyright & Rechtliches)
+# 7. FOOTER (Copyright & Rechtliches)
 st.divider()
 st.write("<p style='text-align: center;'>© 2026 Stefan Röser</p>", unsafe_allow_html=True)
 
@@ -117,17 +98,4 @@ with footer_col1:
     with st.expander("Impressum"):
         st.write("""
         **Angaben gemäß § 5 TMG:** Stefan Röser,  
-        c/o Online Impressum.de #6281, Europaring 90, 
-        53757 Sankt Augustin
-        
-        **Kontakt:** E-Mail: stefan@booksart.de  
-        """)
-
-with footer_col2:
-    with st.expander("Datenschutz"):
-        st.write("""
-        **Datenschutzerklärung** Diese Seite nutzt ein eingebettetes Google Formular zur Bestellabwicklung. 
-        Die von Ihnen eingegebenen Daten werden auf Google-Servern gespeichert, 
-        damit der Autor die Bestellung bearbeiten kann. 
-        Weitere Informationen finden Sie in der Datenschutzerklärung von Google.
-        """)
+        c/o Online Impressum.de #628
