@@ -39,16 +39,43 @@ with col2:
     Begleiten Sie die Protagonisten auf einer emotionalen Reise, die zeigt, dass Heilung dort beginnt, wo Bitterkeit endet. 
     Ein Buch für alle, die an die heilende Kraft der Menschlichkeit glauben.
     """)
-    st.markdown("**16,99 €** (Signiertes Taschenbuch, inkl. Versand)")
-    st.markdown("**14,49 €** (Standard Taschenbuch, inkl. Versand)")
+    st.markdown("**16,99 €** (Signiertes Taschenbuch, inkl. Versand innerhalb Deutschland)")
+    st.markdown("**14,49 €** (Standard Taschenbuch, inkl. Versand innerhalb Deutschland)")
+    st.markdown("**9,99 €** (Mängelexemplar, inkl. Versand innerhalb Deutschland)")
 
-st.info("Sonderangebot: Mängelexemplare (Format 6:9, große Schrift) für **9,90 Euro** inkl. Versand verfügbar!")
+st.info("Sonderangebot: Mängelexemplare (Format 6:9, große Schrift) für **9,99 Euro** inkl. Versand verfügbar!")
 
 st.divider()
 
-# 5. DAS BESTELLFORMULAR
+# 5. NEU: Die Roman-Fabrik
+st.header("Die Roman-Fabrik")
+col_rf1, col_rf2 = st.columns([1, 2])
+with col_rf1:
+    # Falls du ein Cover-Bild für die Roman-Fabrik hast, nenne es cover_rf.png
+    if os.path.exists("cover_rf.png"):
+        st.image("cover_rf.png", use_container_width=True)
+    else:
+        st.info("📖 Bild folgt...")
+with col_rf2:
+    st.write("""
+    **Der Leitfaden für Autoren:**
+    Lerne, wie du deine Buchideen strukturiert umsetzt und die Werkzeuge der modernen Romanerstellung nutzt. 
+    Ein praktischer Ratgeber von der ersten Idee bis zum fertigen Manuskript.
+    """)
+    st.markdown("**14,99 €** (Taschenbuch, inkl. Versand innerhalb Deutschland)")
+
+st.divider()
+
+# 6. DAS BESTELLFORMULAR
 st.header("📦 Buch direkt bei mir bestellen")
-st.write("Möchtest du das Buch bestellen? Fülle einfach das Formular unten aus. Deine Bestellung wird direkt in meiner Datenbank gespeichert!")
+st.write("Möchtest du eines meiner Bücher bestellen? Wähle im Formular einfach dein gewünschtes Exemplar aus.")
+
+# Wichtiger Hinweis für dich:
+# Du musst in deinem Google Formular die neuen Optionen hinzufügen:
+# - Ein Herz, das keinen Zorn mehr trägt (signiert): 16,99 Euro
+# - Ein Herz, das keinen Zorn mehr trägt (nicht signiert): 14,49 Euro
+# - Ein Herz, das keinen Zorn mehr trägt (Mängelexemplar): 9,99 Euro
+# - Die Roman-Fabrik (nicht signiert): 14,99 Euro
 
 form_url = "https://docs.google.com/forms/d/e/1FAIpQLSf60i048_9KbQ_yMcM0kJQpBGA6s3xOuASdLO6hPfhr6z2zbQ/viewform?embedded=true"
 
@@ -60,7 +87,7 @@ st.markdown(f"""
 
 st.divider()
 
-# 6. Vorheriges Projekt
+# 7. Vorheriges Projekt
 st.header("Vorheriges Projekt")
 col3, col4 = st.columns([1, 2])
 
@@ -80,11 +107,10 @@ with col4:
     Mitten darin begegnen sich Nathaniel, ein amerikanischer Reporter, und Clara, die nach einem neuen Anfang sucht. 
     """)
 
-# 7. FOOTER (Copyright & Rechtliches)
+# 8. FOOTER (Copyright & Rechtliches)
 st.divider()
 st.write("<p style='text-align: center;'>© 2026 Stefan Röser</p>", unsafe_allow_html=True)
 
-# Rechtliche Links in zwei Spalten
 footer_col1, footer_col2 = st.columns(2)
 
 with footer_col1:
