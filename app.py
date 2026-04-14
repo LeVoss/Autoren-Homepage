@@ -39,10 +39,10 @@ with col2:
     Ein Buch für alle, die an die heilende Kraft der Menschlichkeit glauben.
     """)
     st.write("---")
-    st.markdown("**16,99 €** (Signiertes Taschenbuch, inkl. Versand innerhalb Deutschland)")
-    st.markdown("**14,49 €** (Standard Taschenbuch, inkl. Versand innerhalb Deutschland)")
-    st.markdown("**9,99 €** (Mängelexemplar, inkl. Versand innerhalb Deutschland)")
-    st.markdown("**14,99 €** (Die Roman-Fabrik, inkl. Versand innerhalb Deutschland)")
+    st.markdown("16,99 € (Signiertes Taschenbuch, inkl. Versand innerhalb Deutschland)")
+    st.markdown("14,49 € (Standard Taschenbuch, inkl. Versand innerhalb Deutschland)")
+    st.markdown("9,99 € (Mängelexemplar, inkl. Versand innerhalb Deutschland)")
+    st.markdown("14,99 € (Die Roman-Fabrik, inkl. Versand innerhalb Deutschland)")
 
 st.info("Sonderangebot: Mängelexemplare von 'Ein Herz, das keinen Zorn mehr trägt' (Format 6:9, große Schrift) für **9,99 Euro** inkl. Versand verfügbar!")
 
@@ -51,12 +51,6 @@ st.divider()
 # 5. DAS BESTELLFORMULAR
 st.header("📦 Buch direkt bei mir bestellen")
 st.write("Möchtest du eines meiner Bücher bestellen? Fülle einfach das Formular unten aus. Bitte wähle im Formular deine gewünschte Option aus:")
-
-# Deine 4 Optionen für das Google Formular:
-# 1. Ein Herz, das keinen Zorn mehr trägt (signiert): 16,99 Euro
-# 2. Ein Herz, das keinen Zorn mehr trägt (nicht signiert): 14,49 Euro
-# 3. Ein Herz, das keinen Zorn mehr trägt (Mängelexemplar): 9,99 Euro
-# 4. Die Roman-Fabrik (nicht signiert): 14,99 Euro
 
 form_url = "https://docs.google.com/forms/d/e/1FAIpQLSf60i048_9KbQ_yMcM0kJQpBGA6s3xOuASdLO6hPfhr6z2zbQ/viewform?embedded=true"
 
@@ -98,4 +92,17 @@ with footer_col1:
     with st.expander("Impressum"):
         st.write("""
         **Angaben gemäß § 5 TMG:** Stefan Röser,  
-        c/o Online Impressum.de #628
+        c/o Online Impressum.de #6281, Europaring 90, 
+        53757 Sankt Augustin
+        
+        **Kontakt:** E-Mail: stefan@booksart.de  
+        """)
+
+with footer_col2:
+    with st.expander("Datenschutz"):
+        st.write("""
+        **Datenschutzerklärung** Diese Seite nutzt ein eingebettetes Google Formular zur Bestellabwicklung. 
+        Die von Ihnen eingegebenen Daten werden auf Google-Servern gespeichert, 
+        damit der Autor die Bestellung bearbeiten kann. 
+        Weitere Informationen finden Sie in der Datenschutzerklärung von Google.
+        """)
