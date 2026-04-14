@@ -2,7 +2,7 @@ import streamlit as st
 import os
 
 # 1. Grundkonfiguration
-st.set_page_config(page_title="Stefan Röser | Autor", page_icon="✍️", layout="centered")
+st.set_page_config(page_title="Autor Stefan Röser", page_icon="✍️", layout="centered")
 
 # 2. CSS (Entfernt Menüs für einen sauberen Look)
 st.markdown("""
@@ -15,45 +15,41 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # 3. TITEL & WILLKOMMEN
-st.write(f"<h1 style='text-align: center; color: #2E4053;'>Willkommen in der Welt von Stefan Röser 📚</h1>", unsafe_allow_html=True)
+st.write(f"<h1 style='text-align: center; color: #FF4B4B;'>Willkommen in meiner Welt der Geschichten! ✍️✨</h1>", unsafe_allow_html=True)
+st.markdown("<h3 style='text-align: center;'>Schön, dass du da bist.</h3>", unsafe_allow_html=True)
 st.write("""
 <p style='text-align: center; font-size: 1.2em;'>
-Schön, dass du hier bist. Tauche ein in meine Geschichten über das Leben, die Liebe und den Weg zu sich selbst.
+Ich bin <strong>Stefan Röser</strong> und ich lade dich ein, in Erzählungen einzutauchen, 
+die das Herz berühren und den Geist bewegen.
 </p>
 """, unsafe_allow_html=True)
 
 st.divider()
 
-# 4. Buch-Präsentation: Roman
-st.header("Aktueller Roman")
+# 4. Aktuelles Buch
+st.header("Ein Herz, das keinen Zorn mehr trägt")
 col1, col2 = st.columns([1, 2])
 with col1:
-    # Hier das Cover deines Romans (z.B. cover_roman.png)
-    if os.path.exists("cover_roman.png"):
-        try:
-            st.image("cover_roman.png", use_container_width=True)
-        except Exception:
-            st.error("Bilddatei konnte nicht geladen werden.")
-    else:
-        st.info("📖 Cover-Bild folgt...")
-
+    if os.path.exists("cover2.png"):
+        st.image("cover2.png", use_container_width=True)
 with col2:
     st.write("""
-    **Ein Herz, das keinen Zorn mehr trägt**
-    Ein bewegender Roman über Vergebung, zweite Chancen und die Suche nach dem inneren Frieden. Begleite die Protagonisten auf einer Reise, die zeigt, dass es nie zu spät ist, die Schatten der Vergangenheit hinter sich zu lassen.
+    **Klappentext:**
+    Ein Herz, das keinen Zorn mehr trägt, ist ein tief bewegender Roman über die Kraft des Vergebens und den Mut, die eigene Vergangenheit hinter sich zu lassen. 
+    Begleiten Sie die Protagonisten auf einer emotionalen Reise, die zeigt, dass Heilung dort beginnt, wo Bitterkeit endet. 
+    Ein Buch für alle, die an die heilende Kraft der Menschlichkeit glauben.
     """)
+    st.markdown("**16,99 €** (Signiertes Taschenbuch, inkl. Versand)")
+    st.markdown("**14,49 €** (Standard Taschenbuch, inkl. Versand)")
+
+st.info("Sonderangebot: Mängelexemplare (Format 6:9, große Schrift) für **9,90 Euro** inkl. Versand verfügbar!")
 
 st.divider()
 
-# 5. BESTELL-ÜBERSICHT & FORMULAR
+# 5. DAS BESTELLFORMULAR
 st.header("📦 Buch direkt bei mir bestellen")
-st.write("Wähle hier deine gewünschte Ausgabe aus (Preise inkl. Versand innerhalb Deutschland):")
+st.write("Möchtest du das Buch bestellen? Fülle einfach das Formular unten aus. Deine Bestellung wird direkt in meiner Datenbank gespeichert!")
 
-st.markdown("""
-* **14,99 €** – Ein Herz, das keinen Zorn mehr trägt (Taschenbuch)
-""")
-
-# Hier bleibt die URL deines ursprünglichen Stefan-Röser-Bestellformulars
 form_url = "https://docs.google.com/forms/d/e/1FAIpQLSf60i048_9KbQ_yMcM0kJQpBGA6s3xOuASdLO6hPfhr6z2zbQ/viewform?embedded=true"
 
 st.markdown(f"""
@@ -62,11 +58,35 @@ st.markdown(f"""
     </iframe>
     """, unsafe_allow_html=True)
 
-# 6. FOOTER
+st.divider()
+
+# 6. Vorheriges Projekt
+st.header("Vorheriges Projekt")
+col3, col4 = st.columns([1, 2])
+
+with col3:
+    if os.path.exists("cover1.png"):
+        st.image("cover1.png", caption="Mein erstes Werk", use_container_width=True)
+    else:
+        st.info("📖 Bild 'cover1.png' folgt...")
+
+with col4:
+    st.write("""
+    Mein erstes Buch habe ich im Sommer 2025 veröffentlicht. 
+    Es ist derzeit nur als E-Book über Amazon Kindle oder Kindle-Unlimited erhältlich.
+
+    **Klappentext:**
+    Berlin, späte Weimarer Republik: Eine Stadt voller Kontraste - Jazz und Aufmärsche, Hoffnung und Gefahr. 
+    Mitten darin begegnen sich Nathaniel, ein amerikanischer Reporter, und Clara, die nach einem neuen Anfang sucht. 
+    """)
+
+# 7. FOOTER (Copyright & Rechtliches)
 st.divider()
 st.write("<p style='text-align: center;'>© 2026 Stefan Röser</p>", unsafe_allow_html=True)
 
+# Rechtliche Links in zwei Spalten
 footer_col1, footer_col2 = st.columns(2)
+
 with footer_col1:
     with st.expander("Impressum"):
         st.write("""
@@ -76,9 +96,12 @@ with footer_col1:
         
         **Kontakt:** E-Mail: stefan@booksart.de  
         """)
+
 with footer_col2:
     with st.expander("Datenschutz"):
         st.write("""
         **Datenschutzerklärung** Diese Seite nutzt ein eingebettetes Google Formular zur Bestellabwicklung. 
-        Die Daten werden auf Google-Servern gespeichert, damit der Autor die Bestellung bearbeiten kann. 
+        Die von Ihnen eingegebenen Daten werden auf Google-Servern gespeichert, 
+        damit der Autor die Bestellung bearbeiten kann. 
+        Weitere Informationen finden Sie in der Datenschutzerklärung von Google.
         """)
