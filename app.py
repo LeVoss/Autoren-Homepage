@@ -34,7 +34,7 @@ with col1:
         try:
             st.image("cover2.png", use_container_width=True)
         except Exception:
-            st.error("Bilddatei 'cover2.png' fehlerhaft.")
+            st.error("Bilddatei 'cover2.png' fehlerhaft oder nicht lesbar.")
     else:
         st.info("📖 Cover-Bild folgt...")
 
@@ -51,14 +51,14 @@ st.divider()
 
 # 5. BESTELL-ÜBERSICHT & FORMULAR
 st.header("📦 Buch direkt bei mir bestellen")
-st.write("Wähle hier dein gewünschtes Exemplar aus (Preise inkl. Versand innerhalb Deutschland):")
+st.write("Bitte wähle im untenstehenden Formular unter **'Auswahl*'** eine der folgenden Optionen aus:")
 
-# Die saubere Liste der Bestelloptionen inklusive Roman-Fabrik
+# Die exakte Liste der Bestelloptionen zur Orientierung für das Formular
 st.markdown("""
-* **16,99 €** (Ein Herz, das keinen Zorn mehr trägt - Signiertes Taschenbuch, inkl. Versand innerhalb Deutschland)
-* **14,49 €** (Ein Herz, das keinen Zorn mehr trägt - Standard Taschenbuch, inkl. Versand innerhalb Deutschland)
-* **9,99 €** (Ein Herz, das keinen Zorn mehr trägt - Mängelexemplar, inkl. Versand innerhalb Deutschland)
-* **14,99 €** (Die Roman-Fabrik - Taschenbuch, inkl. Versand innerhalb Deutschland)
+1. **16,99 €** (Ein Herz, das keinen Zorn mehr trägt - signiert, inkl. Versand innerhalb Deutschland)
+2. **14,49 €** (Ein Herz, das keinen Zorn mehr trägt - nicht signiert, inkl. Versand innerhalb Deutschland)
+3. **9,99 €** (Ein Herz, das keinen Zorn mehr trägt - Mängelexemplar, inkl. Versand innerhalb Deutschland)
+4. **14,99 €** (Die Roman-Fabrik - nicht signiert, inkl. Versand innerhalb Deutschland)
 """)
 
 form_url = "https://docs.google.com/forms/d/e/1FAIpQLSf60i048_9KbQ_yMcM0kJQpBGA6s3xOuASdLO6hPfhr6z2zbQ/viewform?embedded=true"
