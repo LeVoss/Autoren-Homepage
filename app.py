@@ -26,31 +26,34 @@ die das Herz berühren und den Geist bewegen.
 
 st.divider()
 
-# 4. Aktuelles Buch & Preisliste
-st.header("Meine aktuellen Titel")
+# 4. Buch-Präsentation: Ein Herz, das keinen Zorn mehr trägt
+st.header("Ein Herz, das keinen Zorn mehr trägt")
 col1, col2 = st.columns([1, 2])
 with col1:
     if os.path.exists("cover2.png"):
         st.image("cover2.png", use_container_width=True)
 with col2:
     st.write("""
-    **Ein Herz, das keinen Zorn mehr trägt**
+    **Klappentext:**
     Ein tief bewegender Roman über die Kraft des Vergebens und den Mut, die eigene Vergangenheit hinter sich zu lassen. 
-    Ein Buch für alle, die an die heilende Kraft der Menschlichkeit glauben.
+    Begleiten Sie die Protagonisten auf einer emotionalen Reise, die zeigt, dass Heilung dort beginnt, wo Bitterkeit endet.
     """)
-    st.write("---")
-    st.markdown("16,99 € (Signiertes Taschenbuch, inkl. Versand innerhalb Deutschland)")
-    st.markdown("14,49 € (Standard Taschenbuch, inkl. Versand innerhalb Deutschland)")
-    st.markdown("9,99 € (Mängelexemplar, inkl. Versand innerhalb Deutschland)")
-    st.markdown("14,99 € (Die Roman-Fabrik, inkl. Versand innerhalb Deutschland)")
 
 st.info("Sonderangebot: Mängelexemplare von 'Ein Herz, das keinen Zorn mehr trägt' (Format 6:9, große Schrift) für **9,99 Euro** inkl. Versand verfügbar!")
 
 st.divider()
 
-# 5. DAS BESTELLFORMULAR
+# 5. BESTELL-ÜBERSICHT & FORMULAR
 st.header("📦 Buch direkt bei mir bestellen")
-st.write("Möchtest du eines meiner Bücher bestellen? Fülle einfach das Formular unten aus. Bitte wähle im Formular deine gewünschte Option aus:")
+st.write("Wähle hier dein gewünschtes Exemplar aus (Preise inkl. Versand innerhalb Deutschland):")
+
+# Die saubere Liste der Bestelloptionen
+st.markdown("""
+* **16,99 €** (Ein Herz, das keinen Zorn mehr trägt - Signiertes Taschenbuch)
+* **14,49 €** (Ein Herz, das keinen Zorn mehr trägt - Standard Taschenbuch)
+* **9,99 €** (Ein Herz, das keinen Zorn mehr trägt - Mängelexemplar)
+* **14,99 €** (Die Roman-Fabrik - Taschenbuch)
+""")
 
 form_url = "https://docs.google.com/forms/d/e/1FAIpQLSf60i048_9KbQ_yMcM0kJQpBGA6s3xOuASdLO6hPfhr6z2zbQ/viewform?embedded=true"
 
@@ -82,12 +85,11 @@ with col4:
     Mitten darin begegnen sich Nathaniel, ein amerikanischer Reporter, und Clara, die nach einem neuen Anfang sucht. 
     """)
 
-# 7. FOOTER (Copyright & Rechtliches)
+# 7. FOOTER
 st.divider()
 st.write("<p style='text-align: center;'>© 2026 Stefan Röser</p>", unsafe_allow_html=True)
 
 footer_col1, footer_col2 = st.columns(2)
-
 with footer_col1:
     with st.expander("Impressum"):
         st.write("""
@@ -97,12 +99,9 @@ with footer_col1:
         
         **Kontakt:** E-Mail: stefan@booksart.de  
         """)
-
 with footer_col2:
     with st.expander("Datenschutz"):
         st.write("""
         **Datenschutzerklärung** Diese Seite nutzt ein eingebettetes Google Formular zur Bestellabwicklung. 
-        Die von Ihnen eingegebenen Daten werden auf Google-Servern gespeichert, 
-        damit der Autor die Bestellung bearbeiten kann. 
-        Weitere Informationen finden Sie in der Datenschutzerklärung von Google.
+        Die Daten werden auf Google-Servern gespeichert, damit der Autor die Bestellung bearbeiten kann. 
         """)
