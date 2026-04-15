@@ -10,4 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Wake up Streamlit
-        run: curl -s https://autoren-homepage.streamlit.app > /dev/null
+        run: curl -s https://stefanroeser.streamlit.app > /dev/null
