@@ -2,7 +2,8 @@ name: App am Leben erhalten
 
 on:
   schedule:
-    - cron: '0 */4 * * *' # Alle 4 Stunden - wir gehen auf Nummer sicher!
+    # Alle 4 Stunden, um absolut sicherzugehen
+    - cron: '0 */4 * * *'
   workflow_dispatch:
 
 jobs:
@@ -11,5 +12,4 @@ jobs:
     steps:
       - name: Sende Weckruf
         run: |
-          # Wir versuchen es 3-mal, falls Streamlit beim ersten Mal langsam ist
-          curl -I -L --retry 3 https://stefanroeser.streamlit.app
+          curl -L -v -m 30 https://stefanroeser.streamlit.app/
