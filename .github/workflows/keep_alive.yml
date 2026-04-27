@@ -2,6 +2,7 @@ name: App am Leben erhalten
 
 on:
   schedule:
+    # Wir pingen alle 4 Stunden
     - cron: '0 */4 * * *'
   workflow_dispatch:
 
@@ -9,6 +10,12 @@ jobs:
   ping_app:
     runs-on: ubuntu-latest
     steps:
-      - name: Hard-Reset Weckruf
+      - name: Deep Wake (Vollständiger Seitenaufruf)
         run: |
-          wget --spider --user-agent="Mozilla/5.0" --tries=3 --timeout=30 https://stefanroeser.streamlit.app/
+          # Wir laden die Seite herunter und werfen das Ergebnis weg,
+          # aber der Download zwingt Streamlit zum Starten.
+          curl -L -s https://lennart-voss-homepage.streamlit.app/ > /dev/null
+          
+          # Sicherheitshalber ein zweiter Aufruf nach 10 Sekunden
+          sleep 10
+          curl -L -s https://stefanroeser.streamlit.app/ > /dev/null
