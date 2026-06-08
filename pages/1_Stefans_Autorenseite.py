@@ -1,31 +1,35 @@
 import streamlit as st
 import os
 
-# 1. Grundkonfiguration (Scrollen explizit erlaubt)
+# 1. Grundkonfiguration
 st.set_page_config(
     page_title="Autor Stefan Röser", 
     page_icon="✍️", 
     layout="centered"
 )
 
-# 2. CSS (Entfernt störende Standard-Elemente)
+# 2. CSS (Entfernt störende Elemente, lässt den normalen Scrollbalken intakt)
 st.markdown("""
     <style>
     #MainMenu {visibility: hidden;}
     header {visibility: hidden;}
     footer {visibility: hidden;}
     .stAppDeployButton {display:none;}
+    
+    /* Blendet die linke Sidebar-Schaltfläche komplett aus */
+    [data-testid="stSidebarCollapseButton"] {display: none;}
+    section[data-testid="stSidebar"] {display: none;}
     </style>
     """, unsafe_allow_html=True)
 
-# 3. Manuelles, horizontales Menü über Buttons
+# 3. Horizontales Menü über klassische Buttons (Komplett auf Stefan angepasst)
 menu_col1, menu_col2, _ = st.columns([1, 2, 5])
 with menu_col1:
     if st.button("🏠 Home", use_container_width=True, type="primary"):
         st.switch_page("app.py")
 with menu_col2:
-    if st.button("👤 Marions Autorenwelt", use_container_width=True):
-        st.switch_page("pages/1_Marions_Autorenseite.py")
+    if st.button("👤 Stefans Autorenwelt", use_container_width=True):
+        st.switch_page("pages/1_Stefans_Autorenseite.py")
 
 st.divider()
 
