@@ -3,25 +3,32 @@ import os
 from streamlit_navigation_bar import st_navbar
 
 # 1. Grundkonfiguration (Versteckt die linke Sidebar standardmäßig)
-st.set_page_config(page_title="Autor Stefan Röser", page_icon="✍️", layout="centered", initial_sidebar_state="collapsed")
+st.set_page_config(
+    page_title="Autor Stefan Röser", 
+    page_icon="✍️", 
+    layout="centered", 
+    initial_sidebar_state="collapsed"
+)
 
 # 2. Das obere Navigationsmenü definieren
 pages = ["Home", "Marions Autorenwelt"]
+
+# Vereinfachte und robustere Deklaration des Styles
 styles = {
     "nav": {
-        "background-color": "#FF4B4B",  # Korrigiert: Jetzt mit sauberen Anführungszeichen
-        "justify-content": "center",
+        "background-color": "#FF4B4B",
+        "justify-content": "center"
     },
     "img": {
-        "padding-right": "0px",
+        "padding-right": "0px"
     },
     "span": {
         "color": "white",
-        "padding": "14px 20px",
+        "padding": "14px 20px"
     },
     "active": {
         "background-color": "rgba(255, 255, 255, 0.25)",
-        "font-weight": "bold",
+        "font-weight": "bold"
     }
 }
 
@@ -44,7 +51,7 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # 4. DEIN ORIGINALER INHALT (Startseite)
-st.write(f"<h1 style='text-align: center; color: #FF4B4B;'>Willkommen in meiner Welt der Geschichten! ✍️✨</h1>", unsafe_allow_html=True)
+st.write("<h1 style='text-align: center; color: #FF4B4B;'>Willkommen in meiner Welt der Geschichten! ✍️✨</h1>", unsafe_allow_html=True)
 st.markdown("<h3 style='text-align: center;'>Schön, dass du da bist.</h3>", unsafe_allow_html=True)
 st.write("""
 <p style='text-align: center; font-size: 1.2em;'>
