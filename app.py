@@ -1,20 +1,51 @@
 import streamlit as st
 import os
+from streamlit_navigation_bar import st_navbar
 
-# 1. Grundkonfiguration
-st.set_page_config(page_title="Autor Stefan Röser", page_icon="✍️", layout="centered")
+# 1. Grundkonfiguration (WICHTIG: initial_sidebar_state="collapsed" versteckt die linke Leiste)
+st.set_page_config(page_title="Autor Stefan Röser", page_icon="✍️", layout="centered", initial_sidebar_state="collapsed")
 
-# 2. CSS (Entfernt die oberen Standard-Menüs, lässt aber die linke Sidebar für die Navigation aktiv!)
+# 2. Das obere Navigationsmenü definieren
+# "Home" bleibt auf dieser Seite, "Marions Autorenwelt" verweist auf die Datei im pages-Ordner
+pages = ["Home", "Marions Autorenwelt"]
+styles = {
+    "nav": {
+        "background-color": #FF4B4B", # Die Farbe deiner Überschrift
+        "justify-content": "center",
+    },
+    "img": {
+        "padding-right": "0px",
+    },
+    "span": {
+        "color": "white",
+        "padding": "14px 20px",
+    },
+    "active": {
+        "background-color": "rgba(255, 255, 255, 0.25)",
+        "font-weight": "bold",
+    }
+}
+
+# Menü ganz oben anzeigen
+page = st_navbar(pages, styles=styles)
+
+# Falls der User auf "Marions Autorenwelt" klickt, leiten wir ihn intern um
+if page == "Marions Autorenwelt":
+    st.switch_page("pages/1_Marions_Autorenseite.py")
+
+# 3. CSS (Entfernt die restlichen störenden Elemente)
 st.markdown("""
     <style>
     #MainMenu {visibility: hidden;}
     header {visibility: hidden;}
     footer {visibility: hidden;}
     .stAppDeployButton {display:none;}
+    /* Blendet den kleinen Pfeil für die Sidebar endgültig aus */
+    [data-testid="stSidebarCollapseButton"] {display: none;}
     </style>
     """, unsafe_allow_html=True)
 
-# 3. TITEL & WILLKOMMEN
+# 4. DEIN ORIGINALER INHALT (Startseite)
 st.write(f"<h1 style='text-align: center; color: #FF4B4B;'>Willkommen in meiner Welt der Geschichten! ✍️✨</h1>", unsafe_allow_html=True)
 st.markdown("<h3 style='text-align: center;'>Schön, dass du da bist.</h3>", unsafe_allow_html=True)
 st.write("""
@@ -26,7 +57,7 @@ die das Herz berühren und den Geist bewegen.
 
 st.divider()
 
-# 4. Aktuelles Buch
+# Aktuelles Buch
 st.header("Ein Herz, das keinen Zorn mehr trägt")
 col1, col2 = st.columns([1, 2])
 with col1:
@@ -51,7 +82,7 @@ st.info("Sonderangebot: Mängelexemplare (Format 6:9, große Schrift) für **9,9
 
 st.divider()
 
-# 5. DAS BESTELLFORMULAR
+# DAS BESTELLFORMULAR
 st.header("📦 Buch direkt bei mir bestellen")
 st.write("Möchtest du das Buch bestellen? Fülle einfach das Formular unten aus. Deine Bestellung wird direkt in meiner Datenbank gespeichert!")
 
@@ -65,7 +96,7 @@ st.markdown(f"""
 
 st.divider()
 
-# 6. Vorheriges Projekt
+# Vorheriges Projekt
 st.header("Vorheriges Projekt")
 col3, col4 = st.columns([1, 2])
 
@@ -88,12 +119,11 @@ with col4:
     Mitten darin begegnen sich Nathaniel, ein amerikanischer Reporter, und Clara, die nach einem neuen Anfang sucht. 
     """)
 
-# 7. FOOTER (Copyright & Rechtliches)
+# FOOTER
 st.divider()
 st.write("<p style='text-align: center;'>© 2026 Stefan Röser</p>", unsafe_allow_html=True)
 
 footer_col1, footer_col2 = st.columns(2)
-
 with footer_col1:
     with st.expander("Impressum"):
         st.write("""
@@ -103,7 +133,6 @@ with footer_col1:
          
         **Kontakt:** E-Mail: stefan@booksart.de  
         """)
-
 with footer_col2:
     with st.expander("Datenschutz"):
         st.write("""
