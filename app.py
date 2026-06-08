@@ -8,36 +8,31 @@ st.set_page_config(
     layout="centered"
 )
 
-# 2. CSS (Entfernt störende Elemente, lässt den Rest komplett unangetastet)
+# 2. CSS (Entfernt die linke Standard-Sidebar)
 st.markdown("""
     <style>
     #MainMenu {visibility: hidden;}
     header {visibility: hidden;}
     footer {visibility: hidden;}
     .stAppDeployButton {display:none;}
+    [data-testid="stSidebarCollapseButton"] {display: none !important;}
+    section[data-testid="stSidebar"] {display: none !important;}
     </style>
     """, unsafe_allow_html=True)
 
-# 3. Offizielle Navigation (Erzeugt das Menü ganz oben)
-# Wir definieren die Seiten und setzen das Design auf "Tabs" (horizontales Menü oben)
-if hasattr(st, "navigation"):
-    home_page = st.Page("app.py", title="Home", icon="🏠", default=True)
-    marion_page = st.Page("pages/1_Marions_Autorenseite.py", title="Marions Autorenwelt", icon="👤")
-    
-    # Das positioniert das Menü als Tabs oben drüber statt in der Sidebar!
-    pg = st.navigation([home_page, marion_page], position="hidden") 
-    
-    # Da wir position="hidden" nutzen, bauen wir uns oben zwei schöne native Buttons als Menü:
-    menu_col1, menu_col2, _ = st.columns([1, 2, 5])
-    with menu_col1:
-        if st.button("🏠 Home", use_container_width=True, type="primary"):
-            st.switch_page("app.py")
-    with menu_col2:
-        if st.button("👤 Marions Autorenwelt", use_container_width=True):
-            st.switch_page("pages/1_Marions_Autorenseite.py")
-    st.divider()
+# 3. Horizontales Menü über Buttons (Nutzt den exakten deutschen Ordnernamen)
+menu_col1, menu_col2, _ = st.columns([1, 2, 5])
+with menu_col1:
+    if st.button("🏠 Home", use_container_width=True, type="primary"):
+        st.switch_page("app.py")
+with menu_col2:
+    if st.button("👤 Stefans Autorenwelt", use_container_width=True):
+        # "Seiten" statt "pages", weil dein Ordner auf GitHub so heißt!
+        st.switch_page("Seiten/1_Stefans_Autorenseite.py")
 
-# 4. DEIN ORIGINALER INHALT (Startseite)
+st.divider()
+
+# 4. DEIN INHALT
 st.write("<h1 style='text-align: center; color: #FF4B4B;'>Willkommen in meiner Welt der Geschichten! ✍️✨</h1>", unsafe_allow_html=True)
 st.markdown("<h3 style='text-align: center;'>Schön, dass du da bist.</h3>", unsafe_allow_html=True)
 st.write("<p style='text-align: center; font-size: 1.2em;'>Ich bin <strong>Stefan Röser</strong> und ich lade dich ein, in Erzählungen einzutauchen.</p>", unsafe_allow_html=True)
@@ -54,10 +49,7 @@ with col1:
     else:
         st.info("📖 Bild 'cover2.png' folgt...")
 with col2:
-    st.write("""
-    **Klappentext:**
-    Ein Herz, das keinen Zorn mehr trägt, ist ein tief bewegender Roman über die Kraft des Vergebens und den Mut, die eigene Vergangenheit hinter sich zu lassen. 
-    """)
+    st.write("Ein Herz, das keinen Zorn mehr trägt, ist ein tief bewegender Roman über die Kraft des Vergebens.")
 
 st.divider()
 
@@ -68,5 +60,4 @@ st.markdown(f'<iframe src="{form_url}" width="100%" height="900" frameborder="0"
 
 st.divider()
 
-# FOOTER
 st.write("<p style='text-align: center;'>© 2026 Stefan Röser</p>", unsafe_allow_html=True)
