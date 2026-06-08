@@ -2,15 +2,14 @@ import streamlit as st
 import os
 from streamlit_navigation_bar import st_navbar
 
-# 1. Grundkonfiguration (WICHTIG: initial_sidebar_state="collapsed" versteckt die linke Leiste)
+# 1. Grundkonfiguration (Versteckt die linke Sidebar standardmäßig)
 st.set_page_config(page_title="Autor Stefan Röser", page_icon="✍️", layout="centered", initial_sidebar_state="collapsed")
 
 # 2. Das obere Navigationsmenü definieren
-# "Home" bleibt auf dieser Seite, "Marions Autorenwelt" verweist auf die Datei im pages-Ordner
 pages = ["Home", "Marions Autorenwelt"]
 styles = {
     "nav": {
-        "background-color": #FF4B4B", # Die Farbe deiner Überschrift
+        "background-color": "#FF4B4B",  # Korrigiert: Jetzt mit sauberen Anführungszeichen
         "justify-content": "center",
     },
     "img": {
@@ -33,14 +32,13 @@ page = st_navbar(pages, styles=styles)
 if page == "Marions Autorenwelt":
     st.switch_page("pages/1_Marions_Autorenseite.py")
 
-# 3. CSS (Entfernt die restlichen störenden Elemente)
+# 3. CSS (Entfernt restliche störende UI-Elemente und den Sidebar-Pfeil)
 st.markdown("""
     <style>
     #MainMenu {visibility: hidden;}
     header {visibility: hidden;}
     footer {visibility: hidden;}
     .stAppDeployButton {display:none;}
-    /* Blendet den kleinen Pfeil für die Sidebar endgültig aus */
     [data-testid="stSidebarCollapseButton"] {display: none;}
     </style>
     """, unsafe_allow_html=True)
