@@ -8,7 +8,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# 2. CSS (Entfernt störende Elemente, lässt den normalen Scrollbalken intakt)
+# 2. CSS (Entfernt die linke Sidebar komplett, lässt Scrollbalken intakt)
 st.markdown("""
     <style>
     #MainMenu {visibility: hidden;}
@@ -16,13 +16,13 @@ st.markdown("""
     footer {visibility: hidden;}
     .stAppDeployButton {display:none;}
     
-    /* Blendet die linke Sidebar-Schaltfläche komplett aus */
-    [data-testid="stSidebarCollapseButton"] {display: none;}
-    section[data-testid="stSidebar"] {display: none;}
+    /* Sidebar-Inhalte und Buttons vollständig ausblenden */
+    [data-testid="stSidebarCollapseButton"] {display: none !important;}
+    section[data-testid="stSidebar"] {display: none !important;}
     </style>
     """, unsafe_allow_html=True)
 
-# 3. Horizontales Menü über klassische Buttons (Komplett auf Stefan angepasst)
+# 3. Horizontales Menü über klassische Buttons
 menu_col1, menu_col2, _ = st.columns([1, 2, 5])
 with menu_col1:
     if st.button("🏠 Home", use_container_width=True, type="primary"):
