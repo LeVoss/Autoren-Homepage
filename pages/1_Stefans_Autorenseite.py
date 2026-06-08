@@ -8,7 +8,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# 2. CSS (Unverändert für saubere Optik)
+# 2. CSS (Entfernt störende Elemente)
 st.markdown("""
     <style>
     #MainMenu {visibility: hidden;}
@@ -18,28 +18,27 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# 3. Sichere Navigation ohne Absturzgefahr
-# Wir prüfen zuerst, ob der Pfad existiert, bevor wir die Seite registrieren
-marion_file = "pages/1_Marions_Autorenseite.py"
+# 3. Offizielle Streamlit-Navigation (Korrigierte Pfade!)
+# WICHTIG: Bei Dateien im pages-Ordner wird NUR der Dateiname ohne "pages/" übergeben!
+home_page = st.Page("app.py", title="Home", icon="🏠", default=True)
+marion_page = st.Page("1_Marions_Autorenseite.py", title="Marions Autorenwelt", icon="👤")
 
-if os.path.exists(marion_file) and hasattr(st, "Page"):
-    # Seite nur erstellen, wenn die Datei auch physisch da ist
-    home_page = st.Page("app.py", title="Home", icon="🏠", default=True)
-    marion_page = st.Page(marion_file, title="Marions Autorenwelt", icon="👤")
-    pg = st.navigation([home_page, marion_page], position="hidden")
+# Das lädt die Seiten im Hintergrund, position="hidden" blendet die linke Sidebar aus
+pg = st.navigation([home_page, marion_page], position="hidden")
 
-# Schöne, native Buttons ganz oben als horizontales Menü
+# Horizontale Buttons ganz oben als Menü
 menu_col1, menu_col2, _ = st.columns([1, 2, 5])
 with menu_col1:
     if st.button("🏠 Home", use_container_width=True, type="primary"):
         st.switch_page("app.py")
 with menu_col2:
     if st.button("👤 Marions Autorenwelt", use_container_width=True):
-        if os.path.exists(marion_file):
-            st.switch_page(marion_file)
-        else:
-            st.error("Die Unterseite wird noch geladen oder der Ordnerpfad auf GitHub stimmt nicht ganz.")
+        st.switch_page("pages/1_Marions_Autorenseite.py")
+
 st.divider()
+
+# Hier startet die eigentliche Navigation
+pg.run()
 
 # 4. DEIN ORIGINALER INHALT (Startseite)
 st.write("<h1 style='text-align: center; color: #FF4B4B;'>Willkommen in meiner Welt der Geschichten! ✍️✨</h1>", unsafe_allow_html=True)
