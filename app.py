@@ -18,7 +18,7 @@ page = st_navbar(pages)
 if page == "Marions Autorenwelt":
     st.switch_page("pages/1_Marions_Autorenseite.py")
 
-# 3. CSS (Entfernt restliche störende UI-Elemente, aktiviert aber den Scrollbalken)
+# 3. CSS (Entfernt störende UI-Elemente und erzwingt das Scrollen auf allen Ebenen)
 st.markdown("""
     <style>
     #MainMenu {visibility: hidden;}
@@ -27,9 +27,10 @@ st.markdown("""
     .stAppDeployButton {display:none;}
     [data-testid="stSidebarCollapseButton"] {display: none;}
     
-    /* Erzwingt, dass die App bei langem Inhalt ganz normal scrollbar ist */
-    .stApp {
+    /* Radikaler Scroll-Fix: Aktiviert das vertikale Scrollen für alle App-Container */
+    html, body, .stApp, [data-testid="stMain"], .main .block-container {
         overflow-y: auto !important;
+        height: auto !important;
     }
     </style>
     """, unsafe_allow_html=True)
