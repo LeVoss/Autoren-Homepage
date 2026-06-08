@@ -7,7 +7,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# 2. CSS (Identisch zur Startseite, um die Sidebar zu verstecken)
+# 2. CSS (Sidebar verstecken)
 st.markdown("""
     <style>
     #MainMenu {visibility: hidden;}
@@ -19,26 +19,24 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# 3. Das identische Menü für die Unterseite
+# 3. Horizontales Menü (Mit internem Streamlit-Pfad)
 menu_col1, menu_col2, _ = st.columns([1, 2, 5])
 with menu_col1:
     if st.button("🏠 Home", use_container_width=True):
         st.switch_page("app.py")
 with menu_col2:
-    # Hier setzen wir den Button auf 'primary' (farbig), da wir uns auf dieser Seite befinden
     if st.button("👤 Stefans Autorenwelt", use_container_width=True, type="primary"):
-        st.switch_page("Seiten/1_Stefans_Autorenseite.py")
+        st.switch_page("pages/1_Stefans_Autorenseite.py")
 
 st.divider()
 
-# 4. DEIN INHALT FÜR DIE AUTORENSEITE
+# 4. INHALT FÜR DIE AUTORENSEITE
 st.write(f"<h1 style='text-align: center; color: #008080;'>Stefans Autorenwelt ✍️✨</h1>", unsafe_allow_html=True)
 
 st.header("👤 Über mich")
 st.write("""
-Hier kannst du deinen Lesern etwas über dich erzählen: 
-Wie bist du zum Schreiben gekommen? Was inspiriert dich? 
-Lass deine Leser hinter die Kulissen deiner Arbeit blicken.
+Hier ist Platz für deine persönliche Vorstellung als Autor! 
+Erzähle deinen Lesern von deinem Werdegang, deinen Inspirationen oder woran du aktuell arbeitest.
 """)
 
 st.divider()
