@@ -26,27 +26,97 @@ die das Herz berühren und den Geist bewegen.
 
 st.divider()
 
-# 4. Aktuelles Buch
-st.header("Ein Herz, das keinen Zorn mehr trägt")
-col1, col2 = st.columns([1, 2])
-with col1:
-    if os.path.exists("cover2.png"):
-        st.image("cover2.png", use_container_width=True)
-with col2:
-    st.write("""
-    **Klappentext:**
-    Ein Herz, das keinen Zorn mehr trägt, ist ein tief bewegender Roman über die Kraft des Vergebens und den Mut, die eigene Vergangenheit hinter sich zu lassen. 
-    Begleiten Sie die Protagonisten auf einer emotionalen Reise, die zeigt, dass Heilung dort beginnt, wo Bitterkeit endet. 
-    Ein Buch für alle, die an die heilende Kraft der Menschlichkeit glauben.
-    """)
-    st.markdown("**16,99 €** (Signiertes Taschenbuch, inkl. Versand (innerhalb Deutschland))")
-    st.markdown("**14,49 €** (Standard Taschenbuch, inkl. Versand (innerhalb Deutschland))")
+# ==========================================
+# LIVE-DEMO FÜR MARION (4 RUBRIKEN FLIESSEND)
+# ==========================================
 
-st.info("Sonderangebot: Mängelexemplare (Format 6:9, große Schrift) für **9,99 Euro** inkl. Versand (innerhalb Deutschland) verfügbar!")
+# RUBRIK 1: Foto von mir (inkl. Text)
+st.header("👤 Über mich")
+col_about1, col_about2 = st.columns([1, 2])
+with col_about1:
+    # Nutzt dein bestehendes Cover oder einen eleganten Platzhalter für Marions Foto
+    if os.path.exists("stefan.png"):
+        st.image("stefan.png", use_container_width=True)
+    else:
+        st.info("📸 [Hier steht später dein Autorenfoto]")
+with col_about2:
+    st.write("""
+    **Herzlich Willkommen!**  
+    Hier ist Platz für deine persönliche Vorstellung, Marion. Ein packender Text darüber, wer du bist, was dich antreibt und warum du schreibst. Deine Leser lieben es, das Gesicht hinter den Geschichten kennenzulernen. Dieser Bereich lässt sich flexibel so lang gestalten, wie du es benötigst.
+    """)
 
 st.divider()
 
-# 5. DAS BESTELLFORMULAR
+# RUBRIK 2: Abbildung des Buchs + Kurzbeschreibung daneben (Jetzt im Handel bestellen: Logo Amazon etc.)
+st.header("📚 Mein aktuelles Werk")
+col_book1, col_book2 = st.columns([1, 2])
+with col_book1:
+    # Hier simulieren wir das Buch-Cover (z.B. mit The Novel Factory oder deinem aktuellen Buch)
+    if os.path.exists("cover2.png"):
+        st.image("cover2.png", use_container_width=True)
+    else:
+        st.info("📖 [Buch-Cover Placeholder]")
+with col_book2:
+    st.subheader("The Novel Factory / Ihr Buchtitel")
+    st.write("""
+    **Klappentext / Kurzbeschreibung:**  
+    Hier setzen wir die packende Beschreibung deines Buches perfekt in Szene. Daneben platzieren wir direkte, auffällige Verlinkungen zu den Shops.
+    """)
+    
+    # Simulation der Shop-Buttons (inkl. Amazon)
+    st.markdown("### 🛒 Jetzt im Handel bestellen:")
+    btn_col1, btn_col2 = st.columns(2)
+    with btn_col1:
+        st.link_button("🌐 Bei Amazon kaufen", "https://amazon.de", type="primary")
+    with btn_col2:
+        st.link_button("📖 Bei Thalia kaufen", "https://thalia.de")
+
+st.divider()
+
+# RUBRIK 3: Veranstaltungen (z.B. Lesungen)
+st.header("📅 Veranstaltungen & Lesungen")
+st.write("Verpasse keinen Termin! Hier findest du alle aktuellen Daten, an denen wir uns persönlich treffen können:")
+
+# Eine schicke Tabelle oder strukturierte Liste für ihre Termine
+termine = [
+    {"Datum": "15. Oktober 2026", "Event": "Autorenlesung & Signierstunde", "Ort": "Stadtbibliothek, Berlin"},
+    {"Datum": "04. November 2026", "Event": "Online-Werkstattgespräch (Zoom)", "Ort": "Überall (Digital)"},
+    {"Datum": "12. Dezember 2026", "Event": "Große Premierenlesung", "Ort": "Buchhandlung Schmidt, Hamburg"}
+]
+
+for t in termine:
+    with st.expander(f"📌 {t['Datum']} – {t['Event']}"):
+        st.write(f"**Wo:** {t['Ort']}")
+        st.write("Einlass ab 19:00 Uhr. Ich freue mich auf den Austausch mit euch! Eintritt frei.")
+
+st.divider()
+
+# RUBRIK 4: Multimedia (Fachartikel, Podcasts)
+st.header("🎙️ Multimedia & Presse")
+st.write("Interviews, Gastbeiträge und Gespräche hinter den Kulissen:")
+
+col_media1, col_media2 = st.columns(2)
+
+with col_media1:
+    st.subheader("🎧 Podcast-Gast")
+    st.info("»Im Gespräch über die Kunst des Schreibens«")
+    st.write("Höre hier rein, wie ich im 'Autoren-Talk-Podcast' über die Entstehung meines neuesten Manuskripts spreche.")
+    st.link_button("Jetzt reinhören", "https://spotify.com")
+
+with col_media2:
+    st.subheader("📰 Fachartikel")
+    st.info("»Die Zukunft des Self-Publishing«")
+    st.write("Mein Gastbeitrag im großen Literaturmagazin über die versteckten Kosten bei der Buchproduktion.")
+    st.link_button("Artikel lesen", "https://google.com")
+
+
+# ==========================================
+# ENDE DER DEMO - HIER FOLGEN DEINE ORIGINALELEMENTE
+# ==========================================
+
+st.divider()
+
+# DEIN BESTELLFORMULAR (Ehemals Punkt 5)
 st.header("📦 Buch direkt bei mir bestellen")
 st.write("Möchtest du das Buch bestellen? Fülle einfach das Formular unten aus. Deine Bestellung wird direkt in meiner Datenbank gespeichert!")
 
@@ -60,7 +130,7 @@ st.markdown(f"""
 
 st.divider()
 
-# 6. Vorheriges Projekt
+# Vorheriges Projekt (Nathaniel & Clara)
 st.header("Vorheriges Projekt")
 col3, col4 = st.columns([1, 2])
 
@@ -80,7 +150,7 @@ with col4:
     Mitten darin begegnen sich Nathaniel, ein amerikanischer Reporter, und Clara, die nach einem neuen Anfang sucht. 
     """)
 
-# 7. FOOTER (Copyright & Rechtliches)
+# FOOTER (Copyright & Rechtliches)
 st.divider()
 st.write("<p style='text-align: center;'>© 2026 Stefan Röser</p>", unsafe_allow_html=True)
 
@@ -93,7 +163,7 @@ with footer_col1:
         **Angaben gemäß § 5 TMG:** Stefan Röser,  
         c/o Online Impressum.de #6281, Europaring 90, 
         53757 Sankt Augustin
-        
+         
         **Kontakt:** E-Mail: stefan@booksart.de  
         """)
 
