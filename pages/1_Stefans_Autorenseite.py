@@ -21,7 +21,7 @@ st.markdown("""
 # 3. Offizielle Streamlit-Navigation (Korrigierte Pfade!)
 # WICHTIG: Bei Dateien im pages-Ordner wird NUR der Dateiname ohne "pages/" übergeben!
 home_page = st.Page("app.py", title="Home", icon="🏠", default=True)
-marion_page = st.Page("1_Marions_Autorenseite.py", title="Marions Autorenwelt", icon="👤")
+marion_page = st.Page("1_Stefans_Autorenseite.py", title="Marions Autorenwelt", icon="👤")
 
 # Das lädt die Seiten im Hintergrund, position="hidden" blendet die linke Sidebar aus
 pg = st.navigation([home_page, marion_page], position="hidden")
