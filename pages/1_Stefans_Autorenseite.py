@@ -1,14 +1,14 @@
 import streamlit as st
 import os
 
-# 1. Grundkonfiguration
+# 1. Grundkonfiguration (Scrollen explizit erlaubt)
 st.set_page_config(
     page_title="Autor Stefan Röser", 
     page_icon="✍️", 
     layout="centered"
 )
 
-# 2. CSS (Entfernt störende Elemente)
+# 2. CSS (Entfernt störende Standard-Elemente)
 st.markdown("""
     <style>
     #MainMenu {visibility: hidden;}
@@ -18,15 +18,7 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# 3. Offizielle Streamlit-Navigation (Korrigierte Pfade!)
-# WICHTIG: Bei Dateien im pages-Ordner wird NUR der Dateiname ohne "pages/" übergeben!
-home_page = st.Page("app.py", title="Home", icon="🏠", default=True)
-marion_page = st.Page("1_Stefans_Autorenseite.py", title="Marions Autorenwelt", icon="👤")
-
-# Das lädt die Seiten im Hintergrund, position="hidden" blendet die linke Sidebar aus
-pg = st.navigation([home_page, marion_page], position="hidden")
-
-# Horizontale Buttons ganz oben als Menü
+# 3. Manuelles, horizontales Menü über Buttons
 menu_col1, menu_col2, _ = st.columns([1, 2, 5])
 with menu_col1:
     if st.button("🏠 Home", use_container_width=True, type="primary"):
@@ -36,9 +28,6 @@ with menu_col2:
         st.switch_page("pages/1_Marions_Autorenseite.py")
 
 st.divider()
-
-# Hier startet die eigentliche Navigation
-pg.run()
 
 # 4. DEIN ORIGINALER INHALT (Startseite)
 st.write("<h1 style='text-align: center; color: #FF4B4B;'>Willkommen in meiner Welt der Geschichten! ✍️✨</h1>", unsafe_allow_html=True)
