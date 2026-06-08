@@ -4,29 +4,13 @@ import os
 # 1. Grundkonfiguration
 st.set_page_config(page_title="Autor Stefan Röser", page_icon="✍️", layout="centered")
 
-# 2. CSS (Entfernt Menüs für einen sauberen Look und stylt die Tabs)
+# 2. CSS (Entfernt die oberen Standard-Menüs, lässt aber die linke Sidebar für die Navigation aktiv!)
 st.markdown("""
     <style>
     #MainMenu {visibility: hidden;}
     header {visibility: hidden;}
     footer {visibility: hidden;}
     .stAppDeployButton {display:none;}
-    
-    /* Macht die Tabs optisch etwas präsentierbarer */
-    .stTabs [data-baseweb="tab-list"] {
-        gap: 10px;
-    }
-    .stTabs [data-baseweb="tab"] {
-        height: 50px;
-        white-space: pre-wrap;
-        background-color: #f0f2f6;
-        border-radius: 5px 5px 0px 0px;
-        padding: 10px 20px;
-    }
-    .stTabs [aria-selected="true"] {
-        background-color: #FF4B4B !important;
-        color: white !important;
-    }
     </style>
     """, unsafe_allow_html=True)
 
@@ -42,86 +26,27 @@ die das Herz berühren und den Geist bewegen.
 
 st.divider()
 
-# ==========================================
-# NEU: DIE REITER-NAVIGATION (TABS) FÜR MARION
-# ==========================================
-st.markdown("<h3 style='text-align: center; color: #333333;'>Demo: Deine Rubriken als Reiter</h3>", unsafe_allow_html=True)
+# 4. Aktuelles Buch
+st.header("Ein Herz, das keinen Zorn mehr trägt")
+col1, col2 = st.columns([1, 2])
+with col1:
+    if os.path.exists("cover2.png"):
+        st.image("cover2.png", use_container_width=True)
+with col2:
+    st.write("""
+    **Klappentext:**
+    Ein Herz, das keinen Zorn mehr trägt, ist ein tief bewegender Roman über die Kraft des Vergebens und den Mut, die eigene Vergangenheit hinter sich zu lassen. 
+    Begleiten Sie die Protagonisten auf einer emotionalen Reise, die zeigt, dass Heilung dort beginnt, wo Bitterkeit endet. 
+    Ein Buch für alle, die an die heilende Kraft der Menschlichkeit glauben.
+    """)
+    st.markdown("**16,99 €** (Signiertes Taschenbuch, inkl. Versand (innerhalb Deutschland))")
+    st.markdown("**14,49 €** (Standard Taschenbuch, inkl. Versand (innerhalb Deutschland))")
 
-# Hier definieren wir die 4 Reiter oben drüber
-tab1, tab2, tab3, tab4 = st.tabs(["👤 Über mich", "📚 Mein Buch", "📅 Veranstaltungen", "🎙️ Multimedia"])
-
-# REITER 1: Über mich
-with tab1:
-    st.write("## ") # Kleiner Abstandhalter
-    col_about1, col_about2 = st.columns([1, 2])
-    with col_about1:
-        if os.path.exists("stefan.png"):
-            st.image("stefan.png", use_container_width=True)
-        else:
-            st.info("📸 [Autorenfoto]")
-    with col_about2:
-        st.write("""
-        **Herzlich Willkommen!**  
-        Hier ist Platz für deine persönliche Vorstellung, Marion. Ein packender Text darüber, wer du bist, was dich antreibt und warum du schreibst. Deine Leser lieben es, das Gesicht hinter den Geschichten kennenzulernen.
-        """)
-
-# REITER 2: Mein Buch
-with tab2:
-    st.write("## ")
-    col_book1, col_book2 = st.columns([1, 2])
-    with col_book1:
-        if os.path.exists("cover2.png"):
-            st.image("cover2.png", use_container_width=True)
-        else:
-            st.info("📖 [Buch-Cover]")
-    with col_book2:
-        st.subheader("Ihr Buchtitel / The Novel Factory")
-        st.write("""
-        **Klappentext / Kurzbeschreibung:**  
-        Hier setzen wir die packende Beschreibung deines Buches perfekt in Szene. Daneben platzieren wir direkte, schnelle Verlinkungen zu den Shops.
-        """)
-        st.markdown("### 🛒 Jetzt im Handel bestellen:")
-        btn_col1, btn_col2 = st.columns(2)
-        with btn_col1:
-            st.link_button("🌐 Bei Amazon kaufen", "https://amazon.de", type="primary")
-        with btn_col2:
-            st.link_button("📖 Bei Thalia kaufen", "https://thalia.de")
-
-# REITER 3: Veranstaltungen
-with tab3:
-    st.write("## ")
-    st.write("### Aktuelle Termine & Lesungen")
-    termine = [
-        {"Datum": "15. Oktober 2026", "Event": "Autorenlesung & Signierstunde", "Ort": "Stadtbibliothek, Berlin"},
-        {"Datum": "04. November 2026", "Event": "Online-Werkstattgespräch (Zoom)", "Ort": "Überall (Digital)"},
-        {"Datum": "12. Dezember 2026", "Event": "Große Premierenlesung", "Ort": "Buchhandlung Schmidt, Hamburg"}
-    ]
-    for t in termine:
-        with st.expander(f"📌 {t['Datum']} – {t['Event']}"):
-            st.write(f"**Wo:** {t['Ort']}")
-            st.write("Einlass ab 19:00 Uhr. Ich freue mich auf den Austausch mit euch! Eintritt frei.")
-
-# REITER 4: Multimedia
-with tab4:
-    st.write("## ")
-    st.write("### Interviews & Medienberichte")
-    col_media1, col_media2 = st.columns(2)
-    with col_media1:
-        st.subheader("🎧 Podcast-Gast")
-        st.info("»Im Gespräch über die Kunst des Schreibens«")
-        st.link_button("Jetzt reinhören", "https://spotify.com")
-    with col_media2:
-        st.subheader("📰 Fachartikel")
-        st.info("»Die Zukunft des Self-Publishing«")
-        st.link_button("Artikel lesen", "https://google.com")
-
-# ==========================================
-# ENDE DER DEMO - HIER FOLGEN DEINE ORIGINALELEMENTE
-# ==========================================
+st.info("Sonderangebot: Mängelexemplare (Format 6:9, große Schrift) für **9,99 Euro** inkl. Versand (innerhalb Deutschland) verfügbar!")
 
 st.divider()
 
-# DEIN BESTELLFORMULAR
+# 5. DAS BESTELLFORMULAR
 st.header("📦 Buch direkt bei mir bestellen")
 st.write("Möchtest du das Buch bestellen? Fülle einfach das Formular unten aus. Deine Bestellung wird direkt in meiner Datenbank gespeichert!")
 
@@ -135,7 +60,7 @@ st.markdown(f"""
 
 st.divider()
 
-# Vorheriges Projekt
+# 6. Vorheriges Projekt
 st.header("Vorheriges Projekt")
 col3, col4 = st.columns([1, 2])
 
@@ -155,7 +80,7 @@ with col4:
     Mitten darin begegnen sich Nathaniel, ein amerikanischer Reporter, und Clara, die nach einem neuen Anfang sucht. 
     """)
 
-# FOOTER (Copyright & Rechtliches)
+# 7. FOOTER (Copyright & Rechtliches)
 st.divider()
 st.write("<p style='text-align: center;'>© 2026 Stefan Röser</p>", unsafe_allow_html=True)
 
