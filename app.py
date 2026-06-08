@@ -31,7 +31,12 @@ st.header("Ein Herz, das keinen Zorn mehr trägt")
 col1, col2 = st.columns([1, 2])
 with col1:
     if os.path.exists("cover2.png"):
-        st.image("cover2.png", use_container_width=True)
+        try:
+            st.image("cover2.png", use_container_width=True)
+        except Exception:
+            st.info("📖 Buchcover 'cover2' wird geladen...")
+    else:
+        st.info("📖 Bild 'cover2.png' folgt...")
 with col2:
     st.write("""
     **Klappentext:**
@@ -66,7 +71,10 @@ col3, col4 = st.columns([1, 2])
 
 with col3:
     if os.path.exists("cover1.png"):
-        st.image("cover1.png", caption="Mein erstes Werk", use_container_width=True)
+        try:
+            st.image("cover1.png", caption="Mein erstes Werk", use_container_width=True)
+        except Exception:
+            st.info("📖 Buchcover 'cover1' wird geladen...")
     else:
         st.info("📖 Bild 'cover1.png' folgt...")
 
