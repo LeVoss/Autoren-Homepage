@@ -8,7 +8,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# 2. CSS (Sidebar verstecken)
+# 2. CSS (Identisch zur Startseite für absolute optische Übereinstimmung)
 st.markdown("""
     <style>
     #MainMenu {visibility: hidden;}
@@ -17,25 +17,50 @@ st.markdown("""
     .stAppDeployButton {display:none;}
     [data-testid="stSidebarCollapseButton"] {display: none !important;}
     section[data-testid="stSidebar"] {display: none !important;}
+    
+    /* Maßgeschneiderte Buttons: Absolut einheitliche Maße und große Schrift */
+    div.stButton > button {
+        background-color: #ffffff !important;
+        color: #31333F !important;
+        border: 2px solid #E6E8F1 !important;
+        padding: 14px 28px !important;
+        font-size: 1.3em !important;
+        font-weight: bold !important;
+        height: 60px !important; /* Festgelegte Höhe für perfekte Symmetrie */
+        border-radius: 8px !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    /* Roter Rahmen für den jeweils aktiven Button (Über mich auf dieser Seite) */
+    div.stButton > button[data-testid="baseButton-primary"] {
+        border: 2px solid #FF4B4B !important;
+    }
+    
+    /* Kleiner Effekt beim Drüberfahren mit der Maus */
+    div.stButton > button:hover {
+        border-color: #FF4B4B !important;
+        background-color: #FAFAFA !important;
+    }
     </style>
     """, unsafe_allow_html=True)
 
-# 3. Horizontales Menü
-menu_col1, menu_col2, _ = st.columns([1, 2, 5])
+# 3. Horizontales Menü (Exakt die identische Spaltenaufteilung wie auf der Startseite)
+menu_col1, menu_col2, _ = st.columns([2.5, 2.5, 3])
 with menu_col1:
     if st.button("🏠 Home", use_container_width=True):
         st.switch_page("app.py")
 with menu_col2:
-    if st.button("👤 Stefans Autorenwelt", use_container_width=True, type="primary"):
+    # Aktiv auf dieser Seite (erhält das rote Highlight)
+    if st.button("👤 Über mich", use_container_width=True, type="primary"):
         st.switch_page("pages/1_Stefans_Autorenseite.py")
 
 st.divider()
 
-# 4. INHALT FÜR DIE AUTORENSEITE (Mit größerem Foto und größerer Schrift)
+# 4. INHALT FÜR DIE AUTORENSEITE
 st.write(f"<h1 style='text-align: center; color: #008080;'>Stefans Autorenwelt ✍️✨</h1>", unsafe_allow_html=True)
 st.write("<br>", unsafe_allow_html=True)
 
-# Spaltenverhältnis von [1, 2] auf [1.2, 2] geändert, um das Foto zu vergrößern
+# Spaltenverhältnis für Foto und Text
 foto_col, text_col = st.columns([1.2, 2])
 
 with foto_col:
@@ -51,7 +76,6 @@ with foto_col:
 with text_col:
     st.header("👤 Über mich")
     
-    # Der Text wird hier über ein HTML-Format mit einer größeren Schriftstärke (1.2em) ausgegeben
     st.write("""
     <div style='font-size: 1.2em; line-height: 1.6;'>
     <p>Schön, dass Du den Weg auf meine persönliche Autorenseite gefunden hast.</p>
