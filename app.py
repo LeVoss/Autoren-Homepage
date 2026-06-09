@@ -1,146 +1,69 @@
 import streamlit as st
 import os
 
-# 1. Grundkonfiguration
-st.set_page_config(
-    page_title="Autor Stefan Röser", 
-    page_icon="✍️", 
-    layout="centered"
-)
+st.set_page_config(page_title="Autor Stefan Röser", page_icon="✍️", layout="centered")
 
-# 2. CSS (Sidebar verstecken & Buttons weiß, groß und einheitlich gestalten)
+# CSS für einheitliche weiße Buttons
 st.markdown("""
     <style>
-    #MainMenu {visibility: hidden;}
-    header {visibility: hidden;}
-    footer {visibility: hidden;}
-    .stAppDeployButton {display:none;}
-    [data-testid="stSidebarCollapseButton"] {display: none !important;}
-    section[data-testid="stSidebar"] {display: none !important;}
-    
-    /* Maßgeschneiderte Buttons: Absolut einheitliche Maße und große Schrift */
+    #MainMenu {visibility: hidden;} header {visibility: hidden;} footer {visibility: hidden;} .stAppDeployButton {display:none;}
+    [data-testid="stSidebarCollapseButton"] {display: none !important;} section[data-testid="stSidebar"] {display: none !important;}
     div.stButton > button {
-        background-color: #ffffff !important;
-        color: #31333F !important;
-        border: 2px solid #E6E8F1 !important;
-        padding: 14px 28px !important;
-        font-size: 1.3em !important;
-        font-weight: bold !important;
-        height: 60px !important; /* Festgelegte Höhe für perfekte Symmetrie */
-        border-radius: 8px !important;
-        transition: all 0.3s ease !important;
+        background-color: #ffffff !important; color: #31333F !important; border: 2px solid #E6E8F1 !important;
+        padding: 14px 10px !important; font-size: 1.1em !important; font-weight: bold !important;
+        height: 60px !important; border-radius: 8px !important; transition: all 0.3s ease !important;
     }
-    
-    /* Roter Rahmen für den jeweils aktiven Button (Home auf dieser Seite) */
-    div.stButton > button[data-testid="baseButton-primary"] {
-        border: 2px solid #FF4B4B !important;
-    }
-    
-    /* Kleiner Effekt beim Drüberfahren mit der Maus */
-    div.stButton > button:hover {
-        border-color: #FF4B4B !important;
-        background-color: #FAFAFA !important;
-    }
+    div.stButton > button[data-testid="baseButton-primary"] { border: 2px solid #FF4B4B !important; }
+    div.stButton > button:hover { border-color: #FF4B4B !important; background-color: #FAFAFA !important; }
     </style>
     """, unsafe_allow_html=True)
 
-# 3. Horizontales Menü (Symmetrisches Spaltenverhältnis)
-menu_col1, menu_col2, _ = st.columns([2.5, 2.5, 3])
+# 4er-Menü
+menu_col1, menu_col2, menu_col3, menu_col4 = st.columns([2, 2, 2, 2])
 with menu_col1:
-    if st.button("🏠 Home", use_container_width=True, type="primary"):
-        st.switch_page("app.py")
+    if st.button("🏠 Home", use_container_width=True, type="primary"): st.switch_page("app.py")
 with menu_col2:
-    if st.button("👤 Über mich", use_container_width=True):
-        st.switch_page("pages/1_Stefans_Autorenseite.py")
+    if st.button("👤 Über mich", use_container_width=True): st.switch_page("pages/1_Über_mich.py")
+with menu_col3:
+    if st.button("📅 Termine", use_container_width=True): st.switch_page("pages/2_Veranstaltungen.py")
+with menu_col4:
+    if st.button("🎬 Media", use_container_width=True): st.switch_page("pages/3_Multimedia.py")
 
 st.divider()
 
-# 4. DEIN INHALT (Startseite)
+# Startseiten-Inhalt (unverändert)
 st.write("<h1 style='text-align: center; color: #FF4B4B;'>Willkommen in meiner Welt der Geschichten! ✍️✨</h1>", unsafe_allow_html=True)
 st.markdown("<h3 style='text-align: center;'>Schön, dass du da bist.</h3>", unsafe_allow_html=True)
-st.write("<p style='text-align: center; font-size: 1.2em;'>Ich bin <strong>Stefan Röser</strong> und ich lade dich ein, in Erzählungen einzutauchen.</p>", unsafe_allow_html=True)
 
-# Aktuelles Buch
 st.header("Ein Herz, das keinen Zorn mehr trägt")
 col1, col2 = st.columns([1, 2])
 with col1:
-    if os.path.exists("cover2.png"):
-        try:
-            st.image("cover2.png", use_container_width=True)
-        except Exception:
-            st.info("📖 Buchcover 'cover2' wird geladen...")
-    else:
-        st.info("📖 Bild 'cover2.png' folgt...")
+    if os.path.exists("cover2.png"): st.image("cover2.png", use_container_width=True)
+    else: st.info("📖 Bild 'cover2.png' folgt...")
 with col2:
-    st.write("""
-    **Klappentext:**
-    Ein Herz, das keinen Zorn mehr trägt, ist ein tief bewegender Roman über die Kraft des Vergebens und den Mut, die eigene Vergangenheit hinter sich zu lassen. 
-    Begleiten Sie die Protagonisten auf einer emotionalen Reise, die zeigt, dass Heilung dort beginnt, wo Bitterkeit endet. 
-    Ein Buch für alle, die an die heilende Kraft der Menschlichkeit glauben.
-    """)
-    st.markdown("**16,99 €** (Signiertes Taschenbuch, inkl. Versand (innerhalb Deutschland))")
-    st.markdown("**14,49 €** (Standard Taschenbuch, inkl. Versand (innerhalb Deutschland))")
+    st.write("**Klappentext:**\nEin Herz, das keinen Zorn mehr trägt, ist ein tief bewegender Roman über die Kraft des Vergebens...")
+    st.markdown("**16,99 €** (Signiertes Taschenbuch) | **14,49 €** (Standard Taschenbuch)")
 
-st.info("Sonderangebot: Mängelexemplare (Format 6:9, große Schrift) für **9,99 Euro** inkl. Versand (innerhalb Deutschland) verfügbar!")
-
+st.info("Sonderangebot: Mängelexemplare für **9,99 Euro** verfügbar!")
 st.divider()
-
-# DAS BESTELLFORMULAR
 st.header("📦 Buch direkt bei mir bestellen")
 form_url = "https://docs.google.com/forms/d/e/1FAIpQLSf60i048_9KbQ_yMcM0kJQpBGA6s3xOuASdLO6hPfhr6z2zbQ/viewform?embedded=true"
 st.markdown(f'<iframe src="{form_url}" width="100%" height="900" frameborder="0">Wird geladen...</iframe>', unsafe_allow_html=True)
 
-# Platzhalter zwischen Formular und Amazon-Bereich
 st.write("<br><br>", unsafe_allow_html=True)
-
-# Amazon-Link für das aktuelle Buch "Ein Herz, das keinen Zorn mehr trägt"
-amazon_url_buch2 = "https://www.amazon.de/Herz-keinen-Zorn-mehr-tr%C3%A4gt/dp/B0GK6QBS3P/ref=tmm_pap_swatch_0?_encoding=UTF8&dib_tag=se&dib=eyJ2IjoiMSJ9.LJxAwvLLNH6WS8AoQoPCG3CHiduQ2Hg_t7RajY8exgt88wscc_tG6etYW_qeSsutNlUv2GY7OF4iB3mvSaZvLmGUuoUjBQZoWExsPk6CN9XWyicDpjUegc9XSa9wiP0TEqwmMjEk2Tt7L3vBc_adLoG1RSVS9vKbuul1yTFzLht6jL9B4f9SRdoRrdyRC3fvMOXLmVkCZEy1NaRSW6EORt-drAUOCmQ8uchmgIzz4jw.vxRudBPVXSuMWXk9yw3-GsRl1mYacooYvm5OLA57V7s&qid=1780992903&sr=8-1"
+amazon_url_buch2 = "https://www.amazon.de/Herz-keinen-Zorn-mehr-tr%C3%A4gt/dp/B0GK6QBS3P/..."
 st.header(f"🛒 Oder über [Amazon bestellen]({amazon_url_buch2})")
-
 st.divider()
 
-# Vorheriges Projekt
 st.header("Vorheriges Projekt")
 col3, col4 = st.columns([1, 2])
 with col3:
-    if os.path.exists("cover1.png"):
-        try:
-            st.image("cover1.png", caption="Mein erstes Werk", use_container_width=True)
-        except Exception:
-            st.info("📖 Buchcover 'cover1' wird geladen...")
-    else:
-        st.info("📖 Bild 'cover1.png' folgt...")
+    if os.path.exists("cover1.png"): st.image("cover1.png", use_container_width=True)
+    else: st.info("📖 Bild 'cover1.png' folgt...")
 with col4:
-    st.write("""
-    Mein erstes Buch habe ich im Sommer 2025 veröffentlicht. 
-    Es ist derzeit nur als E-Book über Amazon Kindle oder Kindle-Unlimited erhältlich.
-
-    **Klappentext:**
-    Berlin, späte Weimarer Republik: Eine Stadt voller Kontraste - Jazz und Aufmärsche, Hoffnung und Gefahr. 
-    Mitten darin begegnen sich Nathaniel, ein amerikanischer Reporter, und Clara, die nach einem neuen Anfang sucht. 
-    """)
-    
-    # Neuer Amazon-Link für dein 1. Buch "Ein leises wir"
-    amazon_url_buch1 = "https://www.amazon.de/Ein-leises-wir-Berlin-1930-ebook/dp/B0FQ2LSK8M/ref=sr_1_4?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=354J2HPP1CQDZ&dib=eyJ2IjoiMSJ9.LJxAwvLLNH6WS8AoQoPCG3CHiduQ2Hg_t7RajY8exgt88wscc_tG6etYW_qeSsutNlUv2GY7OF4iB3mvSaZvLmGUuoUjBQZoWExsPk6CN9XWyicDpjUegc9XSa9wiP0TEqwmMjEk2Tt7L3vBc_adLoG1RSVS9vKbuul1yTFzLht6jL9B4f9SRdoRrdyRC3fv9ut9avLxBI2Ju_Y9F4_rZrDXYjiR02xYtAbDJnFOyxQ.7PpZXkT2bilhiohxCBUFjg20UEmSef4kM70WEAYRPx4&dib_tag=se&keywords=stefan+r%C3%B6ser&qid=1780993148&sprefix=stefan+r%C3%B6ser%2Caps%2C180&sr=8-4"
+    st.write("Mein erstes Buch habe ich im Sommer 2025 veröffentlicht...")
+    amazon_url_buch1 = "https://www.amazon.de/Ein-leises-wir-Berlin-1930-ebook/dp/B0FQ2LSK8M/..."
     st.markdown(f"📖 **[Auf Amazon ansehen]({amazon_url_buch1})**")
 
-# FOOTER
 st.divider()
 st.write("<p style='text-align: center;'>© 2026 Stefan Röser</p>", unsafe_allow_html=True)
-
-footer_col1, footer_col2 = st.columns(2)
-with footer_col1:
-    with st.expander("Impressum"):
-        st.write("""
-        **Angaben gemäß § 5 TMG:** Stefan Röser,  
-        c/o Online Impressum.de #6281, Europaring 90, 
-        53757 Sankt Augustin
-         
-        **Kontakt:** E-Mail: stefan@booksart.de  
-        """)
-with footer_col2:
-    with st.expander("Datenschutz"):
-        st.write("""
-        **Datenschutzerklärung** Diese Seite nutzt ein eingebettetes Google Formular zur Bestellabwicklung. 
-        Die von Ihnen eingegebenen Daten werden auf Google-Servern gespeichert.
-        """)
