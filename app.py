@@ -90,6 +90,10 @@ st.header("📦 Buch direkt bei mir bestellen")
 form_url = "https://docs.google.com/forms/d/e/1FAIpQLSf60i048_9KbQ_yMcM0kJQpBGA6s3xOuASdLO6hPfhr6z2zbQ/viewform?embedded=true"
 st.markdown(f'<iframe src="{form_url}" width="100%" height="900" frameborder="0">Wird geladen...</iframe>', unsafe_allow_html=True)
 
+# NEU: Der Amazon-Link direkt unter dem Formular in Großschrift (als Header)
+amazon_url = "https://www.amazon.de/Herz-keinen-Zorn-mehr-tr%C3%A4gt/dp/B0GK6QBS3P/ref=tmm_pap_swatch_0?_encoding=UTF8&dib_tag=se&dib=eyJ2IjoiMSJ9.LJxAwvLLNH6WS8AoQoPCG3CHiduQ2Hg_t7RajY8exgt88wscc_tG6etYW_qeSsutNlUv2GY7OF4iB3mvSaZvLmGUuoUjBQZoWExsPk6CN9XWyicDpjUegc9XSa9wiP0TEqwmMjEk2Tt7L3vBc_adLoG1RSVS9vKbuul1yTFzLht6jL9B4f9SRdoRrdyRC3fvMOXLmVkCZEy1NaRSW6EORt-drAUOCmQ8uchmgIzz4jw.vxRudBPVXSuMWXk9yw3-GsRl1mYacooYvm5OLA57V7s&qid=1780992903&sr=8-1"
+st.header(f"🛒 Oder über [Amazon bestellen]({amazon_url})")
+
 st.divider()
 
 # Vorheriges Projekt
