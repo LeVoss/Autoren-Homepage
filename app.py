@@ -8,7 +8,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# 2. CSS (Sidebar verstecken & Buttons weiß, größer und mit markanter Schrift gestalten)
+# 2. CSS (Sidebar verstecken & Buttons weiß, groß und einheitlich gestalten)
 st.markdown("""
     <style>
     #MainMenu {visibility: hidden;}
@@ -18,7 +18,7 @@ st.markdown("""
     [data-testid="stSidebarCollapseButton"] {display: none !important;}
     section[data-testid="stSidebar"] {display: none !important;}
     
-    /* Maßgeschneiderte Buttons: Weißer Hintergrund, größere Maße und größere Schrift */
+    /* Maßgeschneiderte Buttons: Absolut einheitliche Maße und große Schrift */
     div.stButton > button {
         background-color: #ffffff !important;
         color: #31333F !important;
@@ -26,7 +26,7 @@ st.markdown("""
         padding: 14px 28px !important;
         font-size: 1.3em !important;
         font-weight: bold !important;
-        height: auto !important;
+        height: 60px !important; /* Festgelegte Höhe für perfekte Symmetrie */
         border-radius: 8px !important;
         transition: all 0.3s ease !important;
     }
@@ -44,8 +44,8 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# 3. Horizontales Menü
-menu_col1, menu_col2, _ = st.columns([2, 2, 4])
+# 3. Horizontales Menü (Symmetrisches Spaltenverhältnis)
+menu_col1, menu_col2, _ = st.columns([2.5, 2.5, 3])
 with menu_col1:
     if st.button("🏠 Home", use_container_width=True, type="primary"):
         st.switch_page("app.py")
@@ -121,18 +121,15 @@ footer_col1, footer_col2 = st.columns(2)
 with footer_col1:
     with st.expander("Impressum"):
         st.write("""
-        **Angaben gemäß § 5 TMG:**  
-        Stefan Röser,  
+        **Angaben gemäß § 5 TMG:** Stefan Röser,  
         c/o Online Impressum.de #6281, Europaring 90, 
         53757 Sankt Augustin
          
-        **Kontakt:**  
-        E-Mail: stefan@booksart.de  
+        **Kontakt:** E-Mail: stefan@booksart.de  
         """)
 with footer_col2:
     with st.expander("Datenschutz"):
         st.write("""
-        **Datenschutzerklärung**  
-        Diese Seite nutzt ein eingebettetes Google Formular zur Bestellabwicklung. 
+        **Datenschutzerklärung** Diese Seite nutzt ein eingebettetes Google Formular zur Bestellabwicklung. 
         Die von Ihnen eingegebenen Daten werden auf Google-Servern gespeichert.
         """)
