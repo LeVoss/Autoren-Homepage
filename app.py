@@ -8,7 +8,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# 2. CSS (Sidebar verstecken)
+# 2. CSS (Sidebar verstecken & Buttons weiß und größer gestalten)
 st.markdown("""
     <style>
     #MainMenu {visibility: hidden;}
@@ -17,17 +17,41 @@ st.markdown("""
     .stAppDeployButton {display:none;}
     [data-testid="stSidebarCollapseButton"] {display: none !important;}
     section[data-testid="stSidebar"] {display: none !important;}
+    
+    /* Maßgeschneiderte Buttons: Weißer Hintergrund und größere Maße */
+    div.stButton > button {
+        background-color: #ffffff !important;
+        color: #31333F !important;
+        border: 2px solid #E6E8F1 !important;
+        padding: 12px 24px !important;
+        font-size: 1.1em !important;
+        font-weight: 500 !important;
+        height: auto !important;
+        border-radius: 8px !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    /* Roter Rahmen für den jeweils aktiven Button (Home auf dieser Seite) */
+    div.stButton > button[data-testid="baseButton-primary"] {
+        border: 2px solid #FF4B4B !important;
+        font-weight: bold !important;
+    }
+    
+    /* Kleiner Effekt beim Drüberfahren mit der Maus */
+    div.stButton > button:hover {
+        border-color: #FF4B4B !important;
+        background-color: #FAFAFA !important;
+    }
     </style>
     """, unsafe_allow_html=True)
 
-# 3. Horizontales Menü (Gleiche Maße durch identische Spaltenbreiten)
+# 3. Horizontales Menü
 menu_col1, menu_col2, _ = st.columns([2, 2, 4])
 with menu_col1:
-    # Aktiv auf der Home-Seite (Rot)
+    # Aktiv auf der Home-Seite (erhält den roten Rahmen)
     if st.button("🏠 Home", use_container_width=True, type="primary"):
         st.switch_page("app.py")
 with menu_col2:
-    # Inaktiv auf der Home-Seite (Weiß)
     if st.button("👤 Über mich", use_container_width=True):
         st.switch_page("pages/1_Stefans_Autorenseite.py")
 
