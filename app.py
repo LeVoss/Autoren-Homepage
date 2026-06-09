@@ -8,7 +8,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# 2. CSS (Entfernt die linke Standard-Sidebar)
+# 2. CSS (Sidebar verstecken)
 st.markdown("""
     <style>
     #MainMenu {visibility: hidden;}
@@ -20,14 +20,15 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# 3. Horizontales Menü über Buttons (Mit internem Streamlit-Pfad)
-menu_col1, menu_col2, _ = st.columns([1, 2, 5])
+# 3. Horizontales Menü (Gleiche Maße durch identische Spaltenbreiten)
+menu_col1, menu_col2, _ = st.columns([2, 2, 4])
 with menu_col1:
+    # Aktiv auf der Home-Seite (Rot)
     if st.button("🏠 Home", use_container_width=True, type="primary"):
         st.switch_page("app.py")
 with menu_col2:
-    if st.button("👤 Stefans Autorenwelt", use_container_width=True):
-        # Streamlit erwartet intern zwingend "pages/", um Unterseiten anzusteuern!
+    # Inaktiv auf der Home-Seite (Weiß)
+    if st.button("👤 Über mich", use_container_width=True):
         st.switch_page("pages/1_Stefans_Autorenseite.py")
 
 st.divider()
@@ -64,8 +65,6 @@ st.divider()
 
 # DAS BESTELLFORMULAR
 st.header("📦 Buch direkt bei mir bestellen")
-st.write("Möchtest du das Buch bestellen? Fülle einfach das Formular unten aus. Deine Bestellung wird direkt in meiner Datenbank gespeichert!")
-
 form_url = "https://docs.google.com/forms/d/e/1FAIpQLSf60i048_9KbQ_yMcM0kJQpBGA6s3xOuASdLO6hPfhr6z2zbQ/viewform?embedded=true"
 st.markdown(f'<iframe src="{form_url}" width="100%" height="900" frameborder="0">Wird geladen...</iframe>', unsafe_allow_html=True)
 
