@@ -90,9 +90,12 @@ st.header("📦 Buch direkt bei mir bestellen")
 form_url = "https://docs.google.com/forms/d/e/1FAIpQLSf60i048_9KbQ_yMcM0kJQpBGA6s3xOuASdLO6hPfhr6z2zbQ/viewform?embedded=true"
 st.markdown(f'<iframe src="{form_url}" width="100%" height="900" frameborder="0">Wird geladen...</iframe>', unsafe_allow_html=True)
 
-# NEU: Der Amazon-Link direkt unter dem Formular in Großschrift (als Header)
-amazon_url = "https://www.amazon.de/Herz-keinen-Zorn-mehr-tr%C3%A4gt/dp/B0GK6QBS3P/ref=tmm_pap_swatch_0?_encoding=UTF8&dib_tag=se&dib=eyJ2IjoiMSJ9.LJxAwvLLNH6WS8AoQoPCG3CHiduQ2Hg_t7RajY8exgt88wscc_tG6etYW_qeSsutNlUv2GY7OF4iB3mvSaZvLmGUuoUjBQZoWExsPk6CN9XWyicDpjUegc9XSa9wiP0TEqwmMjEk2Tt7L3vBc_adLoG1RSVS9vKbuul1yTFzLht6jL9B4f9SRdoRrdyRC3fvMOXLmVkCZEy1NaRSW6EORt-drAUOCmQ8uchmgIzz4jw.vxRudBPVXSuMWXk9yw3-GsRl1mYacooYvm5OLA57V7s&qid=1780992903&sr=8-1"
-st.header(f"🛒 Oder über [Amazon bestellen]({amazon_url})")
+# Platzhalter zwischen Formular und Amazon-Bereich
+st.write("<br><br>", unsafe_allow_html=True)
+
+# Amazon-Link für das aktuelle Buch "Ein Herz, das keinen Zorn mehr trägt"
+amazon_url_buch2 = "https://www.amazon.de/Herz-keinen-Zorn-mehr-tr%C3%A4gt/dp/B0GK6QBS3P/ref=tmm_pap_swatch_0?_encoding=UTF8&dib_tag=se&dib=eyJ2IjoiMSJ9.LJxAwvLLNH6WS8AoQoPCG3CHiduQ2Hg_t7RajY8exgt88wscc_tG6etYW_qeSsutNlUv2GY7OF4iB3mvSaZvLmGUuoUjBQZoWExsPk6CN9XWyicDpjUegc9XSa9wiP0TEqwmMjEk2Tt7L3vBc_adLoG1RSVS9vKbuul1yTFzLht6jL9B4f9SRdoRrdyRC3fvMOXLmVkCZEy1NaRSW6EORt-drAUOCmQ8uchmgIzz4jw.vxRudBPVXSuMWXk9yw3-GsRl1mYacooYvm5OLA57V7s&qid=1780992903&sr=8-1"
+st.header(f"🛒 Oder über [Amazon bestellen]({amazon_url_buch2})")
 
 st.divider()
 
@@ -116,6 +119,10 @@ with col4:
     Berlin, späte Weimarer Republik: Eine Stadt voller Kontraste - Jazz und Aufmärsche, Hoffnung und Gefahr. 
     Mitten darin begegnen sich Nathaniel, ein amerikanischer Reporter, und Clara, die nach einem neuen Anfang sucht. 
     """)
+    
+    # Neuer Amazon-Link für dein 1. Buch "Ein leises wir"
+    amazon_url_buch1 = "https://www.amazon.de/Ein-leises-wir-Berlin-1930-ebook/dp/B0FQ2LSK8M/ref=sr_1_4?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=354J2HPP1CQDZ&dib=eyJ2IjoiMSJ9.LJxAwvLLNH6WS8AoQoPCG3CHiduQ2Hg_t7RajY8exgt88wscc_tG6etYW_qeSsutNlUv2GY7OF4iB3mvSaZvLmGUuoUjBQZoWExsPk6CN9XWyicDpjUegc9XSa9wiP0TEqwmMjEk2Tt7L3vBc_adLoG1RSVS9vKbuul1yTFzLht6jL9B4f9SRdoRrdyRC3fv9ut9avLxBI2Ju_Y9F4_rZrDXYjiR02xYtAbDJnFOyxQ.7PpZXkT2bilhiohxCBUFjg20UEmSef4kM70WEAYRPx4&dib_tag=se&keywords=stefan+r%C3%B6ser&qid=1780993148&sprefix=stefan+r%C3%B6ser%2Caps%2C180&sr=8-4"
+    st.markdown(f"📖 **[Auf Amazon ansehen]({amazon_url_buch1})**")
 
 # FOOTER
 st.divider()
