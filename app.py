@@ -24,8 +24,8 @@ st.markdown("""
         color: #31333F !important;
         border: 2px solid #E6E8F1 !important;
         padding: 14px 28px !important;
-        font-size: 1.3em !important; /* Schriftgröße erhöht */
-        font-weight: bold !important;  /* Schrift fett gedruckt */
+        font-size: 1.3em !important;
+        font-weight: bold !important;
         height: auto !important;
         border-radius: 8px !important;
         transition: all 0.3s ease !important;
@@ -110,4 +110,29 @@ with col4:
 
     **Klappentext:**
     Berlin, späte Weimarer Republik: Eine Stadt voller Kontraste - Jazz und Aufmärsche, Hoffnung und Gefahr. 
-    Mitten darin begegnen sich
+    Mitten darin begegnen sich Nathaniel, ein amerikanischer Reporter, und Clara, die nach einem neuen Anfang sucht. 
+    """)
+
+# FOOTER
+st.divider()
+st.write("<p style='text-align: center;'>© 2026 Stefan Röser</p>", unsafe_allow_html=True)
+
+footer_col1, footer_col2 = st.columns(2)
+with footer_col1:
+    with st.expander("Impressum"):
+        st.write("""
+        **Angaben gemäß § 5 TMG:**  
+        Stefan Röser,  
+        c/o Online Impressum.de #6281, Europaring 90, 
+        53757 Sankt Augustin
+         
+        **Kontakt:**  
+        E-Mail: stefan@booksart.de  
+        """)
+with footer_col2:
+    with st.expander("Datenschutz"):
+        st.write("""
+        **Datenschutzerklärung**  
+        Diese Seite nutzt ein eingebettetes Google Formular zur Bestellabwicklung. 
+        Die von Ihnen eingegebenen Daten werden auf Google-Servern gespeichert.
+        """)
