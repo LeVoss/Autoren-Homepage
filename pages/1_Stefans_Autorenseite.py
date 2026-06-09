@@ -4,7 +4,7 @@ import os
 # 1. Seiteneinstellungen
 st.set_page_config(
     page_title="Stefans Autorenwelt", 
-    page_icon="👤", 
+    page_icon="✍️", 
     layout="centered"
 )
 
@@ -31,12 +31,12 @@ with menu_col2:
 
 st.divider()
 
-# 4. INHALT FÜR DIE AUTORENSEITE (Mit Passfoto und neuem Text)
+# 4. INHALT FÜR DIE AUTORENSEITE (Mit größerem Foto und größerer Schrift)
 st.write(f"<h1 style='text-align: center; color: #008080;'>Stefans Autorenwelt ✍️✨</h1>", unsafe_allow_html=True)
 st.write("<br>", unsafe_allow_html=True)
 
-# Spalten für Foto und Text
-foto_col, text_col = st.columns([1, 2])
+# Spaltenverhältnis von [1, 2] auf [1.2, 2] geändert, um das Foto zu vergrößern
+foto_col, text_col = st.columns([1.2, 2])
 
 with foto_col:
     foto_name = "Bild_Autor.jpg" 
@@ -50,13 +50,15 @@ with foto_col:
 
 with text_col:
     st.header("👤 Über mich")
+    
+    # Der Text wird hier über ein HTML-Format mit einer größeren Schriftstärke (1.2em) ausgegeben
     st.write("""
-    Schön, dass Du den Weg auf meine persönliche Autorenseite gefunden hast.
-    
-    Mein Name ist Stefan Röser, ich wurde 1977 in Koblenz geboren und lebe mit meiner Frau und unseren beiden Kindern in der Nähe von Koblenz.
-    
-    Meine Leidenschaft gilt den historischen Romanen, die ich seit vielen Jahren begeistert lese. Mit *Ein leises wir* legte ich im Jahr 2025 mein erstes eigenes Werk in diesem Genre vor. Mit *Ein Herz, das keinen Zorn mehr trägt* veröffentlichte ich Anfang 2026 meinen zweiten Roman.
-    """)
+    <div style='font-size: 1.2em; line-height: 1.6;'>
+    <p>Schön, dass Du den Weg auf meine persönliche Autorenseite gefunden hast.</p>
+    <p>Mein Name ist Stefan Röser, ich wurde 1977 in Koblenz geboren und lebe mit meiner Frau und unseren beiden Kindern in der Nähe von Koblenz.</p>
+    <p>Meine Leidenschaft gilt den historischen Romanen, die ich seit vielen Jahren begeistert lese. Mit <em>Ein leises wir</em> legte ich im Jahr 2025 mein erstes eigenes Werk in diesem Genre vor. Mit <em>Ein Herz, das keinen Zorn mehr trägt</em> veröffentlichte ich Anfang 2026 meinen zweiten Roman.</p>
+    </div>
+    """, unsafe_allow_html=True)
 
 st.divider()
 st.write("<p style='text-align: center; font-size: 0.8em; color: gray;'>Autorenseite von Stefan Röser</p>", unsafe_allow_html=True)
