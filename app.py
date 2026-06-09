@@ -8,7 +8,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# 2. CSS (Sidebar verstecken & Buttons weiß und größer gestalten)
+# 2. CSS (Sidebar verstecken & Buttons weiß, größer und mit markanter Schrift gestalten)
 st.markdown("""
     <style>
     #MainMenu {visibility: hidden;}
@@ -18,14 +18,14 @@ st.markdown("""
     [data-testid="stSidebarCollapseButton"] {display: none !important;}
     section[data-testid="stSidebar"] {display: none !important;}
     
-    /* Maßgeschneiderte Buttons: Weißer Hintergrund und größere Maße */
+    /* Maßgeschneiderte Buttons: Weißer Hintergrund, größere Maße und größere Schrift */
     div.stButton > button {
         background-color: #ffffff !important;
         color: #31333F !important;
         border: 2px solid #E6E8F1 !important;
-        padding: 12px 24px !important;
-        font-size: 1.1em !important;
-        font-weight: 500 !important;
+        padding: 14px 28px !important;
+        font-size: 1.3em !important; /* Schriftgröße erhöht */
+        font-weight: bold !important;  /* Schrift fett gedruckt */
         height: auto !important;
         border-radius: 8px !important;
         transition: all 0.3s ease !important;
@@ -34,7 +34,6 @@ st.markdown("""
     /* Roter Rahmen für den jeweils aktiven Button (Home auf dieser Seite) */
     div.stButton > button[data-testid="baseButton-primary"] {
         border: 2px solid #FF4B4B !important;
-        font-weight: bold !important;
     }
     
     /* Kleiner Effekt beim Drüberfahren mit der Maus */
@@ -48,7 +47,6 @@ st.markdown("""
 # 3. Horizontales Menü
 menu_col1, menu_col2, _ = st.columns([2, 2, 4])
 with menu_col1:
-    # Aktiv auf der Home-Seite (erhält den roten Rahmen)
     if st.button("🏠 Home", use_container_width=True, type="primary"):
         st.switch_page("app.py")
 with menu_col2:
@@ -112,26 +110,4 @@ with col4:
 
     **Klappentext:**
     Berlin, späte Weimarer Republik: Eine Stadt voller Kontraste - Jazz und Aufmärsche, Hoffnung und Gefahr. 
-    Mitten darin begegnen sich Nathaniel, ein amerikanischer Reporter, und Clara, die nach einem neuen Anfang sucht. 
-    """)
-
-# FOOTER
-st.divider()
-st.write("<p style='text-align: center;'>© 2026 Stefan Röser</p>", unsafe_allow_html=True)
-
-footer_col1, footer_col2 = st.columns(2)
-with footer_col1:
-    with st.expander("Impressum"):
-        st.write("""
-        **Angaben gemäß § 5 TMG:** Stefan Röser,  
-        c/o Online Impressum.de #6281, Europaring 90, 
-        53757 Sankt Augustin
-         
-        **Kontakt:** E-Mail: stefan@booksart.de  
-        """)
-with footer_col2:
-    with st.expander("Datenschutz"):
-        st.write("""
-        **Datenschutzerklärung** Diese Seite nutzt ein eingebettetes Google Formular zur Bestellabwicklung. 
-        Die von Ihnen eingegebenen Daten werden auf Google-Servern gespeichert.
-        """)
+    Mitten darin begegnen sich
