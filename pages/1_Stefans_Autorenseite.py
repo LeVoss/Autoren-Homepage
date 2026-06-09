@@ -3,12 +3,12 @@ import os
 
 # 1. Seiteneinstellungen
 st.set_page_config(
-    page_title="Stefans Autorenwelt", 
+    page_title="Über mich - Stefan Röser", 
     page_icon="✍️", 
     layout="centered"
 )
 
-# 2. CSS (Identisch zur Startseite für absolute optische Übereinstimmung)
+# 2. CSS (Sidebar verstecken & Buttons weiß, groß und einheitlich gestalten)
 st.markdown("""
     <style>
     #MainMenu {visibility: hidden;}
@@ -50,14 +50,12 @@ with menu_col1:
     if st.button("🏠 Home", use_container_width=True):
         st.switch_page("app.py")
 with menu_col2:
-    # Aktiv auf dieser Seite (erhält das rote Highlight)
     if st.button("👤 Über mich", use_container_width=True, type="primary"):
         st.switch_page("pages/1_Stefans_Autorenseite.py")
 
 st.divider()
 
-# 4. INHALT FÜR DIE AUTORENSEITE
-st.write(f"<h1 style='text-align: center; color: #008080;'>Stefans Autorenwelt ✍️✨</h1>", unsafe_allow_html=True)
+# 4. INHALT FÜR DIE AUTORENSEITE (Ohne die alte große Überschrift)
 st.write("<br>", unsafe_allow_html=True)
 
 # Spaltenverhältnis für Foto und Text
