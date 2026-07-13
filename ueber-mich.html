@@ -1,149 +1,31 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Über mich – Stefan Röser</title>
-    <style>
-        :root {
-            --bg-color: #fcfcfc;
-            --text-color: #2c3e50;
-            --primary-color: #9a2a2a;
-            --border-color: #e0e0e0;
-        }
+import streamlit as st
 
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 0;
-        }
+# Seiteneinstellungen (Titel im Browser-Tab und Icon)
+st.set_page_config(
+    page_title="Stefan Röser – Autorenseite",
+    page_icon="✍️",
+    layout="centered"
+)
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+# Hauptüberschrift der Homepage
+st.title("Willkommen")
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 15px;
-            margin-bottom: 40px;
-        }
+# Dein vollständiger Vorstellungstext
+st.write("""
+Schön, dass Du den Weg auf meine persönliche Autorenseite gefunden hast.
 
-        nav a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: bold;
-            font-size: 1.1em;
-            padding: 10px 15px;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-        }
+Mein Name ist Stefan Röser, ich wurde 1977 in Koblenz geboren. 
 
-        nav a:hover {
-            color: var(--primary-color);
-            background-color: #f0f0f0;
-        }
+Schon immer hatte ich Freude daran, Gedanken in Worte zu fassen – ob in beruflichen Konzepten oder nun auch in literarischer Form.
 
-        nav a.active {
-            color: white;
-            background-color: var(--primary-color);
-        }
+Meine Leidenschaft gilt den historischen Romanen, die ich seit vielen Jahren begeistert lese. Mit *EIN LEISES WIR* legte ich im Jahr 2025 mein erstes eigenes Werk in diesem Genre vor. Mit *EIN HERZ, DAS KEINEN ZORN MEHR TRÄGT* wurde mein zweiter Roman Anfang 2026 veröffentlicht.
 
-        .profile-section {
-            display: flex;
-            gap: 40px;
-            margin-top: 20px;
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
+Ich bin der Region treu geblieben und wohne mit meiner Frau und meinen beiden Kindern in der Nähe von Koblenz.
+""")
 
-        .profile-photo {
-            flex: 1;
-            max-width: 250px;
-        }
+# Ein kleiner visueller Trenner
+st.divider()
 
-        .profile-photo img {
-            width: 100%;
-            height: auto;
-            border-radius: 6px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-
-        .profile-text {
-            flex: 2;
-        }
-
-        .profile-text h1 {
-            margin-top: 0;
-            color: var(--primary-color);
-            font-size: 2.2em;
-        }
-
-        .profile-text p {
-            font-size: 1.1em;
-            color: #34495e;
-            margin-bottom: 15px;
-        }
-
-        footer {
-            text-align: center;
-            font-size: 0.9em;
-            color: #7f8c8d;
-            margin-top: 60px;
-            border-top: 1px solid var(--border-color);
-            padding-top: 20px;
-        }
-
-        @media (max-width: 600px) {
-            .profile-section {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            nav {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 10px;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="container">
-        <!-- Horizontales Menü -->
-        <nav>
-            <a href="index.html">🏠 Home</a>
-            <a href="ueber-mich.html" class="active">👤 Über mich</a>
-            <a href="termine.html">📅 Termine</a>
-            <a href="media.html">🎬 Media</a>
-        </nav>
-
-        <div class="profile-section">
-            <div class="profile-photo">
-                <!-- Verweist direkt auf dein Autorenfoto im Repository -->
-                <img src="Bild_Autor.jpg" alt="Stefan Röser" onerror="this.src='https://via.placeholder.com/250x300?text=Foto+folgt'">
-            </div>
-            <div class="profile-text">
-                <h1>👤 Über mich</h1>
-                <p>Schön, dass Du den Weg auf meine persönliche Autorenseite gefunden hast.</p>
-                <p>Mein Name ist Stefan Röser, ich wurde 1977 in Koblenz geboren...</p>
-                <p>Mit <em>Ein leises wir</em> legte ich im Jahr 2025 mein erstes Werk vor. Mit <em>Ein Herz, das keinen Zorn mehr trägt</em> folgte Anfang 2026 mein zweiter Roman.</p>
-            </div>
-        </div>
-
-        <footer>
-            <p>© 2026 Stefan Röser</p>
-        </footer>
-    </div>
-
-</body>
-</html>
+# Platzhalter für weitere Inhalte oder Neuigkeiten
+st.subheader("Aktuelles & Werke")
+st.write("Weitere Informationen zu meinen Büchern und kommenden Projekten findest Du bald hier auf dieser Seite.")
