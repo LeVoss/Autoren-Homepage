@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stefan Röser – Autor</title>
+    <style>
+        /* Modernes, klares Design für Autoren */
+        :root {
+            --bg-color: #fcfcfc;
+            --text-color: #2c3e50;
+            --primary-color: #9a2a2a; /* Ein edles Weinrot statt des Streamlit-Rots */
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Elegantes horizontales Menü */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+            font-size: 1.1em;
+            padding: 10px 15px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+            background-color: #f0f0f0;
+        }
+
+        nav a.active {
+            color: white;
+            background-color: var(--primary-color);
+        }
+
+        /* Inhalt */
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+        }
+
+        .book-section {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .book-cover {
+            flex: 1;
+            max-width: 200px;
+        }
+
+        .book-cover img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .book-details {
+            flex: 2;
+        }
+
+        .book-details h2 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .price {
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .badge {
+            background-color: #fcf8e3;
+            border: 1px solid #faebcc;
+            color: #8a6d3b;
+            padding: 12px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #721c1c;
+        }
+
+        iframe {
+            border: none;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: var(--border-color);
+            margin: 40px 0;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-top: 60px;
+        }
+
+        .footer-links {
+            margin-top: 10px;
+        }
+
+        .footer-links a {
+            color: #7f8c8d;
+            margin: 0 10px;
+        }
+
+        /* Mobil-Optimierung */
+        @media (max-width: 600px) {
+            .book-section {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Horizontales Menü -->
+        <nav>
+            <a href="index.html" class="active">🏠 Home</a>
+            <a href="ueber-mich.html">👤 Über mich</a>
+            <a href="termine.html">📅 Termine</a>
+            <a href="media.html">🎬 Media</a>
+        </nav>
+
+        <h1>Willkommen in meiner Welt der Geschichten! ✍️✨</h1>
+        <div class="subtitle">Schön, dass du da bist. Ich bin Stefan Röser und ich lade dich ein, in Erzählungen einzutauchen.</div>
+
+        <!-- Aktuelles Buch -->
+        <div class="book-section">
+            <div class="book-cover">
+                <!-- Verweist direkt auf dein Cover im Repository -->
+                <img src="cover2.png" alt="Ein Herz, das keinen Zorn mehr trägt" onerror="this.src='https://via.placeholder.com/200x300?text=Buchcover+folgt'">
+            </div>
+            <div class="book-details">
+                <h2>Ein Herz, das keinen Zorn mehr trägt</h2>
+                <p><strong>Klappentext:</strong> Ein Herz, das keinen Zorn mehr trägt, ist ein tief bewegender Roman über die Kraft des Vergebens und den Mut, die eigene Vergangenheit hinter sich zu lassen. Begleiten Sie die Protagonisten auf einer emotionalen Reise, die zeigt, dass Heilung dort beginnt, wo Bitterkeit endet. Ein Buch für alle, die an die heilende Kraft der Menschlichkeit glauben.</p>
+                <div class="price">
+                    • 16,99 € (Signiertes Taschenbuch, inkl. Versand innerhalb DE)<br>
+                    • 14,49 € (Standard Taschenbuch, inkl. Versand innerhalb DE)
+                </div>
+            </div>
+        </div>
+
+        <div class="badge">
+            <strong>Sonderangebot:</strong> Mängelexemplare (Format 6:9, große Schrift) für <strong>9,99 Euro</strong> inkl. Versand (innerhalb Deutschland) verfügbar!
+        </div>
+
+        <hr>
+
+        <!-- Das Bestellformular -->
+        <h2>📦 Buch direkt bei mir bestellen</h2>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf60i048_9KbQ_yMcM0kJQpBGA6s3xOuASdLO6hPfhr6z2zbQ/viewform?embedded=true" width="100%" height="900">Wird geladen...</iframe>
+
+        <hr>
+
+        <!-- Amazon-Link -->
+        <h2>🛒 Oder über Amazon bestellen</h2>
+        <p>Du kannst das Buch natürlich auch direkt über Amazon beziehen:</p>
+        <a href="https://www.amazon.de/Herz-keinen-Zorn-mehr-tr%C3%A4gt/dp/B0GK6QBS3P/ref=tmm_pap_swatch_0?_encoding=UTF8&dib_tag=se&dib=eyJ2IjoiMSJ9.LJxAwvLLNH6WS8AoQoPCG3CHiduQ2Hg_t7RajY8exgt88wscc_tG6etYW_qeSsutNlUv2GY7OF4iB3mvSaZvLmGUuoUjBQZoWExsPk6CN9XWyicDpjUegc9XSa9wiP0TEqwmMjEk2Tt7L3vBc_adLoG1RSVS9vKbuul1yTFzLht6jL9B4f9SRdoRrdyRC3fvMOXLmVkCZEy1NaRSW6EORt-drAUOCmQ8uchmgIzz4jw.vxRudBPVXSuMWXk9yw3-GsRl1mYacooYvm5OLA57V7s&qid=1780992903&sr=8-1" class="btn" target="_blank">Auf Amazon ansehen</a>
+
+        <hr>
+
+        <!-- Vorheriges Projekt -->
+        <h2>Vorheriges Projekt</h2>
+        <div class="book-section">
+            <div class="book-cover">
+                <img src="cover1.png" alt="Ein leises wir" onerror="this.src='https://via.placeholder.com/200x300?text=Buchcover+folgt'">
+            </div>
+            <div class="book-details">
+                <h2>Ein leises wir</h2>
+                <p>Mein erstes Buch habe ich im Sommer 2025 veröffentlicht. Es ist derzeit als E-Book über Amazon Kindle oder Kindle-Unlimited erhältlich.</p>
+                <p><strong>Klappentext:</strong> Berlin, späte Weimarer Republik: Eine Stadt voller Kontraste - Jazz und Aufmärsche, Hoffnung und Gefahr. Mitten darin begegnen sich Nathaniel, ein amerikanischer Reporter, und Clara, die nach einem neuen Anfang sucht.</p>
+                <a href="https://www.amazon.de/Ein-leises-wir-Berlin-1930-ebook/dp/B0FQ2LSK8M/ref=sr_1_4?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=354J2HPP1CQDZ&dib=eyJ2IjoiMSJ9.LJxAwvLLNH6WS8AoQoPCG3CHiduQ2Hg_t7RajY8exgt88wscc_tG6etYW_qeSsutNlUv2GY7OF4iB3mvSaZvLmGUuoUjBQZoWExsPk6CN9XWyicDpjUegc9XSa9wiP0TEqwmMjEk2Tt7L3vBc_adLoG1RSVS9vKbuul1yTFzLht6jL9B4f9SRdoRrdyRC3fv9ut9avLxBI2Ju_Y9F4_rZrDXYjiR02xYtAbDJnFOyxQ.7PpZXkT2bilhiohxCBUFjg20UEmSef4kM70WEAYRPx4&dib_tag=se&keywords=stefan+r%C3%B6ser&qid=1780993148&sprefix=stefan+r%C3%B6ser%2Caps%2C180&sr=8-4" class="btn" target="_blank">Auf Amazon ansehen & bestellen</a>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2026 Stefan Röser</p>
+            <div class="footer-links">
+                <!-- Platzhalter für Impressum & Datenschutz -->
+                <p><strong>Impressum:</strong> Stefan Röser, c/o Online Impressum.de #6281, Europaring 90, 53757 Sankt Augustin | E-Mail: stefan@booksart.de</p>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
