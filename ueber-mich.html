@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Über mich – Stefan Röser</title>
+    <style>
+        :root {
+            --bg-color: #fcfcfc;
+            --text-color: #2c3e50;
+            --primary-color: #9a2a2a;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+            font-size: 1.1em;
+            padding: 10px 15px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+            background-color: #f0f0f0;
+        }
+
+        nav a.active {
+            color: white;
+            background-color: var(--primary-color);
+        }
+
+        .profile-section {
+            display: flex;
+            gap: 40px;
+            margin-top: 20px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .profile-photo {
+            flex: 1;
+            max-width: 250px;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .profile-text {
+            flex: 2;
+        }
+
+        .profile-text h1 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 2.2em;
+        }
+
+        .profile-text p {
+            font-size: 1.1em;
+            color: #34495e;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-top: 60px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .profile-section {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Horizontales Menü -->
+        <nav>
+            <a href="index.html">🏠 Home</a>
+            <a href="ueber-mich.html" class="active">👤 Über mich</a>
+            <a href="termine.html">📅 Termine</a>
+            <a href="media.html">🎬 Media</a>
+        </nav>
+
+        <div class="profile-section">
+            <div class="profile-photo">
+                <!-- Verweist direkt auf dein Autorenfoto im Repository -->
+                <img src="Bild_Autor.jpg" alt="Stefan Röser" onerror="this.src='https://via.placeholder.com/250x300?text=Foto+folgt'">
+            </div>
+            <div class="profile-text">
+                <h1>👤 Über mich</h1>
+                <p>Schön, dass Du den Weg auf meine persönliche Autorenseite gefunden hast.</p>
+                <p>Mein Name ist Stefan Röser, ich wurde 1977 in Koblenz geboren...</p>
+                <p>Mit <em>Ein leises wir</em> legte ich im Jahr 2025 mein erstes Werk vor. Mit <em>Ein Herz, das keinen Zorn mehr trägt</em> folgte Anfang 2026 mein zweiter Roman.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2026 Stefan Röser</p>
+        </footer>
+    </div>
+
+</body>
+</html>
