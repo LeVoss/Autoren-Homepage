@@ -1,17 +1,14 @@
 import streamlit as st
 
-# Seiteneinstellungen (Titel im Browser-Tab und Icon)
 st.set_page_config(
     page_title="Stefan Röser – Autorenseite",
     page_icon="✍️",
     layout="centered"
 )
 
-# Hauptüberschrift der Homepage
 st.title("Willkommen")
 
-# Dein vollständiger Vorstellungstext
-st.write("""
+st.markdown("""
 Schön, dass Du den Weg auf meine persönliche Autorenseite gefunden hast.
 
 Mein Name ist Stefan Röser, ich wurde 1977 in Koblenz geboren. 
@@ -23,9 +20,7 @@ Meine Leidenschaft gilt den historischen Romanen, die ich seit vielen Jahren beg
 Ich bin der Region treu geblieben und wohne mit meiner Frau und meinen beiden Kindern in der Nähe von Koblenz.
 """)
 
-# Ein kleiner visueller Trenner
 st.divider()
 
-# Platzhalter für weitere Inhalte oder Neuigkeiten
 st.subheader("Aktuelles & Werke")
 st.write("Weitere Informationen zu meinen Büchern und kommenden Projekten findest Du bald hier auf dieser Seite.")
