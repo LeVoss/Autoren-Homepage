@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimedia – Stefan Röser</title>
+    <style>
+        :root {
+            --bg-color: #fcfcfc;
+            --text-color: #2c3e50;
+            --primary-color: #9a2a2a;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+            font-size: 1.1em;
+            padding: 10px 15px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+            background-color: #f0f0f0;
+        }
+
+        nav a.active {
+            color: white;
+            background-color: var(--primary-color);
+        }
+
+        .content-section {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin-top: 20px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        .info-box {
+            background-color: #eef7f9;
+            border-left: 4px solid #31708f;
+            color: #31708f;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-top: 60px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Horizontales Menü -->
+        <nav>
+            <a href="index.html">🏠 Home</a>
+            <a href="ueber-mich.html">👤 Über mich</a>
+            <a href="termine.html">📅 Termine</a>
+            <a href="media.html" class="active">🎬 Media</a>
+        </nav>
+
+        <div class="content-section">
+            <h1>🎬 Multimedia & Einblicke</h1>
+            <p style="font-size: 1.1em;">In diesem Bereich entstehen bald visuelle und akustische Einblicke in meine Romane.</p>
+            
+            <div class="info-box">
+                <strong>Vorschau für Marion:</strong> Hier können wir später ganz einfach Buchtrailer (YouTube), Interviews oder kleine Audio-Hörproben für deine Leser einbetten.
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2026 Stefan Röser</p>
+        </footer>
+    </div>
+
+</body>
+</html>
