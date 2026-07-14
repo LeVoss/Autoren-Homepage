@@ -4,117 +4,202 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stefan Röser – Über mich</title>
+    
+    <!-- Google Fonts für edle Verlags-Atmosphäre -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+
     <style>
-        /* Grundlayout der Seite - passend zur Startseite */
+        /* Grunddesign im Buchpapier-Stil – identisch zur Startseite */
         body { 
-            font-family: 'Segoe UI', Arial, sans-serif; 
-            line-height: 1.7; 
-            max-width: 900px; 
-            margin: 40px auto; 
-            padding: 0 20px; 
-            color: #666; /* Dezentes Grau wie auf der Startseite */
+            font-family: 'Inter', Arial, sans-serif; 
+            line-height: 1.8; 
+            max-width: 940px; 
+            margin: 0 auto; 
+            padding: 40px 20px; 
+            color: #3e3a36; 
+            background-color: #fcfbfa; /* Warmes Weiß */
         }
 
-        /* Navigationsleiste exakt wie auf der Startseite */
+        /* Elegante, flache Navigation – identisch zur Startseite */
+        .nav-container {
+            border-bottom: 1px solid #e8e5e1;
+            padding-bottom: 20px;
+            margin-bottom: 60px;
+        }
         .nav-tabs {
             display: flex;
-            justify-content: center; /* Zentriert die Tabs */
-            gap: 15px;
-            border-bottom: 1px solid #eaeaea;
-            margin-bottom: 45px;
-            padding-bottom: 15px;
+            justify-content: center; 
+            gap: 35px;
             list-style: none;
+            padding: 0;
+            margin: 0;
         }
         .nav-tabs a {
             text-decoration: none;
-            color: #2c1a30; /* Dunkle Schriftfarbe der inaktiven Tabs */
-            font-weight: bold;
-            padding: 10px 24px;
-            font-size: 1.1em;
-            border-radius: 8px; /* Abgerundete Ecken */
-            transition: all 0.2s ease-in-out;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+            color: #6e665e; 
+            font-weight: 500;
+            font-size: 1.05em;
+            padding: 8px 4px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        /* Feiner Unterstrich bei Aktivität */
+        .nav-tabs a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #8B2626;
+            transition: width 0.3s ease;
+        }
+        .nav-tabs a:hover::after, .nav-tabs a.active::after {
+            width: 100%;
         }
         .nav-tabs a:hover {
-            background-color: #f5f5f5;
+            color: #8B2626;
         }
-        /* Der aktive weinrote Button für "Über mich" */
         .nav-tabs a.active {
-            background-color: #962d2d; /* Das weinrote Design deines Buttons */
-            color: #ffffff !important;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+            color: #8B2626;
+            font-weight: 600;
         }
 
-        /* Weinrote, zentrierte Überschrift */
-        h1 { 
-            color: #962d2d; 
-            font-size: 2.3em; 
-            font-weight: bold;
-            text-align: center; /* Zentriert */
+        /* Sektions-Überschriften */
+        h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: #8B2626;
+            font-size: 2.8em;
+            font-weight: 700;
+            text-align: center;
             margin-top: 10px;
-            margin-bottom: 35px; 
+            margin-bottom: 50px;
         }
 
-        /* Profilbild linksbündig und schick schattiert */
+        /* Premium Autoren-Präsentation */
+        .profile-section {
+            background-color: #ffffff;
+            border: 1px solid #efece9;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(139, 38, 38, 0.03);
+            margin-bottom: 30px;
+        }
+
+        /* Profilbild linksbündig und edel schattiert */
         .profile-img { 
             float: left; 
-            margin: 0 30px 20px 0; 
-            width: 220px; 
+            margin: 0 40px 20px 0; 
+            width: 240px; 
             height: auto; 
             border-radius: 8px; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+            box-shadow: 5px 5px 25px rgba(0,0,0,0.12); 
+            transition: transform 0.4s ease;
+        }
+        .profile-section:hover .profile-img {
+            transform: scale(1.02) translateY(-2px);
         }
 
         /* Fließtext-Styling */
         .content-text {
             font-size: 1.1em;
-            color: #555555;
+            color: #5c554f;
             text-align: justify;
         }
         .content-text p {
-            margin-bottom: 20px;
+            margin-top: 0;
+            margin-bottom: 24px;
         }
+        .content-text p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Buchtitel elegant hervorheben */
         em { 
+            font-family: 'Playfair Display', Georgia, serif;
             font-style: italic; 
-            color: #962d2d; 
+            color: #8B2626; 
             font-weight: 500;
         }
+
+        /* Hilfsklasse für Float-Layouts */
         .clearfix::after { 
             content: ""; 
             clear: both; 
             display: table; 
         }
+
+        /* Footer – identisch zur Startseite */
+        footer {
+            text-align: center;
+            font-size: 0.95em;
+            color: #8a8077;
+            margin-top: 80px;
+            border-top: 1px solid #e8e5e1;
+            padding-top: 30px;
+        }
+        .footer-links p {
+            max-width: 700px;
+            margin: 15px auto 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Responsive Anpassungen */
+        @media (max-width: 768px) {
+            .nav-tabs { gap: 15px; }
+            .profile-section { padding: 25px; }
+            .profile-img { 
+                float: none; 
+                display: block; 
+                margin: 0 auto 30px auto; 
+                width: 200px; 
+            }
+            .content-text { text-align: left; }
+            h1 { font-size: 2.2em; }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Das originale Menü deiner Startseite -->
-    <div class="nav-tabs">
-        <a href="index.html">🏠 Home</a>
-        <a href="ueber-mich.html" class="active">👤 Über mich</a>
-        <a href="termine.html">📅 Termine</a>
-        <a href="media.html">🎬 Media</a>
+    <!-- Die Premium-Navigation -->
+    <div class="nav-container">
+        <ul class="nav-tabs">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="ueber-mich.html" class="active">Über mich</a></li>
+            <li><a href="termine.html">Termine</a></li>
+            <li><a href="media.html">Media</a></li>
+        </ul>
     </div>
 
-    <!-- Die angepasste Überschrift -->
+    <!-- Haupttitel -->
     <h1>Über mich</h1>
 
-    <!-- Der Text mit Bild -->
-    <div class="clearfix content-text">
+    <!-- Autoren-Porträt Karte -->
+    <div class="profile-section clearfix">
         <img src="Bild_Autor.jpg" alt="Stefan Röser" class="profile-img">
 
-        <p>Schön, dass Du den Weg auf meine persönliche Autorenseite gefunden hast.</p>
+        <div class="content-text">
+            <p>Schön, dass Du den Weg auf meine persönliche Autorenseite gefunden hast.</p>
 
-        <p>Mein Name ist Stefan Röser, ich wurde 1977 in Koblenz geboren.</p>
+            <p>Mein Name ist Stefan Röser, ich wurde 1977 in Koblenz geboren.</p>
 
-        <p>Schon immer hatte ich Freude daran, Gedanken in Worte zu fassen – ob in beruflichen Konzepten oder nun auch in literarischer Form.</p>
+            <p>Schon immer hatte ich Freude daran, Gedanken in Worte zu fassen – ob in beruflichen Konzepten oder nun auch in literarischer Form.</p>
 
-        <p>Meine Leidenschaft gilt den historischen Romanen, die ich seit vielen Jahren begeistert lese. Mit <em>EIN LEISES WIR</em> legte ich im Jahr 2025 mein erstes eigenes Werk in diesem Genre vor. Mit <em>EIN HERZ, DAS KEINEN ZORN MEHR TRÄGT</em> wurde mein zweiter Roman Anfang 2026 veröffentlicht.</p>
+            <p>Meine Leidenschaft gilt den historischen Romanen, die ich seit vielen Jahren begeistert lese. Mit <em>Ein leises wir</em> legte ich im Jahr 2025 mein erstes eigenes Werk in diesem Genre vor. Mit <em>Ein Herz, das keinen Zorn mehr trägt</em> wurde mein zweiter Roman Anfang 2026 veröffentlicht.</p>
 
-        <p>Ich bin der Region treu geblieben und wohne mit meiner Frau und meinen beiden Kindern in der Nähe von Koblenz.</p>
+            <p>Ich bin der Region treu geblieben und wohne mit meiner Frau und meinen beiden Kindern in der Nähe von Koblenz.</p>
+        </div>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Stefan Röser</p>
+        <div class="footer-links">
+            <p><strong>Impressum:</strong> Stefan Röser, c/o Online Impressum.de #6281, Europaring 90, 53757 Sankt Augustin | E-Mail: stefan@booksart.de</p>
+        </div>
+    </footer>
 
 </body>
 </html>
