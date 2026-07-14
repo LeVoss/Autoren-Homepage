@@ -19,7 +19,7 @@
             margin: 0 auto; 
             padding: 40px 20px; 
             color: #3e3a36; 
-            background-color: #fcfbfa; /* Warmes Buchpapier-Weiß */
+            background-color: #fcfbfa; 
         }
 
         /* Elegante, flache Navigation */
@@ -45,7 +45,6 @@
             transition: all 0.3s ease;
             position: relative;
         }
-        /* Feiner Unterstrich-Effekt beim Drüberfahren */
         .nav-tabs a::after {
             content: '';
             position: absolute;
@@ -74,7 +73,7 @@
         }
         .hero h1 { 
             font-family: 'Playfair Display', Georgia, serif;
-            color: #8B2626; /* Edles Kastanienrot */
+            color: #8B2626; 
             font-size: 2.8em; 
             font-weight: 700;
             margin-bottom: 15px; 
@@ -99,6 +98,8 @@
             box-shadow: 0 4px 20px rgba(139, 38, 38, 0.03);
             align-items: flex-start;
             margin-top: 40px;
+            height: auto;
+            min-height: min-content;
         }
         .book-cover {
             flex: 0 0 240px;
@@ -109,7 +110,7 @@
             transition: transform 0.4s ease;
         }
         .book-card:hover .book-cover {
-            transform: scale(1.02) translateY(-4px); /* Sanfter Bewegungseffekt */
+            transform: scale(1.02) translateY(-4px); 
         }
         .book-info {
             flex: 1;
@@ -127,6 +128,7 @@
             font-size: 1.05em;
             color: #5c554f;
             text-align: justify;
+            margin: 0;
         }
         .book-info strong {
             color: #8B2626;
@@ -136,7 +138,7 @@
         /* Responsive Design für Smartphones */
         @media (max-width: 768px) {
             .nav-tabs { gap: 15px; }
-            .book-card { flex-direction: column; align-items: center; padding: 25px; }
+            .book-card { flex-direction: column; align-items: center; padding: 25px; height: auto; }
             .book-cover { flex: 0 0 auto; width: 200px; }
             .hero h1 { font-size: 2.2em; }
         }
@@ -162,8 +164,8 @@
 
     <!-- Zweispaltige, edle Buchvorstellung -->
     <div class="book-card">
-        <!-- Hier nutzen wir den exakten Dateinamen deines Buchcovers aus deiner bisherigen Struktur -->
-        <img src="Ein Herz das keinen Zorn mehr trägt.jpg" alt="Buchcover: Ein Herz, das keinen Zorn mehr trägt" class="book-cover" onerror="this.src='cover2.png'">
+        <!-- Dein funktionierender Bildname -->
+        <img src="Ein Herz das keinen Zorn mehr trägt.jpg" alt="Buchcover: Ein Herz, das keinen Zorn mehr trägt" class="cover2.png">
         
         <div class="book-info">
             <h2>Ein Herz, das keinen Zorn mehr trägt</h2>
