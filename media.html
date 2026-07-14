@@ -4,121 +4,170 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Multimedia – Stefan Röser</title>
+    
+    <!-- Google Fonts für edle Verlags-Atmosphäre -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+
     <style>
-        :root {
-            --bg-color: #fcfcfc;
-            --text-color: #2c3e50;
-            --primary-color: #9a2a2a;
-            --border-color: #e0e0e0;
+        /* Grunddesign im Buchpapier-Stil – identisch zu den anderen Seiten */
+        body { 
+            font-family: 'Inter', Arial, sans-serif; 
+            line-height: 1.8; 
+            max-width: 940px; 
+            margin: 0 auto; 
+            padding: 40px 20px; 
+            color: #3e3a36; 
+            background-color: #fcfbfa; /* Warmes Weiß */
         }
 
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 0;
+        /* Elegante, flache Navigation */
+        .nav-container {
+            border-bottom: 1px solid #e8e5e1;
+            padding-bottom: 20px;
+            margin-bottom: 60px;
         }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        nav {
+        .nav-tabs {
             display: flex;
-            justify-content: space-between;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 15px;
-            margin-bottom: 40px;
+            justify-content: center; 
+            gap: 35px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
-
-        nav a {
+        .nav-tabs a {
             text-decoration: none;
-            color: var(--text-color);
-            font-weight: bold;
-            font-size: 1.1em;
-            padding: 10px 15px;
-            border-radius: 6px;
+            color: #6e665e; 
+            font-weight: 500;
+            font-size: 1.05em;
+            padding: 8px 4px;
             transition: all 0.3s ease;
+            position: relative;
+        }
+        /* Feiner Unterstrich bei Aktivität */
+        .nav-tabs a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #8B2626;
+            transition: width 0.3s ease;
+        }
+        .nav-tabs a:hover::after, .nav-tabs a.active::after {
+            width: 100%;
+        }
+        .nav-tabs a:hover {
+            color: #8B2626;
+        }
+        .nav-tabs a.active {
+            color: #8B2626;
+            font-weight: 600;
         }
 
-        nav a:hover {
-            color: var(--primary-color);
-            background-color: #f0f0f0;
-        }
-
-        nav a.active {
-            color: white;
-            background-color: var(--primary-color);
-        }
-
-        .content-section {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            margin-top: 20px;
-        }
-
+        /* Sektions-Überschriften */
         h1 {
-            color: var(--primary-color);
-            margin-top: 0;
+            font-family: 'Playfair Display', Georgia, serif;
+            color: #8B2626;
+            font-size: 2.8em;
+            font-weight: 700;
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 20px;
         }
 
+        .subtitle {
+            text-align: center;
+            font-size: 1.1em;
+            color: #6e665e;
+            max-width: 600px;
+            margin: 0 auto 50px auto;
+        }
+
+        /* Hauptbereich für Media-Inhalte */
+        .media-container {
+            background-color: #ffffff;
+            border: 1px solid #efece9;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(139, 38, 38, 0.03);
+            margin-bottom: 30px;
+        }
+
+        /* Edle Vorschau-Box */
         .info-box {
-            background-color: #eef7f9;
-            border-left: 4px solid #31708f;
-            color: #31708f;
-            padding: 15px;
-            border-radius: 4px;
-            margin-top: 20px;
+            background-color: #fbf7f0;
+            border-left: 4px solid #8B2626;
+            color: #5c554f;
+            padding: 20px 25px;
+            border-radius: 0 8px 8px 0;
+            font-size: 1.05em;
+            line-height: 1.7;
+        }
+        .info-box strong {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: #8B2626;
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 5px;
         }
 
+        /* Footer – identisch zu den anderen Seiten */
         footer {
             text-align: center;
-            font-size: 0.9em;
-            color: #7f8c8d;
-            margin-top: 60px;
-            border-top: 1px solid var(--border-color);
-            padding-top: 20px;
+            font-size: 0.95em;
+            color: #8a8077;
+            margin-top: 80px;
+            border-top: 1px solid #e8e5e1;
+            padding-top: 30px;
+        }
+        .footer-links p {
+            max-width: 700px;
+            margin: 15px auto 0 auto;
+            line-height: 1.6;
         }
 
-        @media (max-width: 600px) {
-            nav {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 10px;
-            }
+        /* Responsive Anpassungen */
+        @media (max-width: 768px) {
+            .nav-tabs { gap: 15px; }
+            .media-container { padding: 25px; }
+            h1 { font-size: 2.2em; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Horizontales Menü -->
-        <nav>
-            <a href="index.html">🏠 Home</a>
-            <a href="ueber-mich.html">👤 Über mich</a>
-            <a href="termine.html">📅 Termine</a>
-            <a href="media.html" class="active">🎬 Media</a>
-        </nav>
-
-        <div class="content-section">
-            <h1>🎬 Multimedia & Einblicke</h1>
-            <p style="font-size: 1.1em;">In diesem Bereich entstehen bald visuelle und akustische Einblicke in meine Romane.</p>
-            
-            <div class="info-box">
-                <strong>Vorschau:</strong> Hier folgen später media Einträge.
-            </div>
-        </div>
-
-        <footer>
-            <p>© 2026 Stefan Röser</p>
-        </footer>
+    <!-- Die Premium-Navigation -->
+    <div class="nav-container">
+        <ul class="nav-tabs">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="ueber-mich.html">Über mich</a></li>
+            <li><a href="termine.html">Termine</a></li>
+            <li><a href="media.html" class="active">Media</a></li>
+        </ul>
     </div>
+
+    <!-- Haupttitel & Einleitung -->
+    <h1>Multimedia & Einblicke</h1>
+    <p class="subtitle">In diesem Bereich entstehen bald visuelle und akustische Einblicke in meine Romane.</p>
+
+    <!-- Media Karte -->
+    <div class="media-container">
+        <div class="info-box">
+            <strong>Vorschau: Media-Inhalte</strong>
+            Hier folgen zu einem späteren Zeitpunkt stimmungsvolle Multimedia-Einträge, Buchtrailer oder Audio-Auszüge.
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Stefan Röser</p>
+        <div class="footer-links">
+            <p><strong>Impressum:</strong> Stefan Röser, c/o Online Impressum.de #6281, Europaring 90, 53757 Sankt Augustin | E-Mail: stefan@booksart.de</p>
+        </div>
+    </footer>
 
 </body>
 </html>
