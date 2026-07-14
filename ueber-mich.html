@@ -3,20 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stefan Röser – Autorenseite</title>
+    <title>Stefan Röser – Über mich</title>
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.7; max-width: 750px; margin: 60px auto; padding: 0 20px; color: #333; }
-        h1 { color: #111; border-bottom: 1px solid #eee; padding-bottom: 15px; font-size: 2.2em; margin-bottom: 30px; }
-        .profile-img { float: left; margin: 0 25px 20px 0; width: 180px; height: auto; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-        p { margin-bottom: 20px; font-size: 1.1em; text-align: justify; }
-        em { font-style: italic; color: #555; }
-        .clearfix::after { content: ""; clear: both; display: table; }
+        /* Grundlayout der Seite */
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            line-height: 1.7; 
+            max-width: 750px; 
+            margin: 40px auto; 
+            padding: 0 20px; 
+            color: #333; 
+        }
+
+        /* Registerkarten / Navigationsleiste */
+        .nav-tabs {
+            display: flex;
+            border-bottom: 2px solid #eaeaea;
+            margin-bottom: 35px;
+            padding: 0;
+            list-style: none;
+        }
+        .nav-tabs a {
+            text-decoration: none;
+            color: #666;
+            padding: 10px 20px;
+            font-size: 1.05em;
+            border: 1px solid transparent;
+            border-bottom: none;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            margin-right: 4px;
+            background-color: #f7f7f7;
+            transition: all 0.2s ease-in-out;
+        }
+        .nav-tabs a:hover {
+            background-color: #ededed;
+            color: #111;
+        }
+        /* Die aktive Registerkarte */
+        .nav-tabs a.active {
+            background-color: #ffffff;
+            color: #111;
+            border-color: #eaeaea;
+            border-bottom: 2px solid #ffffff; /* Überdeckt den unteren Strich */
+            margin-bottom: -2px;
+            font-weight: 600;
+        }
+
+        /* DIE ÜBERSCHRIFT: Hier kannst du Größe und Farbe anpassen */
+        h1 { 
+            color: #111111;              /* Ändere diesen Farbcode (z.B. in Blau/Grau) */
+            font-size: 2.2em;            /* Ändere die Größe (z.B. 2.0em oder 2.4em) */
+            font-weight: 600;
+            margin-top: 10px;
+            margin-bottom: 25px; 
+        }
+
+        /* Profilbild und Textfluss */
+        .profile-img { 
+            float: left; 
+            margin: 0 25px 20px 0; 
+            width: 180px; 
+            height: auto; 
+            border-radius: 4px; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+        }
+        p { 
+            margin-bottom: 20px; 
+            font-size: 1.1em; 
+            text-align: justify; 
+        }
+        em { 
+            font-style: italic; 
+            color: #555; 
+        }
+        .clearfix::after { 
+            content: ""; 
+            clear: both; 
+            display: table; 
+        }
     </style>
 </head>
 <body>
 
+    <!-- Die 4 Registerkarten oben drüber -->
+    <div class="nav-tabs">
+        <a href="index.html">Willkommen</a>
+        <a href="ueber-mich.html" class="active">Über mich</a>
+        <a href="werke.html">Werke</a>
+        <a href="kontakt.html">Kontakt</a>
+    </div>
+
+    <!-- Die Überschrift -->
     <h1>Über mich</h1>
 
+    <!-- Der Inhalt mit deinem Foto -->
     <div class="clearfix">
         <img src="Bild_Autor.jpg" alt="Stefan Röser" class="profile-img">
 
