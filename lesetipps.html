@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesetipps – Stefan Röser</title>
+    
+    <!-- Google Fonts für edle Verlags-Atmosphäre -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* Grunddesign im Buchpapier-Stil – identisch zu den anderen Seiten */
+        body { 
+            font-family: 'Inter', Arial, sans-serif; 
+            line-height: 1.8; 
+            max-width: 940px; 
+            margin: 0 auto; 
+            padding: 40px 20px; 
+            color: #3e3a36; 
+            background-color: #fcfbfa; 
+        }
+
+        /* Elegante, flache Navigation */
+        .nav-container {
+            border-bottom: 1px solid #e8e5e1;
+            padding-bottom: 20px;
+            margin-bottom: 60px;
+        }
+        .nav-tabs {
+            display: flex;
+            justify-content: center; 
+            gap: 35px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .nav-tabs a {
+            text-decoration: none;
+            color: #6e665e; 
+            font-weight: 500;
+            font-size: 1.05em;
+            padding: 8px 4px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .nav-tabs a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #8B2626;
+            transition: width 0.3s ease;
+        }
+        .nav-tabs a:hover::after, .nav-tabs a.active::after {
+            width: 100%;
+        }
+        .nav-tabs a:hover {
+            color: #8B2626;
+        }
+        .nav-tabs a.active {
+            color: #8B2626;
+            font-weight: 600;
+        }
+
+        /* Sektions-Überschriften */
+        h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: #8B2626;
+            font-size: 2.8em;
+            font-weight: 700;
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: #3e3a36;
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #efece9;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: #8B2626;
+            font-size: 1.3em;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.1em;
+            color: #6e665e;
+            max-width: 600px;
+            margin: 0 auto 50px auto;
+        }
+
+        /* Vorstellungs-Box Philosophie */
+        .intro-box {
+            background-color: #fbf7f0;
+            border-left: 4px solid #8B2626;
+            color: #5c554f;
+            padding: 30px;
+            border-radius: 0 8px 8px 0;
+            font-size: 1.05em;
+            margin-bottom: 50px;
+        }
+
+        /* Buch-Grid für nebeneinanderliegende Vorstellung */
+        .books-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 25px;
+        }
+
+        .book-card {
+            background-color: #ffffff;
+            border: 1px solid #efece9;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(139, 38, 38, 0.01);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Edler Button zum Buch */
+        .btn-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #8B2626;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95em;
+            border: 1px solid #8B2626;
+            padding: 8px 18px;
+            border-radius: 4px;
+            text-align: center;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+
+        .btn-link:hover {
+            background-color: #8B2626;
+            color: #ffffff;
+        }
+
+        /* Externer Autorenlink im Text */
+        .author-link {
+            color: #8B2626;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .author-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer – identisch zu den anderen Seiten */
+        footer {
+            text-align: center;
+            font-size: 0.95em;
+            color: #8a8077;
+            margin-top: 80px;
+            border-top: 1px solid #e8e5e1;
+            padding-top: 30px;
+        }
+        .footer-links p {
+            max-width: 700px;
+            margin: 15px auto 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Responsive Anpassungen */
+        @media (max-width: 768px) {
+            .nav-tabs { gap: 15px; flex-wrap: wrap; }
+            .books-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 2.2em; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Die Premium-Navigation mit neuem Punkt -->
+    <div class="nav-container">
+        <ul class="nav-tabs">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="ueber-mich.html">Über mich</a></li>
+            <li><a href="termine.html">Termine</a></li>
+            <li><a href="media.html">Media</a></li>
+            <li><a href="lesetipps.html" class="active">Lesetipps</a></li>
+        </ul>
+    </div>
+
+    <!-- Haupttitel & Einleitung -->
+    <h1>Lesetipps</h1>
+    <p class="subtitle">Autoren, die ich empfehle</p>
+
+    <!-- Philosophie-Box -->
+    <div class="intro-box">
+        <h3 style="color: #8B2626; font-family: 'Playfair Display', Georgia, serif; font-size: 1.4em; margin-bottom: 15px;">Warum diese Seite?</h3>
+        <p style="margin: 0 0 15px 0;">Wer ohne großen Verlag schreibt, kennt das Problem: Die Geschichten sind da, aber kaum jemand erfährt von ihnen. Deshalb stelle ich hier Autorenkollegen vor, deren Bücher meiner Meinung nach mehr Beachtung verdienen.</p>
+        <p style="margin: 0; font-style: italic;">Keine bezahlte Werbung, keine Gegenleistung: nur eine persönliche Empfehlung von Leser zu Leser.</p>
+    </div>
+
+    <!-- Vorstellung Autor 1 -->
+    <h2>Heribert Berlin</h2>
+    <p>Auf <a class="author-link" href="https://www.heribert-berlin.de" target="_blank">Heribert Berlin</a> bin ich aufmerksam geworden, weil er denselben Weg geht wie ich: eigene Bücher, eigene Homepage, alles ohne Verlag im Rücken. Er schreibt mit Leidenschaft und bringt Geschichten auf Papier, die es wert sind, entdeckt zu werden. Besonders ans Herz legen möchte ich euch diese beiden Werke von ihm:</p>
+
+    <!-- Die Bücher des Kollegen -->
+    <div class="books-grid">
+        
+        <!-- Buch 1 -->
+        <div class="book-card">
+            <div>
+                <h3>Pakistan – Ein Reisebericht 1993</h3>
+                <p style="margin: 0; font-size: 0.95em; color: #5c554f;">Ein fesselnder und authentischer Einblick in ein Land voller Kontraste, erlebt und festgehalten in einer bewegten Zeit.</p>
+            </div>
+            <a href="https://www.heribert-berlin.de/pakistan-deu-detail.html" target="_blank" class="btn-link">Mehr zum Buch</a>
+        </div>
+
+        <!-- Buch 2 -->
+        <div class="book-card">
+            <div>
+                <h3>Ein letzter Cà phê</h3>
+                <p style="margin: 0; font-size: 0.95em; color: #5c554f;">Ein atmosphärischer Roman, der den Leser tief in seine Erzählung hineinzieht und lange nachwirkt.</p>
+            </div>
+            <a href="https://www.heribert-berlin.de/roman-deu-detail.html" target="_blank" class="btn-link">Mehr zum Buch</a>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Stefan Röser</p>
+        <div class="footer-links">
+            <p><strong>Impressum:</strong> Stefan Röser, c/o Online Impressum.de #6281, Europaring 90, 53757 Sankt Augustin | E-Mail: stefan@booksart.de</p>
+        </div>
+    </footer>
+
+</body>
+</html>
