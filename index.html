@@ -222,7 +222,7 @@
 
         /* Responsive Anpassungen */
         @media (max-width: 768px) {
-            .nav-tabs { gap: 15px; }
+            .nav-tabs { gap: 15px; flex-wrap: wrap; }
             .book-card { flex-direction: column; align-items: center; padding: 25px; }
             .book-cover { flex: 0 0 auto; width: 180px; }
             .book-info h3 { text-align: center; margin-top: 20px; }
@@ -232,13 +232,14 @@
 </head>
 <body>
 
-    <!-- Die Premium-Navigation -->
+    <!-- Die Premium-Navigation mit neuem Punkt -->
     <div class="nav-container">
         <ul class="nav-tabs">
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="ueber-mich.html">Über mich</a></li>
             <li><a href="termine.html">Termine</a></li>
             <li><a href="media.html">Media</a></li>
+            <li><a href="lesetipps.html">Lesetipps</a></li>
         </ul>
     </div>
 
@@ -271,12 +272,12 @@
         <strong>Sonderangebot:</strong> Mängelexemplare (Format 6:9, große Schrift) für <strong>9,99 Euro</strong> inkl. Versand (innerhalb Deutschland) verfügbar!
     </div>
 
-    <h2>📦 Buch direkt bei mir bestellen</h2>
+    <h2>Buch direkt bei mir bestellen</h2>
     <div class="form-container">
         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf60i048_9KbQ_yMcM0kJQpBGA6s3xOuASdLO6hPfhr6z2zbQ/viewform?embedded=true" width="100%" height="900">Wird geladen...</iframe>
     </div>
 
-    <h2>🛒 Oder über Amazon bestellen</h2>
+    <h2>Oder über Amazon bestellen</h2>
     <p style="color: #5c554f; font-size: 1.05em;">Du kannst das Buch natürlich auch direkt über Amazon beziehen:</p>
     <a href="https://www.amazon.de/Herz-keinen-Zorn-mehr-tr%C3%A4gt/dp/B0GK6QBS3P/ref=tmm_pap_swatch_0?_encoding=UTF8&dib_tag=se&dib=eyJ2IjoiMSJ9.LJxAwvLLNH6WS8AoQoPCG3CHiduQ2Hg_t7RajY8exgt88wscc_tG6etYW_qeSsutNlUv2GY7OF4iB3mvSaZvLmGUuoUjBQZoWExsPk6CN9XWyicDpjUegc9XSa9wiP0TEqwmMjEk2Tt7L3vBc_adLoG1RSVS9vKbuul1yTFzLht6jL9B4f9SRdoRrdyRC3fvMOXLmVkCZEy1NaRSW6EORt-drAUOCmQ8uchmgIzz4jw.vxRudBPVXSuMWXk9yw3-GsRl1mYacooYvm5OLA57V7s&qid=1780992903&sr=8-1" class="btn" target="_blank">Auf Amazon ansehen</a>
 
