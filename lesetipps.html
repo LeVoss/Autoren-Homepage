@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lesetipps – Christian Wegner | booksart</title>
+    <title>Lesetipps – Stefan Röser</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,41 +11,42 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
 
     <style>
-        /* Grunddesign in edlem Dunkelgrau/Anthrazit */
-        body { 
-            font-family: 'Inter', Arial, sans-serif; 
-            line-height: 1.8; 
-            max-width: 940px; 
-            margin: 0 auto; 
-            padding: 40px 20px; 
-            color: #d1d5db; /* Hellgrauer Lesetext */
-            background-color: #121417; /* Tiefer, dunkler Hintergrund */
+        * {
+            box-sizing: border-box;
         }
 
-        /* Elegante, flache Navigation */
+        body { 
+            font-family: 'Inter', Arial, sans-serif; 
+            line-height: 1.7; 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            color: #4a5568; 
+            background-color: #ffffff;
+        }
+
+        /* Navigation */
         .nav-container {
-            border-bottom: 1px solid #2a2e35;
-            padding-bottom: 20px;
-            margin-bottom: 60px;
+            border-bottom: 1px solid #edf2f7;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
         }
         .nav-tabs {
             display: flex;
             justify-content: center; 
-            gap: 35px;
+            gap: 30px;
             list-style: none;
             padding: 0;
             margin: 0;
         }
         .nav-tabs a {
             text-decoration: none;
-            color: #9ca3af; 
-            font-weight: 500;
-            font-size: 1.05em;
-            padding: 8px 4px;
-            transition: all 0.3s ease;
+            color: #4a5568; 
+            font-size: 0.95em;
+            padding: 6px 2px;
             position: relative;
+            transition: color 0.2s ease;
         }
-        /* Feiner Unterstrich bei Aktivität */
         .nav-tabs a::after {
             content: '';
             position: absolute;
@@ -53,148 +54,152 @@
             height: 2px;
             bottom: 0;
             left: 0;
-            background-color: #b91c1c; /* Dunkles Rot */
+            background-color: #8b2626;
             transition: width 0.3s ease;
         }
         .nav-tabs a:hover::after, .nav-tabs a.active::after {
             width: 100%;
         }
-        .nav-tabs a:hover {
-            color: #ef4444;
-        }
-        .nav-tabs a.active {
-            color: #ef4444;
-            font-weight: 600;
+        .nav-tabs a:hover, .nav-tabs a.active {
+            color: #8b2626;
         }
 
-        /* Header-Bereich */
+        /* Header */
         .page-header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
         .page-header h1 { 
             font-family: 'Playfair Display', Georgia, serif;
-            color: #f3f4f6;
-            font-size: 2.8em; 
+            color: #7a1f1f;
+            font-size: 2.6em; 
             font-weight: 700;
-            margin-bottom: 15px; 
+            margin-bottom: 10px; 
         }
         .page-header .subtitle {
-            font-family: 'Playfair Display', Georgia, serif;
-            font-style: italic;
-            font-size: 1.35em;
-            color: #fca5a5; /* Sanftes Hellrot */
-            max-width: 750px;
+            font-size: 1em;
+            color: #718096;
             margin: 0 auto;
         }
 
-        /* Inhaltsbereich für das Intro */
-        .content-card {
-            background-color: #1a1d24; /* Dunkle Karte */
-            border: 1px solid #2a2e35;
-            border-radius: 12px;
-            padding: 45px 50px;
-            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
-            margin-top: 30px;
-            margin-bottom: 40px;
+        /* "Warum diese Seite?" - Box */
+        .intro-box {
+            background-color: #fcfaf7;
+            border-left: 4px solid #8b2626;
+            padding: 30px 35px;
+            margin-bottom: 50px;
+            border-radius: 2px;
         }
-
-        .content-card h2 {
+        .intro-box h2 {
             font-family: 'Playfair Display', Georgia, serif;
-            color: #f3f4f6;
-            font-size: 1.8em;
+            color: #7a1f1f;
+            font-size: 1.4em;
             margin-top: 0;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #2a2e35;
-            padding-bottom: 10px;
+            margin-bottom: 15px;
         }
-
-        .content-card p {
-            font-size: 1.1em;
-            color: #d1d5db;
-            text-align: justify;
-            margin-bottom: 1.5em;
+        .intro-box p {
+            font-size: 0.95em;
+            color: #4a5568;
+            margin-bottom: 15px;
+            line-height: 1.6;
         }
-
-        .highlight-note {
+        .intro-box .note {
             font-style: italic;
-            color: #9ca3af;
-            border-left: 3px solid #ef4444;
-            padding-left: 15px;
-            margin-top: 30px;
+            color: #718096;
             margin-bottom: 0;
         }
 
-        /* Buch-Empfehlungen Karten */
-        .book-recommendation {
-            background-color: #1a1d24;
-            border: 1px solid #2a2e35;
-            border-radius: 12px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
+        /* Autoren-Sektionen */
+        .author-section {
+            margin-bottom: 50px;
         }
-
-        .book-recommendation h3 {
+        .author-section h2 {
             font-family: 'Playfair Display', Georgia, serif;
-            color: #fca5a5;
-            font-size: 1.8em;
-            margin-top: 0;
-            margin-bottom: 5px;
+            color: #2d3748;
+            font-size: 1.6em;
+            margin-bottom: 15px;
         }
-
-        .book-author {
-            font-weight: 600;
-            color: #9ca3af;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            font-size: 0.9em;
-            letter-spacing: 1px;
-        }
-
-        .review-title {
-            font-weight: 600;
-            color: #f3f4f6;
-            margin-top: 25px;
-            margin-bottom: 12px;
-            font-size: 1.1em;
-        }
-
-        .book-recommendation p {
-            font-size: 1.05em;
-            color: #d1d5db;
-            text-align: justify;
-            margin-bottom: 1em;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
+        .author-intro {
             font-size: 0.95em;
-            color: #6b7280;
-            margin-top: 80px;
-            border-top: 1px solid #2a2e35;
-            padding-top: 30px;
-        }
-        .footer-links p {
-            max-width: 700px;
-            margin: 15px auto 0 auto;
+            color: #4a5568;
             line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        .author-intro strong {
+            color: #7a1f1f;
+            font-weight: 600;
         }
 
-        /* Responsive Anpassungen */
-        @media (max-width: 768px) {
-            .nav-tabs { gap: 15px; flex-wrap: wrap; }
-            .content-card, .book-recommendation { padding: 30px 20px; }
-            .content-card p, .book-recommendation p { text-align: left; }
-            .page-header h1 { font-size: 2.2em; }
-            .page-header .subtitle { font-size: 1.15em; }
+        /* Zweispaltiges Grid für die Bücher */
+        .books-grid {
+            display: flex;
+            gap: 20px;
+        }
+        .book-card {
+            flex: 1;
+            background-color: #ffffff;
+            border: 1px solid #edf2f7;
+            border-radius: 6px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+        .book-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: #7a1f1f;
+            font-size: 1.25em;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .book-card p {
+            font-size: 0.9em;
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .book-card .btn {
+            display: inline-block;
+            align-self: flex-start;
+            border: 1px solid #7a1f1f;
+            color: #7a1f1f;
+            padding: 8px 16px;
+            text-decoration: none;
+            font-size: 0.85em;
+            border-radius: 3px;
+            transition: all 0.2s ease;
+        }
+        .book-card .btn:hover {
+            background-color: #7a1f1f;
+            color: #ffffff;
+        }
+
+        /* Ausführliche Rezension (Einspaltig) */
+        .review-text {
+            font-size: 0.95em;
+            line-height: 1.7;
+            color: #4a5568;
+        }
+        .review-text p {
+            margin-bottom: 1.2em;
+        }
+
+        /* Responsive Design für Mobilgeräte */
+        @media (max-width: 600px) {
+            .books-grid {
+                flex-direction: column;
+            }
+            .nav-tabs {
+                gap: 15px;
+                flex-wrap: wrap;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Die Navigation -->
+    <!-- Navigation -->
     <div class="nav-container">
         <ul class="nav-tabs">
             <li><a href="index.html">Home</a></li>
@@ -205,65 +210,64 @@
         </ul>
     </div>
 
-    <!-- Header-Bereich -->
+    <!-- Header -->
     <div class="page-header">
         <h1>Lesetipps</h1>
         <p class="subtitle">Autoren, die ich empfehle</p>
     </div>
 
-    <!-- Text-Inhalt Intro -->
-    <div class="content-card">
+    <!-- Intro Box -->
+    <div class="intro-box">
         <h2>Warum diese Seite?</h2>
-        
         <p>Wer ohne großen Verlag schreibt, kennt das Problem: Die Geschichten sind da, aber kaum jemand erfährt von ihnen. Deshalb stelle ich hier Autorenkollegen vor, deren Bücher meiner Meinung nach mehr Beachtung verdienen.</p>
-        
-        <p class="highlight-note">Keine bezahlte Werbung, keine Gegenleistung: nur eine persönliche Empfehlung von Leser zu Leser.</p>
+        <p class="note">Keine bezahlte Werbung, keine Gegenleistung: nur eine persönliche Empfehlung von Leser zu Leser.</p>
     </div>
 
-    <!-- Buchempfehlung 1: Frau A. -->
-    <div class="book-recommendation">
-        <h3>DER TANZ DER MUTTERLIEBE: Zwischen Hoffnung und Schmerz</h3>
-        <div class="book-author">von Frau A.</div>
+    <!-- Bereich: Heribert Lange -->
+    <div class="author-section">
+        <h2>Heribert Lange</h2>
+        <p class="author-intro">
+            Auf <strong>Heribert Lange</strong> bin ich aufmerksam geworden, weil er denselben Weg geht wie ich: eigene Bücher, eigene Homepage, alles ohne Verlag im Rücken. Er schreibt mit Leidenschaft und bringt Geschichten auf Papier, die es wert sind, entdeckt zu werden. Besonders ans Herz legen möchte ich euch diese beiden Werke von ihm:
+        </p>
 
-        <p>Auf meine Kollegin Frau A. bin ich über Facebook aufmerksam geworden und auch sie geht denselben Weg wie ich: eigene Bücher, eigene Homepage, alles ohne Verlag im Rücken. Die Autorin schreibt unter einem Synonym, da sie mit ihren Geschichten viele wahre Gegebenheiten aufarbeitet. Ihre Geschichten haben es verdient, gelesen zu werden.</p>
+        <div class="books-grid">
+            <div class="book-card">
+                <div>
+                    <h3>Pakistan – Ein Reisebericht 1993</h3>
+                    <p>Ein fesselnder und authentischer Einblick in ein Land voller Kontraste, erlebt und festgehalten in einer bewegten Zeit.</p>
+                </div>
+                <a href="#" class="btn">Mehr zum Buch</a>
+            </div>
 
-        <div class="review-title">Meine Persönliche Bewertung:</div>
-
-        <p>Die Autorin berichtet im ersten Teil des Buches ausführlich über einen sehr schweren Teil ihres Lebens: Den Umgang mit ihrem schwer suchtkranken, erwachsenen Sohn. Dieser Teil des Lebens hat sie immer wieder an ihre körperliche und geistige Grenze und weit darüber hinaus gebracht. Dies endete wie es enden musste und wie es bei jedem anderen Menschen auch geendet wäre: Im absoluten Zusammenbruch, durch die dauerhafte und wahrscheinlich ihr ganzes Leben dauernde Überlastung des Nervensystems.</p>
-
-        <p>Dieser Teil ist insbesondere für Menschen zu empfehlen, die ein ähnliches Problem in der Familie oder mit guten Freunden haben. Denn Frau A. hat über viele Jahre hinweg vieles falsch gemacht mit der suchtkranken Person, was letzten Endes sehr zu ihrem totalen Zusammenbruch beigetragen hat.</p>
-
-        <p>In den weiteren Abschnitten des Buches beschreibt Frau A. den selbst gewählten Weg der Heilung: Sie beschreibt zunächst ihren eigenen Weg hinaus aus dem absoluten Tiefpunkt insbesondere über einen langen stationären Aufenthalt in einer Klinik und anschließend empfiehlt sie Strategien, die ihr danach geholfen haben, wie Therapien (Coachings), Methoden zum Selberanwenden, Buch- und Filmtipps usw.</p>
-
-        <p>Die weiteren Abschnitte empfehle ich Personen, die gesundheitlich angeschlagen sind, körperlich und insbesondere auch seelisch: Denn das Buch gibt während des Lesens eine absolute Hoffnung auf Genesung; auch dadurch, dass man erfährt, wie vielfältig die Wege zur Genesung sind.</p>
-
-        <p>Ich hoffe, dass viele Menschen mit ähnlichen (gesundheitlichen) Problemen wie Frau A. dieses Buch lesen, denn ich bin mir sicher, dass sie darüber Heilung erfahren können. Denn ein theoretischer Ratgeber kann nicht so gut für den Leser sein wie ein praktischer Ratgeber. Die Heilung von Frau A. hat bewiesen, was sie in ihrem Leben gut gemeistert hat; aber auch, was sie im Leben falsch gemacht hat.</p>
-    </div>
-
-    <!-- Buchempfehlung 2: Heribert Lange -->
-    <div class="book-recommendation">
-        <h3>Reisebericht Pakistan & China (1993)</h3>
-        <div class="book-author">von Heribert Lange</div>
-
-        <div class="review-title">Hier meine persönliche Bewertung:</div>
-
-        <p>Heribert Langes Reisebericht hebt sich wohltuend von den üblichen Reiseführern oder dramatisierten Abenteuerromanen ab.</p>
-
-        <p>Das Buch nimmt einen mit auf eine Reise ins Pakistan (und China) des Jahres 1993 – ehrlich, nahbar und ganz ohne verklärte Touristenbrille.</p>
-
-        <p>Besonders fasziniert hat mich die Mischung aus spontaner Entschlossenheit und den ungefilterten Eindrücken vor Ort. Wo andere Pläne platzen oder vor den Herausforderungen zurückschrecken, entstehen hier persönliche Begegnungen mit Menschen im Spannungsfeld zwischen Tradition und Umbruch.<br>
-        Man spürt auf jeder Seite, wie tief diese Erlebnisse den Autor geprägt haben.</p>
-
-        <p>Ein lesenswertes Buch für alle, die echte Geschichten schätzen und Freude daran haben, fremde Kulturen durch die Augen eines aufmerksamen, reflektierten Beobachters kennenzulernen. Absolute Empfehlung!</p>
-    </div>
-
-    <!-- Footer / Impressum -->
-    <footer>
-        <p>© 2026 Christian Wegner</p>
-        <div class="footer-links">
-            <p><strong>Impressum:</strong> Christian Wegner, c/o Online Impressum.de #6281, Europaring 90, 53757 Sankt Augustin | E-Mail: Christian@booksart.de</p>
+            <div class="book-card">
+                <div>
+                    <h3>Ein letzter Cà phê</h3>
+                    <p>Ein atmosphärischer Roman, der den Leser tief in seine Erzählung hineinzieht und lange nachwirkt.</p>
+                </div>
+                <a href="#" class="btn">Mehr zum Buch</a>
+            </div>
         </div>
-    </footer>
+    </div>
+
+    <!-- Bereich: Frau A. -->
+    <div class="author-section" style="margin-top: 60px;">
+        <h2>Frau A.</h2>
+        <p class="author-intro">
+            Auf meine Kollegin <strong>Frau A.</strong> bin ich über Facebook aufmerksam geworden und auch sie geht denselben Weg wie ich: eigene Bücher, eigene Homepage, alles ohne Verlag im Rücken. Die Autorin schreibt unter einem Synonym, da sie mit ihren Geschichten viele wahre Gegebenheiten aufarbeitet. Ihre Geschichten haben es verdient, gelesen zu werden.
+        </p>
+
+        <div class="book-card" style="margin-bottom: 25px;">
+            <h3>DER TANZ DER MUTTERLIEBE: Zwischen Hoffnung und Schmerz</h3>
+            <div class="review-text">
+                <p>Die Autorin berichtet im ersten Teil des Buches ausführlich über einen sehr schweren Teil ihres Lebens: Den Umgang mit ihrem schwer suchtkranken, erwachsenen Sohn. Dieser Teil des Lebens hat sie immer wieder an ihre körperliche und geistige Grenze und weit darüber hinaus gebracht. Dies endete wie es enden musste und wie es bei jedem anderen Menschen auch geendet wäre: Im absoluten Zusammenbruch, durch die dauerhafte und wahrscheinlich ihr ganzes Leben dauernde Überlastung des Nervensystems.</p>
+                <p>Dieser Teil ist insbesondere für Menschen zu empfehlen, die ein ähnliches Problem in der Familie oder mit guten Freunden haben. Denn Frau A. hat über viele Jahre hinweg vieles falsch gemacht mit der suchtkranken Person, was letzten Endes sehr zu ihrem totalen Zusammenbruch beigetragen hat.</p>
+                <p>In den weiteren Abschnitten des Buches beschreibt Frau A. den selbst gewählten Weg der Heilung: Sie beschreibt zunächst ihren eigenen Weg hinaus aus dem absoluten Tiefpunkt insbesondere über einen langen stationären Aufenthalt in einer Klinik und anschließend empfiehlt sie Strategien, die ihr danach geholfen haben, wie Therapien (Coachings), Methoden zum Selberanwenden, Buch- und Filmtipps usw.</p>
+                <p>Die weiteren Abschnitte empfehle ich Personen, die gesundheitlich angeschlagen sind, körperlich und insbesondere auch seelisch: Denn das Buch gibt während des Lesens eine absolute Hoffnung auf Genesung; auch dadurch, dass man erfährt, wie vielfältig die Wege zur Genesung sind.</p>
+                <p>Ich hoffe, dass viele Menschen mit ähnlichen (gesundheitlichen) Problemen wie Frau A. dieses Buch lesen, denn ich bin mir sicher, dass sie darüber Heilung erfahren können. Denn ein theoretischer Ratgeber kann nicht so gut für den Leser sein wie ein praktischer Ratgeber. Die Heilung von Frau A. hat bewiesen, was sie in ihrem Leben gut gemeistert hat; aber auch, was sie im Leben falsch gemacht hat.</p>
+            </div>
+            <a href="#" class="btn" style="margin-top: 15px;">Mehr zum Buch</a>
+        </div>
+    </div>
 
 </body>
 </html>
