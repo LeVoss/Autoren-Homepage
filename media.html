@@ -96,22 +96,38 @@
             margin-bottom: 30px;
         }
 
-        /* Edle Vorschau-Box */
-        .info-box {
-            background-color: #fbf7f0;
-            border-left: 4px solid #8B2626;
-            color: #5c554f;
-            padding: 20px 25px;
-            border-radius: 0 8px 8px 0;
-            font-size: 1.05em;
-            line-height: 1.7;
-        }
-        .info-box strong {
+        /* Styling für den Video-Player */
+        .video-heading {
             font-family: 'Playfair Display', Georgia, serif;
             color: #8B2626;
-            font-size: 1.1em;
-            display: block;
-            margin-bottom: 5px;
+            font-size: 1.5em;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Format */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            background-color: #000;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .video-link {
+            color: #8B2626;
+            text-decoration: underline;
+            word-break: break-all;
+        }
+        .video-link:hover {
+            color: #6b1d1d;
         }
 
         /* Footer – identisch zu den anderen Seiten */
@@ -139,11 +155,12 @@
 </head>
 <body>
 
-    <!-- Die Premium-Navigation mit allen Menüpunkten -->
+    <!-- Die Premium-Navigation mit allen Menüpunkten inklusive Gästebuch -->
     <div class="nav-container">
         <ul class="nav-tabs">
             <li><a href="index.html">Home</a></li>
             <li><a href="ueber-mich.html">Über mich</a></li>
+            <li><a href="gaestebuch.html">Gästebuch</a></li>
             <li><a href="termine.html">Termine</a></li>
             <li><a href="media.html" class="active">Media</a></li>
             <li><a href="lesetipps.html">Lesetipps</a></li>
@@ -152,14 +169,27 @@
 
     <!-- Haupttitel & Einleitung -->
     <h1>Multimedia & Einblicke</h1>
-    <p class="subtitle">In diesem Bereich entstehen bald visuelle und akustische Einblicke in meine Romane.</p>
+    <p class="subtitle">Dieser Bereich ist für visuelle und akustische Einblicke in meine Romane vorgesehen.</p>
 
     <!-- Media Karte -->
     <div class="media-container">
-        <div class="info-box">
-            <strong>Vorschau: Media-Inhalte</strong>
-            Hier folgen zu einem späteren Zeitpunkt stimmungsvolle Multimedia-Einträge, Buchtrailer oder Audio-Auszüge.
+        <h2 class="video-heading">Autoren-Lesung des Romans „Ein Herz, das keinen Zorn mehr trägt“</h2>
+        
+        <div class="video-wrapper">
+            <iframe 
+                src="https://www.youtube.com/embed/RwAeGnSIukE" 
+                title="Autoren-Lesung des Romans Ein Herz, das keinen Zorn mehr trägt" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; webshare" 
+                allowfullscreen>
+            </iframe>
         </div>
+
+        <p style="margin-bottom: 0;">
+            Link auf YouTube ansehen:<br>
+            <a href="https://youtu.be/RwAeGnSIukE?si=Pvbn250mFQLELthq" target="_blank" rel="noopener noreferrer" class="video-link">
+                https://youtu.be/RwAeGnSIukE?si=Pvbn250mFQLELthq
+            </a>
+        </p>
     </div>
 
     <!-- Footer -->
