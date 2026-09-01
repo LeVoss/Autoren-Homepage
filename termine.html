@@ -30,14 +30,21 @@
             border-bottom: 1px solid #edf2f7;
             padding-bottom: 15px;
             margin-bottom: 40px;
+            width: 100%;
         }
         .nav-tabs {
             display: flex;
             justify-content: center; 
+            align-items: center;
             gap: 30px;
             list-style: none;
             padding: 0;
             margin: 0;
+            flex-wrap: wrap;
+        }
+        .nav-tabs li {
+            margin: 0;
+            padding: 0;
         }
         .nav-tabs a {
             text-decoration: none;
@@ -45,6 +52,8 @@
             font-size: 0.95em;
             padding: 6px 2px;
             position: relative;
+            white-space: nowrap;
+            display: inline-block;
             transition: color 0.2s ease;
         }
         .nav-tabs a::after {
@@ -82,41 +91,9 @@
             margin: 0 auto;
         }
 
-        /* Termine-Liste / Inhaltsbereich */
+        /* Termine-Liste */
         .events-container {
             margin-bottom: 50px;
-        }
-
-        .event-card {
-            background-color: #ffffff;
-            border: 1px solid #edf2f7;
-            border-left: 4px solid #8b2626;
-            border-radius: 4px;
-            padding: 25px 30px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-        }
-
-        .event-card h2 {
-            font-family: 'Playfair Display', Georgia, serif;
-            color: #7a1f1f;
-            font-size: 1.4em;
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
-
-        .event-date {
-            font-weight: 600;
-            color: #2d3748;
-            font-size: 0.95em;
-            margin-bottom: 12px;
-        }
-
-        .event-card p {
-            font-size: 0.95em;
-            color: #4a5568;
-            margin-bottom: 0;
-            line-height: 1.6;
         }
 
         .no-events {
@@ -133,7 +110,7 @@
             margin: 0;
         }
 
-        /* Footer – einheitliches Styling */
+        /* Footer */
         footer {
             text-align: center;
             font-size: 0.95em;
@@ -156,7 +133,6 @@
         @media (max-width: 600px) {
             .nav-tabs {
                 gap: 15px;
-                flex-wrap: wrap;
             }
         }
     </style>
@@ -168,7 +144,6 @@
         <ul class="nav-tabs">
             <li><a href="index.html">Home</a></li>
             <li><a href="ueber-mich.html">Über mich</a></li>
-            <li><a href="gaestebuch.html">Gästebuch</a></li>
             <li><a href="termine.html" class="active">Termine</a></li>
             <li><a href="media.html">Media</a></li>
             <li><a href="lesetipps.html">Lesetipps</a></li>
@@ -183,14 +158,6 @@
 
     <!-- Termine-Bereich -->
     <div class="events-container">
-        <!-- Beispiel für einen Termin (auskommentiert als Vorlage):
-        <div class="event-card">
-            <h2>Autorenlesung & Buchvorstellung</h2>
-            <div class="event-date">Datum: DD.MM.YYYY | Uhrzeit: 19:00 Uhr</div>
-            <p>Ort / Beschreibung der Veranstaltung...</p>
-        </div>
-        -->
-
         <div class="no-events">
             <p>Derzeit stehen keine öffentlichen Termine an. Neue Lesungen und Veranstaltungen werden hier rechtzeitig bekannt gegeben.</p>
         </div>
