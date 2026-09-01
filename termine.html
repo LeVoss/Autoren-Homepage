@@ -3,48 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Termine & Veranstaltungen – Stefan Röser</title>
+    <title>Termine – Stefan Röser</title>
     
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
 
     <style>
-        /* Grunddesign im Buchpapier-Stil – identisch zu den anderen Seiten */
-        body { 
-            font-family: 'Inter', Arial, sans-serif; 
-            line-height: 1.8; 
-            max-width: 940px; 
-            margin: 0 auto; 
-            padding: 40px 20px; 
-            color: #3e3a36; 
-            background-color: #fcfbfa; /* Warmes Weiß */
+        * {
+            box-sizing: border-box;
         }
 
-        /* Elegante, flache Navigation */
+        body { 
+            font-family: 'Inter', Arial, sans-serif; 
+            line-height: 1.7; 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            color: #4a5568; 
+            background-color: #ffffff;
+        }
+
+        /* Navigation */
         .nav-container {
-            border-bottom: 1px solid #e8e5e1;
-            padding-bottom: 20px;
-            margin-bottom: 60px;
+            border-bottom: 1px solid #edf2f7;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
         }
         .nav-tabs {
             display: flex;
             justify-content: center; 
-            gap: 35px;
+            gap: 30px;
             list-style: none;
             padding: 0;
             margin: 0;
         }
         .nav-tabs a {
             text-decoration: none;
-            color: #6e665e; 
-            font-weight: 500;
-            font-size: 1.05em;
-            padding: 8px 4px;
-            transition: all 0.3s ease;
+            color: #4a5568; 
+            font-size: 0.95em;
+            padding: 6px 2px;
             position: relative;
+            transition: color 0.2s ease;
         }
-        /* Feiner Unterstrich bei Aktivität */
         .nav-tabs a::after {
             content: '';
             position: absolute;
@@ -52,98 +54,156 @@
             height: 2px;
             bottom: 0;
             left: 0;
-            background-color: #8B2626;
+            background-color: #8b2626;
             transition: width 0.3s ease;
         }
         .nav-tabs a:hover::after, .nav-tabs a.active::after {
             width: 100%;
         }
-        .nav-tabs a:hover {
-            color: #8B2626;
-        }
-        .nav-tabs a.active {
-            color: #8B2626;
-            font-weight: 600;
+        .nav-tabs a:hover, .nav-tabs a.active {
+            color: #8b2626;
         }
 
-        /* Sektions-Überschriften */
-        h1 {
+        /* Header */
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .page-header h1 { 
             font-family: 'Playfair Display', Georgia, serif;
-            color: #8B2626;
-            font-size: 2.8em;
+            color: #7a1f1f;
+            font-size: 2.6em; 
             font-weight: 700;
-            text-align: center;
-            margin-top: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 10px; 
+        }
+        .page-header .subtitle {
+            font-size: 1em;
+            color: #718096;
+            margin: 0 auto;
         }
 
-        .subtitle {
-            text-align: center;
-            font-size: 1.1em;
-            color: #6e665e;
-            max-width: 600px;
-            margin: 0 auto 50px auto;
-        }
-
-        /* Hauptbereich für Termine */
+        /* Termine-Liste / Inhaltsbereich */
         .events-container {
+            margin-bottom: 50px;
+        }
+
+        .event-card {
             background-color: #ffffff;
-            border: 1px solid #efece9;
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0 4px 20px rgba(139, 38, 38, 0.03);
-            margin-bottom: 30px;
+            border: 1px solid #edf2f7;
+            border-left: 4px solid #8b2626;
+            border-radius: 4px;
+            padding: 25px 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
         }
 
-        /* Edle Vorschau-Box */
-        .info-box {
-            background-color: #fbf7f0;
-            border-left: 4px solid #8B2626;
-            color: #5c554f;
-            padding: 20px 25px;
-            border-radius: 0 8px 8px 0;
-            font-size: 1.05em;
-            line-height: 1.7;
-        }
-        .info-box strong {
+        .event-card h2 {
             font-family: 'Playfair Display', Georgia, serif;
-            color: #8B2626;
-            font-size: 1.1em;
-            display: block;
-            margin-bottom: 5px;
+            color: #7a1f1f;
+            font-size: 1.4em;
+            margin-top: 0;
+            margin-bottom: 10px;
         }
 
-        /* Footer – identisch zu den anderen Seiten */
+        .event-date {
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 0.95em;
+            margin-bottom: 12px;
+        }
+
+        .event-card p {
+            font-size: 0.95em;
+            color: #4a5568;
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+
+        .no-events {
+            background-color: #fcfaf7;
+            border-left: 4px solid #8b2626;
+            padding: 30px 35px;
+            border-radius: 2px;
+            text-align: center;
+        }
+
+        .no-events p {
+            font-size: 1em;
+            color: #4a5568;
+            margin: 0;
+        }
+
+        /* Footer – einheitliches Styling */
         footer {
             text-align: center;
             font-size: 0.95em;
-            color: #8a8077;
+            color: #718096;
             margin-top: 80px;
-            border-top: 1px solid #e8e5e1;
+            border-top: 1px solid #edf2f7;
             padding-top: 30px;
         }
         footer a {
-            color: #6e665e;
+            color: #4a5568;
             text-decoration: underline;
             margin: 0 10px;
-            transition: color 0.3s ease;
+            transition: color 0.2s ease;
         }
         footer a:hover {
-            color: #8B2626;
+            color: #8b2626;
         }
 
-        /* Responsive Anpassungen */
-        @media (max-width: 768px) {
-            .nav-tabs { gap: 15px; flex-wrap: wrap; }
-            .events-container { padding: 25px; }
-            h1 { font-size: 2.2em; }
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .nav-tabs {
+                gap: 15px;
+                flex-wrap: wrap;
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- Navigation -->
     <div class="nav-container">
         <ul class="nav-tabs">
             <li><a href="index.html">Home</a></li>
             <li><a href="ueber-mich.html">Über mich</a></li>
-            <li><a href="termine.html" class="active">Term
+            <li><a href="gaestebuch.html">Gästebuch</a></li>
+            <li><a href="termine.html" class="active">Termine</a></li>
+            <li><a href="media.html">Media</a></li>
+            <li><a href="lesetipps.html">Lesetipps</a></li>
+        </ul>
+    </div>
+
+    <!-- Header -->
+    <div class="page-header">
+        <h1>Termine</h1>
+        <p class="subtitle">Lesungen, Veranstaltungen & Neuigkeiten</p>
+    </div>
+
+    <!-- Termine-Bereich -->
+    <div class="events-container">
+        <!-- Beispiel für einen Termin (auskommentiert als Vorlage):
+        <div class="event-card">
+            <h2>Autorenlesung & Buchvorstellung</h2>
+            <div class="event-date">Datum: DD.MM.YYYY | Uhrzeit: 19:00 Uhr</div>
+            <p>Ort / Beschreibung der Veranstaltung...</p>
+        </div>
+        -->
+
+        <div class="no-events">
+            <p>Derzeit stehen keine öffentlichen Termine an. Neue Lesungen und Veranstaltungen werden hier rechtzeitig bekannt gegeben.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Stefan Röser</p>
+        <p>
+            <a href="impressum.html">Impressum</a> | 
+            <a href="datenschutz.html">Datenschutz</a>
+        </p>
+    </footer>
+
+</body>
+</html>
