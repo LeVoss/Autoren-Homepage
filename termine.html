@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Termine & Veranstaltungen – Stefan Röser</title>
     
-    <!-- Google Fonts für edle Verlags-Atmosphäre -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -123,10 +122,14 @@
             border-top: 1px solid #e8e5e1;
             padding-top: 30px;
         }
-        .footer-links p {
-            max-width: 700px;
-            margin: 15px auto 0 auto;
-            line-height: 1.6;
+        footer a {
+            color: #6e665e;
+            text-decoration: underline;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: #8B2626;
         }
 
         /* Responsive Anpassungen */
@@ -139,36 +142,8 @@
 </head>
 <body>
 
-    <!-- Die Premium-Navigation mit allen Punkten -->
     <div class="nav-container">
         <ul class="nav-tabs">
             <li><a href="index.html">Home</a></li>
             <li><a href="ueber-mich.html">Über mich</a></li>
-            <li><a href="termine.html" class="active">Termine</a></li>
-            <li><a href="media.html">Media</a></li>
-            <li><a href="lesetipps.html">Lesetipps</a></li>
-        </ul>
-    </div>
-
-    <!-- Haupttitel & Einleitung -->
-    <h1>Termine & Lesungen</h1>
-    <p class="subtitle">Hier findest du bald alle aktuellen Termine zu kommenden Lesungen und Veranstaltungen.</p>
-
-    <!-- Termine Karte -->
-    <div class="events-container">
-        <div class="info-box">
-            <strong>Vorschau: Winter 2026</strong>
-            Lesung zu „Ein Herz, das keinen Zorn mehr trägt“ – weitere Details und genaue Ortsangaben folgen in Kürze.
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>© 2026 Stefan Röser</p>
-        <div class="footer-links">
-            <p><strong>Impressum:</strong> Stefan Röser, c/o Online Impressum.de #6281, Europaring 90, 53757 Sankt Augustin | E-Mail: stefan@booksart.de</p>
-        </div>
-    </footer>
-
-</body>
-</html>
+            <li><a href="termine.html" class="active">Term
