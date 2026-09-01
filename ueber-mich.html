@@ -140,10 +140,14 @@
             border-top: 1px solid #e8e5e1;
             padding-top: 30px;
         }
-        .footer-links p {
-            max-width: 700px;
-            margin: 15px auto 0 auto;
-            line-height: 1.6;
+        footer a {
+            color: #6e665e;
+            text-decoration: underline;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: #8B2626;
         }
 
         /* Responsive Anpassungen */
@@ -197,9 +201,10 @@
     <!-- Footer -->
     <footer>
         <p>© 2026 Stefan Röser</p>
-        <div class="footer-links">
-            <p><strong>Impressum:</strong> Stefan Röser, c/o Online Impressum.de #6281, Europaring 90, 53757 Sankt Augustin | E-Mail: stefan@booksart.de</p>
-        </div>
+        <p>
+            <a href="impressum.html">Impressum</a> | 
+            <a href="datenschutz.html">Datenschutz</a>
+        </p>
     </footer>
 
 </body>
