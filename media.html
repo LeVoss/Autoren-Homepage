@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Media – Stefan Röser</title>
+    <title>Multimedia – Stefan Röser</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -91,41 +91,48 @@
             margin: 0 auto;
         }
 
-        /* Content-Bereich */
+        /* Hauptbereich für Media-Inhalte */
         .media-container {
-            margin-bottom: 50px;
-        }
-
-        .media-card {
             background-color: #ffffff;
             border: 1px solid #edf2f7;
-            border-left: 4px solid #8b2626;
-            border-radius: 4px;
-            padding: 25px 30px;
-            margin-bottom: 25px;
+            border-radius: 6px;
+            padding: 30px;
             box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            margin-bottom: 30px;
         }
 
-        .media-card h2 {
+        /* Styling für den Video-Player */
+        .video-heading {
             font-family: 'Playfair Display', Georgia, serif;
             color: #7a1f1f;
             font-size: 1.4em;
             margin-top: 0;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
-
-        .no-media {
-            background-color: #fcfaf7;
-            border-left: 4px solid #8b2626;
-            padding: 30px 35px;
-            border-radius: 2px;
-            text-align: center;
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Format */
+            height: 0;
+            overflow: hidden;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            background-color: #000;
         }
-
-        .no-media p {
-            font-size: 1em;
-            color: #4a5568;
-            margin: 0;
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .video-link {
+            color: #7a1f1f;
+            text-decoration: underline;
+            word-break: break-all;
+        }
+        .video-link:hover {
+            color: #8b2626;
         }
 
         /* Footer */
@@ -147,17 +154,20 @@
             color: #8b2626;
         }
 
-        /* Responsive Design */
+        /* Responsive Anpassungen */
         @media (max-width: 600px) {
-            .nav-tabs {
-                gap: 15px;
+            .nav-tabs { 
+                gap: 15px; 
+            }
+            .media-container { 
+                padding: 20px; 
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- Navigation (ohne Gästebuch) -->
     <div class="nav-container">
         <ul class="nav-tabs">
             <li><a href="index.html">Home</a></li>
@@ -170,15 +180,50 @@
 
     <!-- Header -->
     <div class="page-header">
-        <h1>Media</h1>
-        <p class="subtitle">Presseberichte, Interviews & Downloads</p>
+        <h1>Multimedia & Einblicke</h1>
+        <p class="subtitle">Visuelle und akustische Einblicke in meine Romane</p>
     </div>
 
-    <!-- Media Content -->
+    <!-- Erster Media-Container -->
     <div class="media-container">
-        <div class="no-media">
-            <p>Derzeit stehen keine Medieninhalte zur Verfügung. Inhalte wie Presseartikel und Interviews werden hier in Kürze zu finden sein.</p>
+        <h2 class="video-heading">Autoren-Lesung des Romans „Ein Herz, das keinen Zorn mehr trägt“</h2>
+        
+        <div class="video-wrapper">
+            <iframe 
+                src="https://www.youtube.com/embed/RwAeGnSIukE" 
+                title="Autoren-Lesung des Romans Ein Herz, das keinen Zorn mehr trägt" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; webshare" 
+                allowfullscreen>
+            </iframe>
         </div>
+
+        <p style="margin-bottom: 0;">
+            Auf YouTube ansehen:<br>
+            <a href="https://youtu.be/RwAeGnSIukE?si=Pvbn250mFQLELthq" target="_blank" rel="noopener noreferrer" class="video-link">
+                https://youtu.be/RwAeGnSIukE?si=Pvbn250mFQLELthq
+            </a>
+        </p>
+    </div>
+
+    <!-- Zweiter Media-Container -->
+    <div class="media-container">
+        <h2 class="video-heading">Autoren-Lesung des Romans „Ein leises wir: Berlin, 1930“</h2>
+        
+        <div class="video-wrapper">
+            <iframe 
+                src="https://www.youtube.com/embed/LWPATaSAhd0" 
+                title="Autoren-Lesung des Romans Ein leises wir: Berlin, 1930" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; webshare" 
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <p style="margin-bottom: 0;">
+            Auf YouTube ansehen:<br>
+            <a href="https://youtu.be/LWPATaSAhd0" target="_blank" rel="noopener noreferrer" class="video-link">
+                https://youtu.be/LWPATaSAhd0
+            </a>
+        </p>
     </div>
 
     <!-- Footer -->
