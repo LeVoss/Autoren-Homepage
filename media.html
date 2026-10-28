@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multimedia – Stefan Röser</title>
+    <title>Multimedia & Presse – Stefan Röser</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -98,17 +98,41 @@
             border-radius: 6px;
             padding: 30px;
             box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
-        /* Styling für den Video-Player */
-        .video-heading {
+        .media-heading {
             font-family: 'Playfair Display', Georgia, serif;
             color: #7a1f1f;
             font-size: 1.4em;
             margin-top: 0;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
+
+        /* Presseartikel Styling */
+        .article-preview {
+            text-align: center;
+            margin-top: 15px;
+        }
+        .article-img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #edf2f7;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease;
+            cursor: pointer;
+        }
+        .article-img:hover {
+            transform: scale(1.01);
+        }
+        .article-note {
+            font-size: 0.85em;
+            color: #718096;
+            margin-top: 8px;
+        }
+
+        /* Styling für den Video-Player */
         .video-wrapper {
             position: relative;
             padding-bottom: 56.25%; /* 16:9 Format */
@@ -167,12 +191,12 @@
 </head>
 <body>
 
-    <!-- Navigation (ohne Gästebuch) -->
+    <!-- Navigation -->
     <div class="nav-container">
         <ul class="nav-tabs">
             <li><a href="index.html">Home</a></li>
             <li><a href="ueber-mich.html">Über mich</a></li>
-            <li><a href="termine.html">Termine</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
             <li><a href="media.html" class="active">Media</a></li>
             <li><a href="lesetipps.html">Lesetipps</a></li>
         </ul>
@@ -180,13 +204,26 @@
 
     <!-- Header -->
     <div class="page-header">
-        <h1>Multimedia & Einblicke</h1>
-        <p class="subtitle">Visuelle und akustische Einblicke in meine Romane</p>
+        <h1>Presse & Media</h1>
+        <p class="subtitle">Berichte, Interviews und Videos zu meinen Romanen</p>
     </div>
 
-    <!-- Erster Media-Container -->
+    <!-- 1. PRESSEARTIKEL STADTJOURNAL -->
     <div class="media-container">
-        <h2 class="video-heading">Autoren-Lesung des Romans „Ein Herz, das keinen Zorn mehr trägt“</h2>
+        <h2 class="media-heading">stadtJOURNAL | Heimat: „Von den Höhen des Hunsrücks an die Mosel“</h2>
+        <p>Ein Bericht über den Roman <em>„Ein Herz, das keinen Zorn mehr trägt“</em> und die historischen Hintergründe der Familiengeschichte.</p>
+        
+        <div class="article-preview">
+            <a href="presse-stadtjournal.jpg" target="_blank" title="Artikel in voller Größe öffnen">
+                <img src="presse-stadtjournal.jpg" alt="stadtJOURNAL Bericht: Von den Höhen des Hunsrücks an die Mosel" class="article-img">
+            </a>
+            <p class="article-note">(Klicke auf das Bild, um den Artikel in hoher Auflösung zu öffnen)</p>
+        </div>
+    </div>
+
+    <!-- 2. VIDEO: Ein Herz, das keinen Zorn mehr trägt -->
+    <div class="media-container">
+        <h2 class="media-heading">Autoren-Lesung: „Ein Herz, das keinen Zorn mehr trägt“</h2>
         
         <div class="video-wrapper">
             <iframe 
@@ -205,9 +242,9 @@
         </p>
     </div>
 
-    <!-- Zweiter Media-Container -->
+    <!-- 3. VIDEO: Ein leises wir -->
     <div class="media-container">
-        <h2 class="video-heading">Autoren-Lesung des Romans „Ein leises wir: Berlin, 1930“</h2>
+        <h2 class="media-heading">Autoren-Lesung: „Ein leises wir: Berlin, 1930“</h2>
         
         <div class="video-wrapper">
             <iframe 
