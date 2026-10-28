@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Termine – Stefan Röser</title>
+    <title>Kontakt – Stefan Röser</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -91,23 +91,21 @@
             margin: 0 auto;
         }
 
-        /* Termine-Liste */
-        .events-container {
+        /* Formular-Wrapper (analog zur Startseite) */
+        .form-container {
+            background: white;
+            border: 1px solid #edf2f7;
+            border-radius: 6px;
+            padding: 15px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
             margin-bottom: 50px;
         }
-
-        .no-events {
-            background-color: #fcfaf7;
-            border-left: 4px solid #8b2626;
-            padding: 30px 35px;
-            border-radius: 2px;
-            text-align: center;
-        }
-
-        .no-events p {
-            font-size: 1em;
-            color: #4a5568;
-            margin: 0;
+        iframe {
+            border: none;
+            border-radius: 4px;
+            display: block;
+            width: 100%;
+            height: 800px;
         }
 
         /* Footer */
@@ -144,7 +142,7 @@
         <ul class="nav-tabs">
             <li><a href="index.html">Home</a></li>
             <li><a href="ueber-mich.html">Über mich</a></li>
-            <li><a href="termine.html" class="active">Termine</a></li>
+            <li><a href="kontakt.html" class="active">Kontakt</a></li>
             <li><a href="media.html">Media</a></li>
             <li><a href="lesetipps.html">Lesetipps</a></li>
         </ul>
@@ -152,15 +150,13 @@
 
     <!-- Header -->
     <div class="page-header">
-        <h1>Termine</h1>
-        <p class="subtitle">Lesungen, Veranstaltungen & Neuigkeiten</p>
+        <h1>Kontakt</h1>
+        <p class="subtitle">Schreibe mir eine Nachricht oder stelle eine Frage</p>
     </div>
 
-    <!-- Termine-Bereich -->
-    <div class="events-container">
-        <div class="no-events">
-            <p>Derzeit stehen keine öffentlichen Termine an. Neue Lesungen und Veranstaltungen werden hier rechtzeitig bekannt gegeben.</p>
-        </div>
+    <!-- Kontaktformular -->
+    <div class="form-container">
+        https://docs.google.com/forms/d/e/1FAIpQLSfySdtidYQlB--TdDLlh_0g19218u3ef5GdhH-zryt4YOybog/viewform?usp=publish-editor
     </div>
 
     <!-- Footer -->
